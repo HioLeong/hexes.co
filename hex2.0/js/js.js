@@ -116,7 +116,7 @@ jQuery(document).ready(function ($) {
 		$(".submit").click(function(event){
   			event.preventDefault();
 		});	
-	
+
 });
 });
 

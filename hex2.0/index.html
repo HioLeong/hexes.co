@@ -1,7 +1,7 @@
 <html><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
-	<title>Imperial - Hotel Website</title>
+	<title>Hexes</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/jquery-ui-1.10.1.custom.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen">
@@ -161,11 +161,11 @@
             <input id="username" class = "Value" type = "text"  placeholder="Email"/>
         </li>
         <li class = "Password">
-            <input id="password" class = "Value" type = "password"  placeholder="Password"/>
+            <input class="passwordLogin" id="passwordLogin" class = "Value" type = "password"  placeholder="Password"/>
             <!--<a class="ForgotPassword" href="#">Forgot Password?</a>-->
         </li>
         <li class = "Login">
-               	<!--<img id="hexlogin" class="hexLoginClass" src="images/signin.png">-->      
+               	<img id="hexlogin" class="hexLoginClass" src="images/login.png">    
         </li>
 
      
@@ -217,102 +217,30 @@
 				<div id="content" class="grid_12">
 					<h1 style="color:#000;">Register</h1>
 				</div>
-				<h2 style="color:#000;">When would you like to stay at HotelName?</h2>
+				
 				<div class="order_block">
-					
+					<h2 style="color:#000;">To sign-up for a free basic account please provide us with some basic information using the form below. Please use valid credentials.</h2>
                     <form class="form" method="post" action="main.html">
-    <input type="email" class="email" placeholder="Email">
-    <div>
-      <p class="email-help regText">Please enter your current email address for verification.</p>
-    </div>
-    <input type="password" class="password" placeholder="Password">
-     <div>
-      <!--<p class="password-help">Please enter your current email address.</p>-->
-    </div>
-    <input type="password" class="confirmPassword" id="cp" placeholder="Confirm Password">
-     <div>
-      <p class="password-help regText">Please confirm your password.</p>
-    </div>
-    <input type="submit" class="submit" value="Register">
-  </form>
-					<!--<form method="post" action="">
-						<label>Room:</label>
-						<select name="fancySelect" class="makeMeFancy" style="display: none;">
-							<option value="0" selected="selected" data-skip="1">Select Room Type</option>
-							<option value="1" data-html-text="Lorem Ipsum&lt;i&gt;&lt;/i&gt;">Lorem Ipsum</option>
-							<option value="2" data-html-text="Dolor sit amet&lt;i&gt;&lt;/i&gt;">Dolor sit amet</option>
-							<option value="3" data-html-text="Sed ut perspiciatis&lt;i&gt;&lt;/i&gt;">Sed ut perspiciatis</option>
-							<option value="4" data-html-text="Nemo enim ipsam voluptatem&lt;i&gt;&lt;/i&gt;">Nemo enim ipsam voluptatem</option>
-						</select><div class="tzSelect" style="width: 192px;"><div class="selectBox"></div><ul class="dropDown" style="display: none;"><li><img src="undefined"><span>Lorem Ipsum<i></i></span></li><li><img src="undefined"><span>Dolor sit amet<i></i></span></li><li><img src="undefined"><span>Sed ut perspiciatis<i></i></span></li><li><img src="undefined"><span>Nemo enim ipsam voluptatem<i></i></span></li></ul></div>
-						<label>From:</label><input type="text" id="datepicker" class="hasDatepicker">
-					<label>To:</label><input type="text" id="datepicker2" class="hasDatepicker">
-					<label>Email:</label><input class="email_form" type="text" name="text">					
-					<input type="submit" class="form_btn contact_btn send_btn" value="Book">
-					</form>-->
-					
+    				<input type="email" class="email" placeholder="Email">
+    				<div>
+      					<p class="email-help regText">Please enter your current email address for verification.</p>
+    				</div>
+    				<input type="password" class="password" placeholder="Password">
+     				<div>
+      					<!--<p class="password-help">Please enter your current email address.</p>-->
+    				</div>
+    				<input type="password" class="confirmPassword" id="cp" placeholder="Confirm Password">
+     				<div>
+     	 				<p class="password-help regText">Please confirm your password.</p>
+    				</div>
+    				<input type="submit" class="submit" value="Register">    
+  					</form>					
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-
-<!--
-<div class="slide" id="slide9" data-slide="9" data-stellar-background-ratio="0.5" style="background-position: 0px 764px;">
-	<div class="container clearfix">
-	
-		<div id="content" class="grid_12">
-			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac</p>
-		</div>
-	
-	</div>
-</div>
-
-
-
-<div class="slide" id="slide2" data-slide="2" data-stellar-background-ratio="0.5" style="background-size: 100% 395px; background-position: 0px 905.5px;">
-	<div class="effect_2 padding_slide2">
-		<div class="container clearfix">
-			
-			<div id="content" class="grid_12">
-				<h1>About</h1>
-				<h2>Cras urna leo, fringilla nec aliquam ac, varius in enim. Maecenas non felis</h2>
-			</div>
-			
-		</div>
-	</div>
-</div>
-
-
-
-<div class="slide" id="slide3" data-slide="3" data-stellar-background-ratio="0.5" style="background-position: 0px -1103px;">
-	<div class="container clearfix">
-
-		<div id="content" class="grid_12">
-			<img class="about_img" src="images/about_img1.jpg" alt="">
-			<h4>Our awesomeness</h4>
-			<p>Ut pretium condimentum diam quis gravida. Donec odio justo, mollis eget tristique vel, feugiat ut lectus. Donec consectetur leo sed nibh tempus eget consequat quam interdum. Morbi egestas volutpat metus, nec ullamcorper eros pharetra quis. Praesent ante nisi, pellentesque ac scelerisque id, sodales ac erat. In pretium, magna consectetur malesuada bibendum, neque elit facilisis metus, sit amet convallis est tortor vel urna. Sed consequat nisl quis lorem varius feugiat porta lorem imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sollicitudin risus. Quisque at quam magna. Ut facilisis sodales pellentesque. Nullam ultrices ullamcorper suscipit.</p>
-			<p>Praesent leo est, pharetra sed varius ut, pulvinar ac arcu. Maecenas et purus ut dolor mattis suscipit. Pellentesque accumsan risus a magna iaculis vel imperdiet massa luctus. Phasellus mattis neque nec mi pulvinar eget molestie nibh lacinia. Pellentesque orci enim, molestie quis gravida id, feugiat vitae dui. Praesent eu tincidunt sem. Etiam nunc nisi, convallis sed imperdiet sit amet, ultricies eget est. Vivamus feugiat tellus in diam laoreet blandit. Nullam at dui sit amet nibh iaculis consectetur. Proin erat, sit amet euismod nibh. Morbi enim turpis, porttitor eget lacinia in, facilisis id ligula. Praesent id tellus metus, vitae iaculis quam. Class aptent taciti litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum quis risus adipiscing purus dictum elementum.</p>
-		</div>
-
-	</div>
-</div>
-
-
-
-<div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.5" style="background-size: 100% 395px; background-position: 0px 1339.5px;">
-	<div class="effect_2 padding_slide4">
-		<div class="container clearfix">
-			
-			<div id="content" class="grid_12">
-				<h1><span>Services</span></h1>
-				<h2>Cras urna leo, fringilla nec aliquam ac, varius in enim. Maecenas non felis</h2>			
-			</div>
-
-		</div>
-	</div>
-</div>
--->
 
 <div class="slide" id="slide5" data-slide="5" data-stellar-background-ratio="0.5" style="background-position: 0px -1537px;">
 	<div class="container clearfix">
@@ -341,7 +269,6 @@
 	
 	</div>
 </div>
-
 
 
 <div class="slide" id="slide6" data-slide="6" data-stellar-background-ratio="0.5" style="background-size: 100% 395px; background-position: 0px 1790px;">
@@ -470,8 +397,6 @@
 </div>
 
 
-
-
 <div class="slide" id="slide10" data-slide="10" data-stellar-background-ratio="0.5" style="background-size: 100% 395px; background-position: 0px 2404px;">
 	<div class="effect_2 padding_slide10">
 		<div class="container clearfix">
@@ -487,41 +412,6 @@
 	
 </div>
 
-
-<!--
-<div class="slide" id="slide11" data-slide="11" data-stellar-background-ratio="0.5" style="background-position: 0px -2601.5px;">
-	<div class="container clearfix">
-		
-		<div class="grid_3 contact_det_block">
-			<p>Quisque imperdiet neque et nunc laoreet nec luctus erat consectetur. Proin dapibus aliquet odio</p>
-			<ul class="foot_block_intouch">
-				<li class="touch_phone"><p>(+1) 245 5462 252</p></li>
-				<li class="touch_clock"><p>Mon - Sat 9:00am - 6:00 pm</p></li>
-				<li class="touch_mail"><a href="mailto:support@lorem.com">support@lorem.com</a></li>
-				<li class="touch_site"><a href="javascript:void(0);">www.lorem.com</a></li>
-				<li class="touch_adress"><p>3301 Lorem, Dolor Sit Amet St</p></li>
-			</ul>
-		</div>
-		<div class="grid_9 omega">
-			<div class="contact_form">  
-				<div id="note"></div>
-				<div id="fields">
-					<form id="ajax-contact-form" action="">
-						<input type="text" name="name" value="" placeholder="Name">
-						<input type="text" name="subject" value="" placeholder="Phone">
-						<input type="text" name="email" value="" placeholder="Email">
-						<textarea name="message" id="message" placeholder="Message"></textarea>
-						<div class="clear"></div>
-						<input type="reset" class="contact_btn" value="Clear Form">
-						<input type="submit" class="contact_btn send_btn" value="Send">
-						<div class="clear"></div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="clear"></div>
-	
-	</div>-->
 	
 	<div id="map_block"><iframe width="100%" height="772" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=UCL,+Gower+Street,+London,+United+Kingdom&amp;aq=3&amp;oq=ucl&amp;sll=37.0625,-95.677068&amp;sspn=64.281297,135.263672&amp;ie=UTF8&amp;hq=UCL,+Gower+Street,+London,+United+Kingdom&amp;t=m&amp;ll=51.524371,-0.132963&amp;spn=0.006295,0.010159&amp;output=embed"></iframe></div>
 	
@@ -537,6 +427,31 @@
 </div>
 
 
-
-
 <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div></body></html>
+
+<script type="text/javascript">
+			$( ".hexLoginClass" ).hide();
+			$(".passwordLogin").click(function(){
+				$( "#hexlogin" ).show();
+				$( "#hexlogin" ).animate({
+    				opacity: 1,
+  				}, 1300 );
+			})
+			$(".passwordLogin").focus(function(){
+				$( "#hexlogin" ).show();
+				$( "#hexlogin" ).animate({
+    				opacity: 1,
+  				}, 1300 );
+			})
+			$(function() {
+    $("#hexlogin")
+        .mouseover(function() { 
+            var src = $(this).attr("src").match(/[^\.]+/) + "over.png";
+            $(this).attr("src", src);
+        })
+        .mouseout(function() {
+            var src = $(this).attr("src").replace("over.png", ".png");
+            $(this).attr("src", src);
+        });
+});
+</script>

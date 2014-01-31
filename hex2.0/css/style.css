@@ -41,7 +41,6 @@ a:visited {
 	background: url(../images/header1.png);
 	background-color: #333;
 	z-index:9999;
-	bo
 }
 
 #slide1{
@@ -148,12 +147,12 @@ h4 {
 	position:relative;
 	z-index:999 !important;
 }
-.padding_slide1 {padding:316px 0 43px 0;
+.padding_slide1 {padding:200px 0 43px 0;
 }
 
 
 .filtr_bg {
-	margin-bottom:218px;
+	margin-bottom:100px;
 }
 #slide1 h1 {
 	margin:0;
@@ -442,6 +441,7 @@ a.serv_block p {
 	background-size: cover !important;
 	width:100%;
 }
+
 #slide8 .grid_12 {width:auto;float:none; margin: 0 auto;}
 .padding_slide8 {
 	padding:116px 0 88px;
@@ -451,7 +451,7 @@ a.serv_block p {
 
 /* ____________________ order_block ___________________ */
 .order_block {
-		background: #fff;
+	background: #fff;
 	padding: 18px;
 	border-radius: 20px;
 	opacity: 0.9;
@@ -882,6 +882,10 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
+.order_block h2 {
+	margin-bottom: 10px;
+}
+
 .email-help, .password-help, .confirmPassword {
   display: none;
   padding: 0px;
@@ -899,23 +903,27 @@ input[type="submit"]:hover {
 }
 
 .regText {
-	color: #fff !important;
+	color: #000 !important;
 	text-align: center;	
 }
 
 
 /* login init */
-#hexlogin {
+.hexLoginClass {
 		margin-top: 10px;
 		height: 55px;
 		width: 55px;
+		opacity: 0;
+}
+
+.Password {
+	margin-right: 0;
 }
 
 .navigation input[type="text"], .navigation input[type="email"], .navigation input[type="password"] {
-  width: 200px;
+  width: 175px;
   height: 35px !important;
   margin-top: 20px !important;
-
   border-radius: 10px;
   box-shadow: inset 4px 6px 10px -4px rgba(0, 0, 0, 0.3), 0 1px 1px -1px rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.8);
@@ -923,6 +931,7 @@ input[type="submit"]:hover {
   border: none;
   color: #000;
   text-shadow: #CCC 0px 1px 5px;
+  padding-top: 18px;
 }
 
 .navigation input:focus {
@@ -933,9 +942,5 @@ input[type="submit"]:hover {
   -o-transition: 1s ease;
   -ms-transition: 1s ease;
   transition: 1s ease;
-  color:#000;
-}
-
-#userLabel, #passLabel {
-	  color: #FFF;
+  color:#fff;
 }
