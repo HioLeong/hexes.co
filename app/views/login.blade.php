@@ -18,35 +18,17 @@
 	<script type="text/javascript" src="js/js.js"></script>
 	<script type="text/javascript" src="js/jquery.stellar.min.js"></script>
 	<script type="text/javascript" src="js/waypoints.min.js"></script>
+
 	
+	<script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/hexApp.js"></script>
+
 	<!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.src.js"></script>
 	<![endif]-->
 	
 	<script type="text/javascript">
-		$(document).ready(function(){	
-			$("#ajax-contact-form").submit(function() {
-				var str = $(this).serialize();		
-				$.ajax({
-					type: "POST",
-					url: "contact_form/contact_process.php",
-					data: str,
-					success: function(msg) {
-						// Message Sent - Show the 'Thank You' message and hide the form
-						if(msg == 'OK') {
-							result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
-							$("#fields").hide();
-						} else {
-							result = msg;
-						}
-						$('#note').html(result);
-					}
-				});
-				return false;
-			});
-
-		});		
 	</script>
 	
 	<script type="text/javascript">//$($.date_input.initialize);</script>
@@ -145,7 +127,7 @@
     pointer-events:none !important;
 }</style></head>
 
-<body crossrider_data_store_temp="{}">
+<body crossrider_data_store_temp="{}" ng-app="hexApp">
 
 <div class="menu">	
 	<div class="container clearfix">
@@ -153,21 +135,14 @@
 		<div id="logo" class="fleft">
 			<a><img src="images/hexlogo2.png" height="74" ></a>
 		</div>
-		<div id="nav" class="fright">
-			<ul class="navigation">
-            <!-- LOGIN TO GO HERE -->
- 
-        <li class = "UserName">
-            <input id="username" class = "Value" type = "text"  placeholder="Email"/>
-        </li>
-        <li class = "Password">
-            <input id="password" class = "Value" type = "password"  placeholder="Password"/>
-            <!--<a class="ForgotPassword" href="#">Forgot Password?</a>-->
-        </li>
-        <li class = "Login">
-               	<!--<img id="hexlogin" class="hexLoginClass" src="images/signin.png">-->      
-        </li>
-
+		<div id="nav" class="fright" ng-controller="LoginCtrl">
+                <form ng-controller="LoginCtrl" ng-submit="fun()">
+                    <div class="navigation">
+                        <input id="username" type="text" placeholder="email" ng-model='username'/>
+                        <input id="password" type="password" placeholder="password" ng-model='password'/>
+                        <input style="visibility:hidden" type="submit"/>
+                        </div>
+                </form>
      
           <!--<form class="navbar-form navbar-right" role="form">
             <div class="form-group">
