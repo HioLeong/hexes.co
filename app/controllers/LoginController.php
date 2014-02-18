@@ -43,7 +43,6 @@ class LoginController extends BaseController {
         $results = mysqli_query($con, $query);
         $row = mysqli_fetch_array($results);
         //$con = mysqli_close();
-        return var_dump($results);
 
         if (strcmp($row['password'], $password)) {
             return 'valid';
@@ -67,6 +66,10 @@ class LoginController extends BaseController {
         $query = 'INSERT INTO User(password, email) VALUES(\''.$password.'\',\''.$email.'\')';
         $results = mysqli_query($con, $query);
         return var_dump($results);
+    }
+
+    public function showRegisterPage() {
+        return View::make('register');
     }
 
 }

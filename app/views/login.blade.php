@@ -1,4 +1,5 @@
-<html><head>
+<html>
+<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
 	<title>Hexes</title>
@@ -19,9 +20,9 @@
 	<script type="text/javascript" src="js/jquery.stellar.min.js"></script>
 	<script type="text/javascript" src="js/waypoints.min.js"></script>
 
-	
 	<script type="text/javascript" src="js/angular.js"></script>
     <script type="text/javascript" src="js/hexApp.js"></script>
+    <script type="text/javascript" src="js/LoginCtrl.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
@@ -136,10 +137,10 @@
 			<a><img src="images/hexlogo2.png" height="74" ></a>
 		</div>
 		<div id="nav" class="fright" ng-controller="LoginCtrl">
-                <form ng-controller="LoginCtrl" ng-submit="fun()">
+                <form ng-controller="LoginCtrl" ng-submit="checkLogin(loginDetails)">
                     <div class="navigation">
-                        <input id="username" type="text" placeholder="email" ng-model='username'/>
-                        <input id="password" type="password" placeholder="password" ng-model='password'/>
+                        <input id="email" type="text" placeholder="email" ng-model='loginDetails.email'/>
+                        <input id="password" type="password" placeholder="password" ng-model='loginDetails.password'/>
                         <input style="visibility:hidden" type="submit"/>
                         </div>
                 </form>
@@ -173,8 +174,8 @@
 				<div class="filtr_bg">
                 <img src="images/hexlogo.png" height="128" width="128" style="margin-bottom: 20px;">
 					<p>Modern Socialite</p>
-					<h1>welcome to HEXES</h1>
-					<h2>we do our utmost to leave only the best impressions<br>after your stay at our hotel</h2>
+					<h1>Welcome to HEXES</h1>
+					<h2>Something about Hexes and not Hotel</h2>
 				</div>
 				<a class="button" title="" data-slide="8">Register</a>
 			</div>

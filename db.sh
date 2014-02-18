@@ -1,2 +1,2 @@
 #!/bin/bash
-mysql --host=localhost --user=root --password=root HexDatabase
+mysql --host=localhost --user=root --password=root stackoverflow
