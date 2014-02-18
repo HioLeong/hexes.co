@@ -13,3 +13,4 @@
 Route::get('/', "LoginController@showPage");
 Route::post('/login', 'LoginController@isValidUserFromPost');
 Route::get('/register', 'LoginController@showRegisterPage');
+Route::post('/register', 'LoginController@registerUserFromPost');

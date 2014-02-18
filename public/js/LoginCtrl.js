@@ -19,7 +19,6 @@ hexApp.controller('LoginCtrl', ['$scope', '$http',
                 $http.post('login', loginDetails)
                 .success(function(data, status, headers, config) {
                     $scope.status = 'success';
-                    console.log(data);
                 })
                 .error(function(data, status, headers, config) {
                     $scope.status = 'error';
@@ -31,7 +30,13 @@ hexApp.controller('LoginCtrl', ['$scope', '$http',
              * 'error' otherwise.
              */
             $scope.registerLogin = function(registerDetails) {
-
+                $http.post('register', registerDetails)
+                .success(function(data, status, headers, config) {
+                    $scope.status = 'success';
+                })
+                .error(function(data, status, headers, config) {
+                    $scope.status = 'error';
+                });
             }
         }
 ]);

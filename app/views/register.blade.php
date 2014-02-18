@@ -364,15 +364,12 @@
 		var size;
 		if ($(window).width() < 645) {
  		   size = 1;
-		   alert("mobile");
 		}
 		else if ($(window).width() > 999) {
  		   size = 3;
-		   alert("desktop");
 		}
 		else {
  		   size = 2;
-		   alert("tablet");
 		}
 		
 		//WIDTH OF FRIENDS
