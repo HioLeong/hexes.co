@@ -48,7 +48,7 @@
                         	<div id="userprofile">
                     		<img src="images/facebook.png" class="profile-img">
   							<div class="profile-text">
-    							<h1 class="profile-name">David Johnson</h1>
+    							<h1 class="profile-name">David Dominic Johnson</h1>
     							<span class="profile-title">UX / UI Designer</span>
   							</div>
                             </div>
@@ -57,11 +57,7 @@
 <div class="wrap">
   <form >
     <fieldset>
-      <label for="firstName" id="firstNameLabel">Name</label>
-      <input type="text" class="email" id="firstName" placeholder="First Name">
-      <input type="text" class="email" placeholder="Last Name">
-      <input type="text" class="email" placeholder="Nickname (Optional)">
-      <br>
+      <!--<label for="firstName" id="firstNameLabel">Name</label>-->
       Login
       <input type="email" class="email" placeholder="Email">
       <!--<div>
@@ -73,7 +69,27 @@
       <br>
       <!--DOB-->
   	  Personal
-      <input type="date" placeholder="Date Of Birth">
+      <br>
+      <input type="text" class="email" id="firstName" placeholder="First Name">
+      <input type="text" class="email" placeholder="Last Name">
+      <input type="text" class="email" placeholder="Nickname (Optional)">
+      <select name="birthDay" id="dayList"><option value="">DD</option></select>
+      <select name="birthMonth" id="monthList">
+      	<option value="">MM</option>
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+      <select name="birthYear" id="birthYearList"><option value="">YYYY</option></select>
       <!--Gender-->
       <div class="toggle">
       <input type="radio" class="toggle-input" name="joincreate" value="join" id="join" checked>
@@ -84,7 +100,15 @@
         <span class="toggle-selection"></span>
   	  </div>
       <!--Relationship Status (Optional)-->
-      <input type="text" class="email" placeholder="Contact Number (Optional)">
+      <select name="relStatus" id="relStatus">
+      	<option value="">Relationship Status (Optional)</option>
+        <option value="1">Single</option>
+        <option value="2">In a relationship</option>
+        <option value="3">In Friend Zone</option>
+        <option value="4">Side Chick</option>
+        <option value="5">Tinder</option>
+      </select>
+  	  <input type="text" class="email" placeholder="Contact Number (Optional)">
       <br>
       Education
       <input type="text" class="email" placeholder="School">
@@ -410,13 +434,28 @@
 		
 		//Populate grad year
 		var cur_year=new Date().getFullYear();
-        var obj=document.getElementById("yearList"); 
-		for (var i=1900; i < 2015; ++i) {  
+        var obj1=document.getElementById("birthYearList");
+		var obj2=document.getElementById("yearList");
+		var obj4=document.getElementById("dayList");
+		 
+		for (var i=2014; i > 1900; i--) {  
 			opt = document.createElement("option");
                 opt.value = i;
                 opt.text=i;
-                obj.appendChild(opt);
-    	}  
+				obj2.appendChild(opt);
+    	}
+		for (var i=2009; i > 1900; i--) {  
+			opt = document.createElement("option");
+                opt.value = i;
+                opt.text=i;
+				obj1.appendChild(opt);
+    	}
+		for (var i=1; i < 32; i++) {  
+			opt = document.createElement("option");
+                opt.value = i;
+                opt.text=i;
+				obj4.appendChild(opt);
+    	}
 		//MAKECURRENTYEARdocument.getElementById("yr").value = cur_year;
 		</script>
 
