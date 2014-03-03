@@ -25,6 +25,8 @@
 		</noscript>
         <link rel="stylesheet" href="css/hexFriends.css" />
         <link rel="stylesheet" href="css/userProfile.css" />
+        <link rel="stylesheet" href="css/friendSearchResults.css" />
+        <link rel="stylesheet" href="css/messagesInbox.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
@@ -43,124 +45,320 @@
                     	
                         <div id="switcherWrapper">
                         
-                        <!-- Profile -->
-					    <div class="userProfile">
-                        	<div id="userprofile">
-                    		<img src="images/facebook.png" class="profile-img">
-  							<div class="profile-text">
-    							<h1 class="profile-name">David Dominic Johnson</h1>
-    							<span class="profile-title">UX / UI Designer</span>
-  							</div>
+                        <!-- Viewing Profiles -->
+                        <div class="viewProfiles" style="display: none; width: 100%; height: 100;">
+                        	<div id="leftColumn" style="float: left; width: 32%">
+                            	<div id="profileCard">
+                                	<div id="viewuserprofile">
+                    					<img src="images/facebook.png" class="profile-img">
+  										<div class="profile-text">
+    										<h1 class="profile-name">David Johnson</h1>
+    										<span class="profile-title">UX / UI Designer</span>
+  										</div>
+                                        
+                                    </div>
+                                </div>
+                                <br>
+                                <a id="friendStatus" href="#"><span>Add Friend OR 19 Mutual Friends</span></a>
+                                <br>
+                                <div id="infoCard">
+                                	<div id="pricing-table">
+                                        <div id="pricing-table-header">
+                                            <h1>About</h1>
+                                        </div>
+                                        <div id="pricing-table-content">
+                                            <ul>
+                                                <li><strong>Gender</strong> <div>Female</div></li>
+                                                <li><strong>Birthday</strong><div>Jan, 1992</div></li>
+                                                <li><strong>Hometown</strong><div>Cali</div></li>
+                                                <li><strong>Education</strong><div>UCL, 15'</div></li>
+                                                <li><strong>Relationship</strong><div>Tinder</div></li>
+                                                <li><strong>Contact</strong><div>07500056769</div></li>
+                                            </ul>
+                                        </div>
+                                        <!--<div id="pricing-table-footer">
+                                            <h2><sup>$</sup>19.99</h2>
+                                            <p>per month</p>
+                                            <a href="#">Sign Up</a>
+                                        </div>-->
+                                    </div>
+                                </div>
                             </div>
-                         
-                         <div class="register">
-<div class="wrap">
-  <form >
-    <fieldset>
-      <!--<label for="firstName" id="firstNameLabel">Name</label>-->
-      Login
-      <input type="email" class="email" placeholder="Email">
-      <!--<div>
-      	<p class="email-help regText">Changing this will alter login details!</p>
-      </div>-->
-      <input type="password" class="password" placeholder="Password">
-      <input type="password" class="confirmPassword" id="cp" placeholder="Confirm Password">
-      
-      <br>
-      <!--DOB-->
-  	  Personal
-      <br>
-      <input type="text" class="email" id="firstName" placeholder="First Name">
-      <input type="text" class="email" placeholder="Last Name">
-      <input type="text" class="email" placeholder="Nickname (Optional)">
-      <select name="birthDay" id="dayList"><option value="">DD</option></select>
-      <select name="birthMonth" id="monthList">
-      	<option value="">MM</option>
-        <option value="1">January</option>
-        <option value="2">February</option>
-        <option value="3">March</option>
-        <option value="4">April</option>
-        <option value="5">May</option>
-        <option value="6">June</option>
-        <option value="7">July</option>
-        <option value="8">August</option>
-        <option value="9">September</option>
-        <option value="10">October</option>
-        <option value="11">November</option>
-        <option value="12">December</option>
-      </select>
-      <select name="birthYear" id="birthYearList"><option value="">YYYY</option></select>
-      <!--Gender-->
-      <div class="toggle">
-      <input type="radio" class="toggle-input" name="joincreate" value="join" id="join" checked>
-      <label for="join" class="toggle-label toggle-label-off" id="joinLabel">Male</label>
-        <div class="publicnotice right"><span><h5>Sorry!</h5> You do not have permission to create a Public League!</span>           </div>
-      <input type="radio" class="toggle-input" name="joincreate" value="create" id="create">
-      <label for="create" class="toggle-label toggle-label-on" id="createLabel">Female</label>
-        <span class="toggle-selection"></span>
-  	  </div>
-      <!--Relationship Status (Optional)-->
-      <select name="relStatus" id="relStatus">
-      	<option value="">Relationship Status (Optional)</option>
-        <option value="1">Single</option>
-        <option value="2">In a relationship</option>
-        <option value="3">In Friend Zone</option>
-        <option value="4">Side Chick</option>
-        <option value="5">Tinder</option>
-      </select>
-  	  <input type="text" class="email" placeholder="Contact Number (Optional)">
-      <br>
-      Education
-      <input type="text" class="email" placeholder="School">
-      <select name="gradYear" id="yearList"><option value="">Graduation Year</option></select>
-      <!--Grad Year-->
-      <br>
-      Location
-      <input type="text" class="email" placeholder="Hometown (Optional)">
-      <input type="text" class="email" placeholder="Current Location">
-                    
-  
-  <!--<div class="toggle">
-      <input type="radio" class="toggle-input" name="publicprivate" value="public" id="public" checked>
-      <label for="public" class="toggle-label toggle-label-off public" id="publicLabel">Public</label>
-        <div class="publicnotice left"><span><h5>Sorry!</h5> You do not have permission to create a Public League!</span>          </div>
-      <input type="radio" class="toggle-input dependent" name="publicprivate" value="private" id="private">
-      <label for="private" class="toggle-label toggle-label-on" id="privateLabel">Private</label>
-      <span class="toggle-selection"></span>
-  </div>-->
-      <br>
-      
-        <a href="#" class="button large expand">Save</a>
-       </fieldset>
-    </form>
+                            <div id="rightColumn" style="float: right; width: 68%">
+                                <div id="viewProfileNewsFeed" style="height:50;">
+                                
+                                </div>
+                            </div>
+                        <!-- CLOSE Viewing Profiles -->    
+                        </div>
+                        
+              <!-- Personal Profile -->
+              <div class="userProfile" style="display: none;">
+              
+                <div id="userprofile">
+                  <img src="images/facebook.png" class="profile-img">
+                  <div class="profile-text">
+                    <h1 class="profile-name">David Johnson</h1>
+                    <span class="profile-title">UX / UI Designer</span>
+                  </div>
+                </div>
+                     
+                <div class="register">
+                  <div class="wrap">
+                    <form >
+                      <fieldset>
+                        Login
+                        <input type="email" class="email" placeholder="Email">
+                        <!--<div>
+                          <p class="email-help regText">Changing this will alter login details!</p>
+                        </div>-->
+                        <input type="password" class="password" placeholder="Password">
+                        <input type="password" class="confirmPassword" id="cp" placeholder="Confirm Password">
+                        
+                        <br>
+                        Personal
+                        <br>
+                        <input type="text" class="email" id="firstName" placeholder="First Name">
+                        <input type="text" class="email" placeholder="Last Name">
+                        <input type="text" class="email" placeholder="Nickname (Optional)">
+                        <select name="birthDay" id="dayList"><option value="">DD</option></select>
+                        <select name="birthMonth" id="monthList">
+                          <option value="">MM</option>
+                          <option value="1">January</option>
+                          <option value="2">February</option>
+                          <option value="3">March</option>
+                          <option value="4">April</option>
+                          <option value="5">May</option>
+                          <option value="6">June</option>
+                          <option value="7">July</option>
+                          <option value="8">August</option>
+                          <option value="9">September</option>
+                          <option value="10">October</option>
+                          <option value="11">November</option>
+                          <option value="12">December</option>
+                        </select>
+                        <select name="birthYear" id="birthYearList">
+                          <option value="">YYYY</option>
+                        </select>
+                        <!--Gender-->
+                        <div class="toggle">
+                          <input type="radio" class="toggle-input" name="joincreate" value="join" id="join" checked>
+                          <label for="join" class="toggle-label toggle-label-off" id="joinLabel">Male</label>
+                          <div class="publicnotice right"><span><h5>Sorry!</h5> You do not have permission to create a Public League!</span>
+                          </div>
+                          <input type="radio" class="toggle-input" name="joincreate" value="create" id="create">
+                          <label for="create" class="toggle-label toggle-label-on" id="createLabel">Female</label>
+                          <span class="toggle-selection"></span>
+                        </div>
+                        <!--Relationship Status (Optional)-->
+                        <select name="relStatus" id="relStatus">
+                          <option value="">Relationship Status (Optional)</option>
+                          <option value="1">Single</option>
+                          <option value="2">In a relationship</option>
+                          <option value="3">In Friend Zone</option>
+                          <option value="4">Side Chick</option>
+                          <option value="5">Tinder</option>
+                        </select>
+                        <input type="text" class="email" placeholder="Contact Number (Optional)">
+                        <br>
+                        Education
+                        <input type="text" class="email" placeholder="School">
+                        <select name="gradYear" id="yearList"><option value="">Graduation Year</option></select>
+                        <!--Grad Year-->
+                        <br>
+                        Location
+                        <input type="text" class="email" placeholder="Hometown (Optional)">
+                        <input type="text" class="email" placeholder="Current Location">
+                        <!--<div class="toggle">
+                            <input type="radio" class="toggle-input" name="publicprivate" value="public" id="public" checked>
+                            <label for="public" class="toggle-label toggle-label-off public" id="publicLabel">Public</label>
+                              <div class="publicnotice left"><span><h5>Sorry!</h5> You do not have permission to create a Public League!</span>          </div>
+                            <input type="radio" class="toggle-input dependent" name="publicprivate" value="private" id="private">
+                            <label for="private" class="toggle-label toggle-label-on" id="privateLabel">Private</label>
+                            <span class="toggle-selection"></span>
+                        </div>-->
+                        <br>
+                        
+                        <a href="#" class="button large expand">Save</a>
+                      </fieldset>
+                    </form>
        
-</div>
-</div>
-                    	</div>
-                        
-                        
-                                            
-<div class="friendsContainer">
-<ol id="row1" class="even">
-  <li class='hex' id="one"></li>
-  <li class='hex' id="two"></li>
-  <li class='hex'></li>
-</ol>  
-<ol id="row2" class="odd">
-  <li class='hex'></li>
-  <li class='hex'></li>
-  <li class='hex'></li>
-    <li class='hex'></li>
-</ol>
-<ol id="row3" class="even">
-  <li class='hex'></li>
-  <li class='hex'></li>
-  <li class='hex'></li>
-</ol>  
-</div>
-
-
-
+				  </div>
+                </div>
+        	  </div>          
+              
+              <!--Search Results Container-->
+              <div id="friendSearchResults" style="display: none;">
+              	<section style="margin: 0 auto !important;">                  
+                  <div class="form-button roll">
+                    <a class="button">Search Query</a>
+                    <form action="#">
+                      <input id="newSearch" type="text" name="name" id="name" placeholder="Type here" />
+                      <input id="newSearchSubmit" type="submit" value="" />
+                    </form>  
+                  </div>
+                  <div class="form-button roll">
+                    <a class="button">Education</a>
+                    <form action="#">
+                      <input id="educationFilter" type="text" name="name" id="name" placeholder="Type here" />
+                      <input id="educationSubmit" type="submit" value="" />
+                    </form>  
+                  </div>
+                  <div class="form-button roll">
+                    <a class="button">Location</a>
+                    <form action="#">
+                      <input id="locationFilter"type="text" name="name" id="name" placeholder="Type here" />
+                      <input id="locationSubmit"type="submit" value="" />
+                    </form>  
+                  </div>
+                </section>
+                  <!-- Hex List Container -->
+                <div class="friendsContainer" style="display: block;">
+                  <ol id="row1" class="even">
+                    <li class='hex' id="one"></li>
+                    <li class='hex' id="two"></li>
+                    <li class='hex'></li>
+                  </ol>  
+                  <ol id="row2" class="odd">
+                    <li class='hex'></li>
+                    <li class='hex'></li>
+                    <li class='hex'></li>
+                    <li class='hex'></li>
+                  </ol>
+                </div>
+              </div>
+                                                  
+              <!-- Messages Inbox -->
+              <div id="inboxContainer">
+                <div class="content">
+                  <div class="second-nav">
+                    <div class="inboxHeader">
+                      Inbox
+                    </div>
+                    <div class="controls">
+                      <div class="control">
+                        <i class="fa fa-trash-o fa-1x"></i>
+                        <div class="comment bottom">Delete</div>
+                      </div>
+                      <div class="control">
+                        <i class="fa fa-mail-reply fa-1x"></i>
+                        <div class="comment bottom">Reply</div>
+                      </div>
+                      <div class="control">
+                        <i class="fa fa-mail-forward fa-1x"></i>
+                        <div class="comment bottom">Forward</div>
+                      </div>
+                      <div class="control">
+                        <i class="fa fa-search fa-1x"></i>
+                        <div class="comment bottom">Search</div>
+                      </div>
+                      <div class="control">
+                        <i class="fa fa-folder-o fa-1x"></i>
+                        <div class="comment bottom">Move</div>
+                      </div>
+                    </div>
+                    <div class="messages">
+                      <div class="message">
+                        <div class="cell">
+                          <div class="checkbox">
+                            <input type="checkbox" name="1" id="1" />
+                                <label for="1"></label>
+                          </div>
+                          <div class="profileImage">
+                            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/peterlandt/128.jpg"/>
+                          </div>
+                          <div class="metadata">
+                            <p class="from">Jake Rodway</p><br/>
+                            <p class="subject">Whats up tom? I've been looking at your recent dribbble works and I think they look great!<p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="messages">
+                      <div class="message">
+                        <div class="cell">
+                          <div class="checkbox">
+                            <input type="checkbox" name="2" id="2" />
+                                <label for="2"></label>
+                          </div>
+                          <div class="profileImage">
+                            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/osvaldas/128.jpg"/>
+                          </div>
+                          <div class="metadata">
+                            <p class="from">Jack Woolley</p><br/>
+                            <p class="subject">Hey, I was just emailing you to see if you have made the drafts yet? I need them as  soon as possible<p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="viewer">
+                    <div class="controls stick">
+                      <div class="control">
+                        <i class="fa fa-mail-reply fa-1x"></i>
+                        <div class="comment bottom">Reply</div>
+                      </div>
+                      <div class="control">
+                        <i class="fa fa-mail-forward fa-1x"></i>
+                        <div class="comment bottom">Forward</div>
+                      </div>
+                      <div class="control">
+                        <i class="fa fa-download fa-1x"></i>
+                        <div class="comment bottom">Download</div>
+                      </div>
+                      <div class="control">
+                        <i class="fa fa-warning fa-1x"></i>
+                        <div class="comment bottom">Report</div>
+                      </div>
+                      <div class="control">
+                        <i class="fa fa-trash-o fa-1x"></i>
+                        <div class="comment bottom">Delete</div>
+                      </div>
+                    </div>
+                    <div class="scroll">
+                      <div class="header" id="email">
+                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/osvaldas/128.jpg" style="border-radius:5px;" />
+                        <p class="subject">Subject: Recent Project</p>
+                        <p class="message">To: Me, Jack Woolley, Alexis Zaninetti</p>
+                      </div>
+                      <div class="body">
+                        <h1>RE: Recent Project</h1>
+                        <p>
+                          Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.<br/><br/>
+                
+                          Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.<br/><br/>     
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="imagedisplay">
+                  <div class="viewimage">
+                    
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Hex Friends Container -->
+              <div class="friendsContainer" style="display: none;">
+              <ol id="row1" class="even">
+                <li class='hex' id="one"></li>
+                <li class='hex' id="two"></li>
+                <li class='hex'></li>
+              </ol>  
+              <ol id="row2" class="odd">
+                <li class='hex'></li>
+                <li class='hex'></li>
+                <li class='hex'></li>
+                <li class='hex'></li>
+              </ol>
+              <ol id="row3" class="even">
+                <li class='hex'></li>
+                <li class='hex'></li>
+                <li class='hex'></li>
+              </ol>  
+              </div>
 <!-- switcher wrapper close-->
 </div>
   
@@ -256,7 +454,8 @@
 
 						<!-- Search -->
 							<section class="is-search">
-								<form method="post" action="#">
+								
+                                <form method="post" action="#">
 									<input type="text" class="text" name="search" placeholder="Search" />
 								</form>
 							</section>
@@ -457,6 +656,43 @@
 				obj4.appendChild(opt);
     	}
 		//MAKECURRENTYEARdocument.getElementById("yr").value = cur_year;
+		
+		//searchFields
+		var buttons = document.querySelectorAll('.form-button');
+		var currentBtn = undefined;
+			
+		var onBtnClick = function(e){
+		  var btn = e.currentTarget;
+		  
+		  if(currentBtn != btn){ 
+			if(currentBtn){
+			  currentBtn.classList.remove('show');
+			}
+			
+			currentBtn = btn;
+			currentBtn.classList.add('show');
+			
+			var input = btn.querySelector('input[type="text"]');
+			if(input){
+			  input.focus(); 
+			}
+			
+		  }
+		}
+		
+		var resetButtons = function(e){
+		  
+		  if(e.target == e.currentTarget){
+			currentBtn.classList.remove('show');
+			currentBtn = undefined;
+		  }
+		}
+		
+		document.documentElement.addEventListener('click', resetButtons, false);
+		
+		for (var i = 0, len = buttons.length; i < len; i++) {
+		  buttons[i].addEventListener('click', onBtnClick, false);
+		}
 		</script>
 
 </html>
