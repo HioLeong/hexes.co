@@ -10,6 +10,7 @@ class SearchController extends BaseController {
 
     public function fuzzySearchName($name) {
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+        //TODO: Add firstname and surname support
         $query = 'SELECT * FROM User WHERE firstName LIKE \'%'.$name.'%\';';
         $results = mysqli_query($con, $query);
         if ($results) {
