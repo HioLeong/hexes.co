@@ -6,13 +6,6 @@ class LoginController extends BaseController {
 	|--------------------------------------------------------------------------
 	| Default Home Controller
 	|--------------------------------------------------------------------------
-|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
 	*/
 
     public function showPage() {
@@ -72,4 +65,24 @@ class LoginController extends BaseController {
         return View::make('register');
     }
 
+    private function setField($userObj, $property) {
+        $userObj->__set($property, Input::get($property));
+    }
+
+    public function updateUserDetailsFromPost() {
+        $fields = array('email', 'password', 'firstName', 'lastName', 'nickname', 'dob', 
+            'gender', 'school', 'currentLocation');
+        $user = new User();
+        /* Set all post fields */
+        foreach ($fields as $field) {
+            $this->setField($user, $field);
+        }
+        return $user->__get('gender');
+    }
+
+    public function updateUserDetails($user) {
+        $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+        $query = 'INSERT INTO User(password, email) VALUES(\''.$password.'\',\''.$email.'\')';
+        $results = mysqli_query($con, $query);
+    }
 }

@@ -29,9 +29,22 @@ hexApp.controller('LoginCtrl', ['$scope', '$http',
              * Register new login details. Receives 'success' if correct details,
              * 'error' otherwise.
              */
-            $scope.registerLogin = function(registerDetails) {
+            $scope.registerUser = function(registerDetails) {
+
+                // TODO: Refactor the empty checking
+                if (!registerDetails) {
+                    $scope.status = 'error';
+                    return;
+                }
+
+                if ((!registerDetails.password) || (!registerDetails.email)) {
+                    $scope.status = 'error';
+                    return;
+                }
+
                 $http.post('register', registerDetails)
                 .success(function(data, status, headers, config) {
+                    console.log('success');
                     $scope.status = 'success';
                 })
                 .error(function(data, status, headers, config) {

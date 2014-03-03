@@ -17,8 +17,9 @@
 		<script src="js/init.js"></script>
         <script src="d3.v3.min.js"></script>
 		<script src="d3.hexbin.v0.min.js"></script>
-		<script src="js/angular.js"></script>
-		<script src="js/hexApp.js"></script>
+        <script type="text/javascript" src="js/angular.js"></script>
+        <script type="text/javascript" src="js/hexApp.js"></script>
+        <script type="text/javascript" src="js/SettingsCtrl.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -50,92 +51,94 @@
                         	<div id="userprofile">
                     		<img src="images/facebook.png" class="profile-img">
   							<div class="profile-text">
-    							<h1 class="profile-name">((firstName)) <i>((nickname))</i> ((lastName))</h1>
-    							<span class="profile-title">((school))</span>
+    							<h1 class="profile-name">David Dominic Johnson</h1>
+    							<span class="profile-title">UX / UI Designer</span>
   							</div>
                             </div>
                          
                          <div class="register">
 <div class="wrap">
-  <form >
-    <fieldset>
-      <label for="firstName" id="firstNameLabel">Name</label>
-      <input type="text" class="email" id="firstName" placeholder="First Name" ng-model="firstName">
-      <input type="text" class="email" placeholder="Last Name" ng-model="lastName">
-      <input type="text" class="email" placeholder="Nickname (Optional)" ng-model="nickname"> 
-      <br>
-      Login
-      <input type="email" class="email" placeholder="Email">
-      <!--<div>
-      	<p class="email-help regText">Changing this will alter login details!</p>
-      </div>-->
-      <input type="password" class="password" placeholder="Password">
-      <input type="password" class="confirmPassword" id="cp" placeholder="Confirm Password">
+    <form ng-controller="SettingsCtrl" ng-submit="updateUserDetails(userDetails)">
+      <fieldset>
+          Login
+          <input type="email" class="email" placeholder="Email" ng-model="userDetails.email"/>
+          <input type="password" class="password" placeholder="Password"/>
+          <input type="password" class="confirmPassword" id="cp" placeholder="Confirm Password"/>
       
-      <br>
-      <!--DOB-->
-  	  Personal
-      <input type="date" placeholder="Date Of Birth">
-      <!--Gender-->
-      <div class="toggle">
-      <input type="radio" class="toggle-input" name="joincreate" value="join" id="join" checked>
-      <label for="join" class="toggle-label toggle-label-off" id="joinLabel">Male</label>
-        <div class="publicnotice right"><span><h5>Sorry!</h5> You do not have permission to create a Public League!</span>           </div>
-      <input type="radio" class="toggle-input" name="joincreate" value="create" id="create">
-      <label for="create" class="toggle-label toggle-label-on" id="createLabel">Female</label>
-        <span class="toggle-selection"></span>
-  	  </div>
+          <br/>
+          Personal
+          <br/>
+          <input type="text" class="email" id="firstName" placeholder="First Name" ng-model="userDetails.firstName"/>
+          <input type="text" class="email" placeholder="Last Name" ng-model="userDetails.surname"/>
+          <input type="text" class="email" placeholder="Nickname (Optional)" ng-model="userDetails.otherName"/>
+
+          <select name="birthDay" id="dayList" ng-model='userDetails.dateOfBirth.day'>
+              <option value="">DD</option>
+          </select>
+
+          <select name="birthMonth" id="monthList" ng-model='userDetails.dateOfBirth.month'>
+              <option value="">MM</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+          </select>
+          <select name="birthYear" id="birthYearList" ng-model='userDetails.dateOfBirth.year'>
+              <option value="">YYYY</option>
+          </select>
+          <div class="toggle">
+              <input type="radio" class="toggle-input" name="joincreate" value="0" id="join" ng-model='userDetails.gender' checked/>
+              <label for="join" class="toggle-label toggle-label-off" id="joinLabel">Male</label>
+              <div class="publicnotice right">
+                  <span>
+                      <h5>Sorry!</h5>
+                      You do not have permission to create a Public League!
+                  </span>
+              </div>
+              <input type="radio" class="toggle-input" name="joincreate" value="1" id="create" ng-model='userDetails.gender'/>
+              <label for="create" class="toggle-label toggle-label-on" id="createLabel">Female</label>
+              <span class="toggle-selection"></span>
+          </div>
+
       <!--Relationship Status (Optional)-->
-      <input type="text" class="email" placeholder="Contact Number (Optional)">
-      <br>
-      Education
-      <input type="text" class="email" placeholder="School" ng-model="school">
-      <select name="gradYear" id="yearList"><option value="">Graduation Year</option></select>
-      <!--Grad Year-->
-      <br>
-      Location
-      <input type="text" class="email" placeholder="Hometown (Optional)">
-      <input type="text" class="email" placeholder="Current Location">
-                    
-  
-  <!--<div class="toggle">
-      <input type="radio" class="toggle-input" name="publicprivate" value="public" id="public" checked>
-      <label for="public" class="toggle-label toggle-label-off public" id="publicLabel">Public</label>
-        <div class="publicnotice left"><span><h5>Sorry!</h5> You do not have permission to create a Public League!</span>          </div>
-      <input type="radio" class="toggle-input dependent" name="publicprivate" value="private" id="private">
-      <label for="private" class="toggle-label toggle-label-on" id="privateLabel">Private</label>
-      <span class="toggle-selection"></span>
-  </div>-->
-      <br>
-      
-        <a href="#" class="button large expand">Save</a>
-       </fieldset>
-    </form>
-       
+          <select name="relStatus" id="relStatus" ng-model='relStatus'>
+              <option value="0">Relationship Status (Optional)</option>
+              <option value="1">Single</option>
+              <option value="2">In a relationship</option>
+              <option value="3">In Friend Zone</option>
+              <option value="4">Side Chick</option>
+              <option value="5">Tinder</option>
+          </select>
+          <input type="text" class="email" placeholder="Contact Number (Optional)"/>
+          <br/>
+          Education
+          <input type="text" class="email" placeholder="School"/>
+          <select name="gradYear" id="yearList">
+              <option value="">Graduation Year</option>
+          </select>
+          <!--Grad Year-->
+          <br/>
+          Location
+          <input type="text" class="email" placeholder="Hometown (Optional)"/>
+          <input type="text" class="email" placeholder="Current Location"/>
+          <br/>
+          <input type="submit" class="button large expand" value="Save"/>
+      </fieldset>
+  </form>
 </div>
 </div>
-                    	</div>
+                        </div>
                         
                         
                                             
-<div class="friendsContainer">
-<ol id="row1" class="even">
-  <li class='hex' id="one"></li>
-  <li class='hex' id="two"></li>
-  <li class='hex'></li>
-</ol>  
-<ol id="row2" class="odd">
-  <li class='hex'></li>
-  <li class='hex'></li>
-  <li class='hex'></li>
-    <li class='hex'></li>
-</ol>
-<ol id="row3" class="even">
-  <li class='hex'></li>
-  <li class='hex'></li>
-  <li class='hex'></li>
-</ol>  
-</div>
 
 
 
@@ -409,14 +412,30 @@
 		
 		//Populate grad year
 		var cur_year=new Date().getFullYear();
-        var obj=document.getElementById("yearList"); 
-		for (var i=1900; i < 2015; ++i) {  
+        var obj1=document.getElementById("birthYearList");
+		var obj2=document.getElementById("yearList");
+		var obj4=document.getElementById("dayList");
+		 
+		for (var i=2014; i > 1900; i--) {  
 			opt = document.createElement("option");
                 opt.value = i;
                 opt.text=i;
-                obj.appendChild(opt);
-    	}  
+				obj2.appendChild(opt);
+    	}
+		for (var i=2009; i > 1900; i--) {  
+			opt = document.createElement("option");
+                opt.value = i;
+                opt.text=i;
+				obj1.appendChild(opt);
+    	}
+		for (var i=1; i < 32; i++) {  
+			opt = document.createElement("option");
+                opt.value = i;
+                opt.text=i;
+				obj4.appendChild(opt);
+    	}
 		//MAKECURRENTYEARdocument.getElementById("yr").value = cur_year;
 		</script>
+
 
 </html>
