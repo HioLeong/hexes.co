@@ -10,9 +10,13 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/', "LoginController@showPage");
+Route::get('/', 'LoginController@showPage');
 Route::post('/login', 'LoginController@isValidUserFromPost');
 Route::get('/register', 'LoginController@showRegisterPage');
 Route::post('/register', 'LoginController@registerUserFromPost');
 Route::post('/updateSettings', 'SettingsController@updateUserDetailsFromPost');
+
+//Messages
 Route::get('/messages/{message}/{fromId}/{toId}','MessagesController@sendMessage');
+Route::get('/allMessages/{fromId}/{toId}','MessagesController@getMessages');
+Route::get('/home', 'ProfileController@showPage');
