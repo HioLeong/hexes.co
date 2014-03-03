@@ -15,3 +15,4 @@ Route::post('/login', 'LoginController@isValidUserFromPost');
 Route::get('/register', 'LoginController@showRegisterPage');
 Route::post('/register', 'LoginController@registerUserFromPost');
 Route::post('/updateSettings', 'SettingsController@updateUserDetailsFromPost');
+Route::get('/messages/{message}/{fromId}/{toId}','MessagesController@sendMessage');
