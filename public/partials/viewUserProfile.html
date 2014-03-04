@@ -1,11 +1,11 @@
-<div class="viewProfiles" style="width: 100%; height: 100;">
+<div ng-init="getUser()" class="viewProfiles" style="width: 100%; height: 100;">
     <div id="leftColumn" style="float: left; width: 32%">
         <div id="profileCard">
             <div id="viewuserprofile">
                 <img src="images/facebook.png" class="profile-img"/>
                 <div class="profile-text">
-                    <h1 class="profile-name">David Johnson</h1>
-                    <span class="profile-title">UX / UI Designer</span>
+                    <h1 class="profile-name">((user.firstName)) ((user.surname))</h1>
+                    <span class="profile-title">(( user.nickname ))</span>
                 </div>
 
             </div>
@@ -20,7 +20,7 @@
                 </div>
                 <div id="pricing-table-content">
                     <ul>
-                        <li><strong>Gender</strong> <div>Female</div></li>
+                        <li><strong>Gender</strong> <div>(( user.gender ))</div></li>
                         <li><strong>Birthday</strong><div>Jan, 1992</div></li>
                         <li><strong>Hometown</strong><div>Cali</div></li>
                         <li><strong>Education</strong><div>UCL, 15'</div></li>

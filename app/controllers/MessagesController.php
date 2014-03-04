@@ -25,7 +25,6 @@ class MessagesController extends BaseController {
      * Get all message messages from $fromId to $toId.
      */
     public function getMessages($fromId, $toId) {
-
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
         $query = 'SELECT * FROM Message WHERE idUserFrom=\''.$fromId.'\' AND idUserTo=\''
             .$toId.'\';';

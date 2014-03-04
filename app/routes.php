@@ -20,3 +20,6 @@ Route::post('/updateSettings', 'SettingsController@updateUserDetailsFromPost');
 Route::get('/messages/{message}/{fromId}/{toId}','MessagesController@sendMessage');
 Route::get('/allMessages/{fromId}/{toId}','MessagesController@getMessages');
 Route::get('/home', 'ProfileController@showPage');
+
+/** Profile */
+Route::post('/getUser/{id}', 'ProfileController@getUserDetails');
