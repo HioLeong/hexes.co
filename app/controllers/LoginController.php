@@ -70,8 +70,8 @@ class LoginController extends BaseController {
     }
 
     public function updateUserDetailsFromPost() {
-        $fields = array('email', 'password', 'firstName', 'lastName', 'nickname', 'dob', 
-            'gender', 'school', 'currentLocation');
+        $fields = array('email', 'password', 'firstName', 'lastName', 'nickname', 'dateOfBirth', 
+            'gender', 'school', 'relStatus', 'currentLocation');
         $user = new User();
         /* Set all post fields */
         foreach ($fields as $field) {

@@ -13,7 +13,7 @@ class SettingsController extends BaseController {
     }
 
     public function updateUserDetailsFromPost() {
-        $fields = array('email', 'password', 'firstName', 'surname', 'otherName', 'dateOfBirth', 
+        $fields = array('email', 'password', 'firstName', 'surname', 'otherName', 'dateOfBirth', 'relStatus', 
             'gender', 'school', 'currentLocation');
         $user = new User();
         /* Set all post fields */

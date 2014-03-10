@@ -22,6 +22,7 @@
 		<script src="js/angular-route.js"></script>
         <script src="js/hexApp.js"></script>
         <script src="js/ProfileCtrl.js"></script>
+        <script src="js/SettingsCtrl.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -58,8 +59,8 @@
             <div class="nav-wrap">
                 <nav class="main-nav" role="navigation">
                     <ul class="unstyled list-hover-slide">
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Messages</a></li>
+                        <li><a href="#/profile/24">Profile</a></li>
+                        <li><a href="#/messages">Messages</a></li>
                         <li><a href="#">Friends</a></li>
                     </ul>
                 </nav>
