@@ -45,5 +45,23 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams',
             $scope.getRelStatusFromCode = function(relStatusCode) {
                 return $scope.relStatusCode[relStatusCode];
             };
+
+            $scope.getFormattedDate = function(dateString) {
+                var date = new Date(dateString);
+                console.log(date.getDate());
+                month = "January,February,March,April,May,June,July,August,September,October,November,December"
+                .split(",")[date.getMonth()];
+                return date.getDate() + $scope.nth(date.getDate()) + ' ' + month + ', ' + date.getFullYear();
+            };
+
+            $scope.nth = function(day) {
+                if(day>3 && day<21) return 'th'; // thanks kennebec
+                switch (day % 10) {
+                case 1:  return "st";
+                case 2:  return "nd";
+                case 3:  return "rd";
+                default: return "th";
+                }
+            };
         }
 ]);

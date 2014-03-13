@@ -21,10 +21,10 @@
                 <div id="pricing-table-content">
                     <ul>
                         <li><strong>Gender</strong> <div>(( getGenderFromCode(user.gender) ))</div></li>
-                        <li><strong>Birthday</strong><div></div></li>
+                        <li><strong>Birthday</strong><div>(( getFormattedDate(user.dateOfBirth) ))</div></li>
                         <li><strong>Hometown</strong><div></div></li>
                         <li><strong>Education</strong><div></div></li>
-                        <li><strong>Relationship</strong><div> </div></li>
+                        <li><strong>Relationship</strong><div>(( getRelStatusFromCode(user.relStatus) )) </div></li>
                         <li><strong>Contact</strong><div></div></li>
                     </ul>
                 </div>

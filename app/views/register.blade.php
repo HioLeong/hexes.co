@@ -362,56 +362,10 @@
             </div>
 
     </body>
-<script type="text/javascript">
-//detect screen size
-var size;
-if ($(window).width() < 645) {
-    size = 1;
-        }
-        else if ($(window).width() > 999) {
-            size = 3;
-        }
-        else {
-            size = 2;
-        }
-
+    <script type="text/javascript">
         //WIDTH OF FRIENDS
         var width = document.getElementById('switcherWrapper').offsetWidth;
-        console.log("switcherWrapper" + width);
-
-        /*width = width/2;*/
-
-        width = width / 150;
-        width = width - 3;
-        width = width - 1;
-        var numberHex = Math.floor( width ); 
-        console.log("numberHex: " + numberHex);
-
-        //FRIENDS JS
-        var ul = document.getElementById("row1");
-        for (i=0; i < numberHex; i++) {
-            var newLI = document.createElement("LI");
-            ul.appendChild(newLI);
-            //newLI.innerHTML = "The content of the li element here";
-        }
-
-        var ul2 = document.getElementById("row2");
-        for (i=0; i < numberHex; i++) {
-            var newLI2 = document.createElement("LI");
-            ul2.appendChild(newLI2);
-            //newLI.innerHTML = "The content of the li element here";
-        }
-        var ul2 = document.getElementById("row3");
-        for (i=0; i < numberHex; i++) {
-            var newLI2 = document.createElement("LI");
-            ul2.appendChild(newLI2);
-            //newLI.innerHTML = "The content of the li element here";
-        }
-        $(".even > *").addClass("hex");
-        $(".odd > *").addClass("hex");
-
-        //Populate grad year
-        var cur_year=new Date().getFullYear();
+       var cur_year= new Date().getFullYear();
         var obj1=document.getElementById("birthYearList");
         var obj2=document.getElementById("yearList");
         var obj4=document.getElementById("dayList");
@@ -422,12 +376,14 @@ if ($(window).width() < 645) {
             opt.text=i;
             obj2.appendChild(opt);
         }
+
         for (var i=2009; i > 1900; i--) {  
             opt = document.createElement("option");
             opt.value = i;
             opt.text=i;
             obj1.appendChild(opt);
         }
+
         for (var i=1; i < 32; i++) {  
             opt = document.createElement("option");
             opt.value = i;
@@ -435,7 +391,7 @@ if ($(window).width() < 645) {
             obj4.appendChild(opt);
         }
         //MAKECURRENTYEARdocument.getElementById("yr").value = cur_year;
-        </script>
+    </script>
 
 
 </html>
