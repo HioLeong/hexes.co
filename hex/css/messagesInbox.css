@@ -444,3 +444,72 @@ input[type="checkbox"]:checked + label:after {
   -o-transform: translate(-30px, -2px);
   transform: translate(-30px, -2px);
 }
+
+/*send button*/
+
+#messagesSendButton a {
+	overflow:hidden; /* comment this property */
+	border-radius:25px;
+	margin: 0px auto;
+	margin-top: 15px;
+	height: 50px;
+	width: 100%;
+	display: block;
+	text-align:center;
+	background-color:#b78458;
+	color:#fff;
+	text-decoration:none;
+	position:relative;
+	font:14px/50px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	box-shadow:rgba(0,0,0,.15) 0 1px 2px;
+	transition: all 1s;
+	outline:none;
+}
+#messagesSendButton a:hover {
+	box-shadow:rgba(0,0,0,.3) 0 8px 25px, rgba(0,0,0,.2)0 1px;
+	text-shadow:#fff 0 0 12px;
+}
+#messagesSendButtona:active {
+	box-shadow:rgba(0,0,0,.2) 0 8px 25px;
+	transition: all 0s;
+}
+#messagesSendButton a span { 
+	position:relative;
+	z-index:9;
+}
+#messagesSendButton a:before, #messagesSendButton a:after {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:7;
+	display:block;
+	content:" ";
+}
+#messagesSendButton a:after {
+	height:100%;
+	width:2500px;
+	transition: all .8s;
+	background: linear-gradient(135deg,  #b78458 0%,#935f39 19%,#aa6740 37%,#ffcece 50%,#ea2803 66%,#ff6600 75%,#c72200 100%);
+}
+#messagesSendButton a:before {
+	height:26px;
+	width:100%;
+	top:-50px;
+	z-index:10;
+	opacity:0;
+	background-color:rgba(255,255,255,.15);
+	transition: all .5s;
+}
+#messagesSendButton a:hover:before {
+	top:0;
+	opacity:1;
+}
+#messagesSendButton a:hover:after {
+	left:-1750px;
+}
+#messagesSendButton a:active:before {
+	height:100%;
+	background-color:rgba(255,255,255,.8);
+	box-shadow:inset rgba(255,255,255,.5)0 0 25px;
+	transition: all 0s;
+}

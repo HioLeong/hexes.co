@@ -285,7 +285,7 @@
                     </div>
                   </div>
                   <div class="viewer">
-                    <div class="scroll">
+                    <div class="scroll" id="messagesScrollViewer" style="height: px;">
                       <div class="header" id="email">
                         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/osvaldas/128.jpg" style="border-radius:5px;" />
                         <p class="subject">Subject: Recent Project</p>
@@ -303,10 +303,16 @@
                     </div>
                     <div class="messageInput">
                     	<div id="messageInputField" style="float: left; width:80%;">
-                        	<textarea id="Field4" name="Field4" spellcheck="true" style="height: 100%; width: 100% !important;"></textarea>
+                        	<textarea id="Field4" name="Field4" spellcheck="true" style="height: 100%; width: 100% !important; resize: none; margin: 20px; position: relative;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;"></textarea>
                         </div>
-                        <div id="messageSendButton" style="float: right;width:20%;">
-                        
+                        <div id="mSendButton" style="float: right;width:20%;">
+                        	<div id="messagesSendButton">
+                        		<a id="friendStatus" href="#"><span>Send</span></a>
+                            </div>
                         </div>
                     </div>
                   </div>
@@ -435,7 +441,6 @@
 
 						<!-- Search -->
 							<section class="is-search">
-								
                                 <form method="post" action="#">
 									<input type="text" class="text" name="search" placeholder="Search" />
 								</form>
@@ -674,6 +679,12 @@
 		for (var i = 0, len = buttons.length; i < len; i++) {
 		  buttons[i].addEventListener('click', onBtnClick, false);
 		}
+		
+		var browserHeight = $(window).height();
+		document.getElementById("messagesScrollViewer").style.height = browserHeight - 200+"px";
+		
+		//alert(browserHeight);
+		//$(".scroll").css('height',560);
 		</script>
 
 </html>

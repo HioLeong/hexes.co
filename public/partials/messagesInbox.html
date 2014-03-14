@@ -1,30 +1,22 @@
 <!-- Messages Inbox -->
-              <div id="inboxContainer">
+              <div id="inboxContainer" style="display: block;">
                 <div class="content">
                   <div class="second-nav">
                     <div class="inboxHeader">
-                      Inbox
+                      Inbox <!--<img src="images/friendAdded.png" style="margin: 0; padding: 0; float: right;">-->
                     </div>
                     <div class="controls">
-                      <div class="control">
-                        <i class="fa fa-trash-o fa-1x"></i>
-                        <div class="comment bottom">Delete</div>
-                      </div>
-                      <div class="control">
-                        <i class="fa fa-mail-reply fa-1x"></i>
-                        <div class="comment bottom">Reply</div>
-                      </div>
-                      <div class="control">
-                        <i class="fa fa-mail-forward fa-1x"></i>
-                        <div class="comment bottom">Forward</div>
-                      </div>
                       <div class="control">
                         <i class="fa fa-search fa-1x"></i>
                         <div class="comment bottom">Search</div>
                       </div>
                       <div class="control">
-                        <i class="fa fa-folder-o fa-1x"></i>
-                        <div class="comment bottom">Move</div>
+                        <i class="fa fa-trash-o fa-1x"></i>
+                        <div class="comment bottom">Delete</div>
+                      </div>
+                      <div class="control">
+                        <i class="fa fa-plus fa-1x"></i>
+                        <div class="comment bottom">New</div>
                       </div>
                     </div>
                     <div class="messages">
@@ -63,42 +55,35 @@
                     </div>
                   </div>
                   <div class="viewer">
-                    <div class="controls stick">
-                      <div class="control">
-                        <i class="fa fa-mail-reply fa-1x"></i>
-                        <div class="comment bottom">Reply</div>
-                      </div>
-                      <div class="control">
-                        <i class="fa fa-mail-forward fa-1x"></i>
-                        <div class="comment bottom">Forward</div>
-                      </div>
-                      <div class="control">
-                        <i class="fa fa-download fa-1x"></i>
-                        <div class="comment bottom">Download</div>
-                      </div>
-                      <div class="control">
-                        <i class="fa fa-warning fa-1x"></i>
-                        <div class="comment bottom">Report</div>
-                      </div>
-                      <div class="control">
-                        <i class="fa fa-trash-o fa-1x"></i>
-                        <div class="comment bottom">Delete</div>
-                      </div>
-                    </div>
-                    <div class="scroll">
+                    <div class="scroll" id="messagesScrollViewer" style="height: px;">
                       <div class="header" id="email">
                         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/osvaldas/128.jpg" style="border-radius:5px;" />
                         <p class="subject">Subject: Recent Project</p>
                         <p class="message">To: Me, Jack Woolley, Alexis Zaninetti</p>
                       </div>
-                      <div class="body">
-                        <h1>RE: Recent Project</h1>
-                        <p>
-                          Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.<br/><br/>
-                
-                          Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.<br/><br/>     
-                        </p>
-                      </div>
+                      
+                      <p class="bubble-me"><Strong><a style="float: right;">David | 17.32pm</a></Strong>Check this out</p>
+<p class="bubble-other"><Strong><a style="float: right;">Michael | 18.45</a></Strong>Yes?</p>
+<p class="bubble-me"><Strong><a style="float: right;">David | 18.46pm</a></Strong>CSS only chat bubbles. No images at all.</p>
+<p class="bubble-other"><Strong><a style="float: right;">Michael | 18.49pm</a></Strong>WoW. this is great.</p>
+<p class="bubble-other"><Strong><a style="float: right;">Michael | 18.49pm</a></Strong>How about the long text long long long long long long long long</p>
+<p class="bubble-me"><Strong><a style="float: right;">David | 19.01pm</a></Strong>ok ok</p>
+<p class="bubble-me"><Strong><a style="float: right;">David | 19.02pm</a></Strong>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                      
+                    </div>
+                    <div class="messageInput">
+                    	<div id="messageInputField" style="float: left; width:80%;">
+                        	<textarea id="Field4" name="Field4" spellcheck="true" style="height: 100%; width: 100% !important; resize: none; margin: 20px; position: relative;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;"></textarea>
+                        </div>
+                        <div id="mSendButton" style="float: right;width:20%;">
+                        	<div id="messagesSendButton">
+                        		<a id="friendStatus" href="#"><span>Send</span></a>
+                            </div>
+                        </div>
                     </div>
                   </div>
                 </div>

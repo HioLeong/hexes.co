@@ -258,7 +258,6 @@ body {
 
 #leftColumn a {
 	overflow:hidden; /* comment this property */
-	
 	margin: 0px auto;
 	height: 50px;
 	width: 100%;
