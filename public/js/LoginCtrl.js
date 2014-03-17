@@ -7,6 +7,8 @@ hexApp.controller('LoginCtrl', ['$scope', '$http',
              * 'error' otherwise.
              */
             $scope.checkLogin = function(loginDetails) {
+                    console.log("what");
+                console.log(loginDetails);
                 if (!loginDetails) {
                     $scope.status = 'error';
                     return;
@@ -16,7 +18,7 @@ hexApp.controller('LoginCtrl', ['$scope', '$http',
                     return;
                 }
 
-                $http.post('login', loginDetails)
+                $http.post('login/isValidUserFromPost', loginDetails)
                 .success(function(data, status, headers, config) {
                     $scope.status = 'success';
                 })

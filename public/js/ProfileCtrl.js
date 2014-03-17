@@ -12,6 +12,10 @@ hexApp.config(['$routeProvider',
             .when('/settings/:id', {
                     templateUrl: 'partials/register.html',
                     controller: 'SettingsCtrl'
+            })
+            .when('/login', {
+                    templateUrl: 'partials/login.html',
+                    controller: 'SettingsCtrl'
             });
 }]);
 
