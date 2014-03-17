@@ -1371,3 +1371,11 @@
 	position: relative;
 	z-index: 1;
 }
+
+.loginWarning{
+  padding:10px;
+  margin:10px;
+  text-align:center;
+  color:#666;
+  display:none;
+}

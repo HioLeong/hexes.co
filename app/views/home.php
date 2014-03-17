@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
+
 <!--
 	Striped 2.5 by HTML5 Up!
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+
 <html>
 	<head>
 		<title>Hexagon</title>
@@ -37,6 +39,7 @@
         <link rel="stylesheet" href="css/friendSearchResults.css" />
         <link rel="stylesheet" href="css/messagesInbox.css" />
         <link rel="stylesheet" href="css/loginBox.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->

@@ -1,5 +1,5 @@
-hexApp.controller('LoginCtrl', ['$scope', '$http', 
-        function($scope, $http) {
+hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService',
+        function($scope, $http, loginService) {
             $scope.status = '';
 
             /**
@@ -7,23 +7,28 @@ hexApp.controller('LoginCtrl', ['$scope', '$http',
              * 'error' otherwise.
              */
             $scope.checkLogin = function(loginDetails) {
-                console.log("what");
-                console.log(loginDetails);
                 if (!loginDetails) {
                     $scope.status = 'error';
                     return;
                 }
+
                 if ((!loginDetails.password) || (!loginDetails.email)) {
                     $scope.status = 'error';
                     return;
                 }
 
-                $http.post('login/isValidUserFromPost', loginDetails)
-                .success(function(data, status, headers, config) {
-                    $scope.status = 'success';
-                })
-                .error(function(data, status, headers, config) {
-                    $scope.status = 'error';
+                var data = 'data='+JSON.stringify(loginDetails);
+                $.post('login/isValidUserFromPost', data, function(data) {
+                    console.log(data);
+                    if (data=="invalid") {
+                        $("input[type='submit']").click(function(){
+                            event.preventDefault();
+                            $(".loginWarning").hide();
+                            $(".loginWarning").fadeIn(200);
+                        });
+                    } else {
+                        // Log on
+                    }
                 });
             }
 

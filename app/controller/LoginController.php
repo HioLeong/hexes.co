@@ -2,16 +2,6 @@
 
 class LoginController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	*/
-
-    public function showPage() {
-        return View::make('login')->with('results', $results);
-    }
-
     public function index() {
         $this->registry->template->show('login');
     }
@@ -20,10 +10,12 @@ class LoginController extends BaseController {
      * Handles if user from post is valid
      */
     public function isValidUserFromPost() {
-        if ((!$email) || (!$password)) {
-            return 'empty';
+
+        $data = json_decode($_POST['data']);
+        
+        if ((!$data->email) || (!$data->password)) {
         }  else {
-            return $this->isValidUser($email, $password);
+            echo $this->isValidUser($email, $password);
         }
     }
 
@@ -36,7 +28,6 @@ class LoginController extends BaseController {
         $query = 'SELECT password FROM User WHERE email=\''.$email.'\'';
         $results = mysqli_query($con, $query);
         $row = mysqli_fetch_array($results);
-        //$con = mysqli_close();
 
         if (strcmp($row['password'], $password)) {
             return 'valid';
