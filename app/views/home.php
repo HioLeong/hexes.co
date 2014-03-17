@@ -19,9 +19,13 @@
 		<script src="d3.hexbin.v0.min.js"></script>
 		<script src="js/angular.js"></script>
 		<script src="js/angular-route.js"></script>
+
+        <!-- Angular -->
         <script src="js/hexApp.js"></script>
         <script src="js/ProfileCtrl.js"></script>
         <script src="js/SettingsCtrl.js"></script>
+        <script src="js/LoginCtrl.js"></script>
+
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />

@@ -7,7 +7,7 @@ hexApp.controller('LoginCtrl', ['$scope', '$http',
              * 'error' otherwise.
              */
             $scope.checkLogin = function(loginDetails) {
-                    console.log("what");
+                console.log("what");
                 console.log(loginDetails);
                 if (!loginDetails) {
                     $scope.status = 'error';

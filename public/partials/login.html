@@ -1,0 +1,15 @@
+<div class="outer-wrapper">
+    <div id="login-form">
+        <h3 class="loginHeader">Login</h3>
+        <fieldset class="loginFieldset">
+            <form action="javascript:void(0);" method="get">
+                <input class="loginInput" type="email" required placeholder="Email" ng-model="userDetails.email"/>
+                <input class="loginInput" type="password" required placeholder="Password" ng-model="userDetails.password"/>
+                <input class="loginInput" type="submit" value="Login" ng-click="checkLogin(userDetails)"/>
+                <footer class="clearfix">
+                    <p><span class="info">?</span><a href="#">Forgot Password</a></p>
+                </footer>
+            </form>
+        </fieldset>
+    </div>
+</div>
