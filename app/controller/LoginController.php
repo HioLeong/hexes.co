@@ -22,7 +22,7 @@ class LoginController extends BaseController {
     /*
      * Handles if user is valid
      */
-    private function isValidUser($email, $password) {
+    public function isValidUser($email, $password) {
         //TODO: Refactor to SQL helper class
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
         $query = 'SELECT idUser, password FROM User WHERE email=\''.$email.'\'';
@@ -30,9 +30,21 @@ class LoginController extends BaseController {
         $row = mysqli_fetch_array($results);
 
         if (strcmp($row['password'], $password) == 0) {
-            return $row['idUser'];
+            if (isset($_SESSION['id'])) {
+            } else {
+                $_SESSION['id'] = $row['idUser'];
+            }
+            return $_SESSION['id'];
         } else {
             return 'invalid';
+        }
+    }
+
+    public function getSessionUserId() {
+        if (isset($_SESSION['id'])) {
+            echo $_SESSION['id'];
+        } else {
+            echo 'Error';
         }
     }
 

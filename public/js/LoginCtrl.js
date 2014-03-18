@@ -26,8 +26,10 @@ hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService',
                             $(".loginWarning").fadeIn(200);
                         });
                     } else {
-                        //Successful
-                        loginService.setLoginId(data);
+                        console.log(data);
+                        loginService.getLoginId(function(data) {
+                            console.log(data);
+                        });
                     }
                 });
             }

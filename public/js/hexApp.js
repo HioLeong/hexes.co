@@ -1,16 +1,18 @@
 var hexApp = angular.module('hexApp',['ngRoute']);
 
-hexApp.factory('loginService', ['$rootScope',
-        function() {
+hexApp.factory('loginService', ['$rootScope', '$http',
+        function($rootScope, $http) {
             var loginService = {};
             loginService.id = null;
 
-            loginService.setLoginId = function(id) {
-                loginService.id = id;
-            };
-
-            loginService.getLoginId = function() {
-                return loginService.id;
+            loginService.getLoginId = function(e) {
+                $http.get('login/getSessionUserId')
+                .success(function(data, status, header, config) {
+                    e(data);
+                })
+                .error(function(data, status, header, config) {
+                    // Error Handler
+                });
             };
 
             loginService.logOff = function() {
