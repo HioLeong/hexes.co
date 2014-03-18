@@ -1,5 +1,13 @@
-hexApp.controller('SettingsCtrl', ['$scope', '$http',
-        function($scope, $http) {
+hexApp.controller('SettingsCtrl', ['$scope', '$http', '$routeParams',
+        function($scope, $http, $routeParams) {
+
+            $scope.init = function() {
+                $http.get('profile/getUserDetails/'+$routeParams.id)
+                .success(function(data, status, headers, config) {
+                    $scope.userDetails = data;
+                });
+            };
+
             $scope._convertDate = function(dateOfBirth) {
                 return dateOfBirth.year + '-' + dateOfBirth.month + '-' + dateOfBirth.day;
             };
@@ -11,19 +19,18 @@ hexApp.controller('SettingsCtrl', ['$scope', '$http',
                 }
 
                 if (userDetails) {
-                    userDetails.dateOfBirth = 
+                    userDetails.dateOfBirth =
                         $scope._convertDate(userDetails.dateOfBirth);
                 }
 
-                $http.post('updateSettings', userDetails)
-                .success(function(data, status, headers, config) {
-                    console.log('success');
+                var data = JSON.stringify(userDetails);
+                console.log(data);
+
+                $.post('settings/updateUserDetailsFromPost', 'data='+data, function(data) {
                     console.log(data);
-                })
-                .error(function(data, status, headers, config) {
-                    console.log('error');
-                    console.log(status);
                 });
             };
+
+            $scope.init();
         }
 ]);

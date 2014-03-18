@@ -167,23 +167,23 @@
   cursor:pointer;
 }
 /*Adding custom checkbox icons*/
-label {
+.messageLabel label {
 	position: relative;
 	padding-left: 30px;
 	font-size: 14px;
 	cursor: pointer;
 }
-label:before, label:after {
+
+.messageLabel label:before, label:after {
 	font-family: FontAwesome;
 	font-size: 21px;
 	/*absolutely positioned*/
 	position: absolute; top: 0; left: 0;
-  
 }
-label:before {
+.messageLabel label:before {
 	content: '\f096'; /*unchecked*/
 }
-label:after {
+.messageLabel label:after {
 	content: '\f046'; /*checked*/
 	/*checked icon will be hidden by default by using 0 max-width and overflow hidden*/
 	max-width: 0;
@@ -213,13 +213,16 @@ input[type="checkbox"]:checked + label:after {
   color:#AAB2BD;
 }
 .scroll {
-  height:100vh;
+  height:80%;
   overflow-y:scroll;
+}
+.messageInput {
+	height: 20%;
 }
 #email {
   padding:0px;
   padding-left:100px;
-  padding-top:20px;
+  padding-top:0px;
 }
 #email p {
   color:#656d78;
@@ -233,7 +236,7 @@ input[type="checkbox"]:checked + label:after {
 .viewer .header img {
   width:60px;
   position:absolute;
-  top:20px;
+  top:0px !important;
   left:20px;
 }
 /*.body {
@@ -270,4 +273,243 @@ input[type="checkbox"]:checked + label:after {
 }
 .viewimage img {
   width:100%;
+}
+
+/* CHAT BUBBLES */
+
+.bubble-other, .bubble-me {
+  margin: 20px;
+  padding: 15px;
+  position: relative;
+  border: solid 1px #9bc051;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  -moz-box-shadow: inset 0 -8px 10px rgba(255, 255, 255, 0.15), inset 0 6px 18px rgba(255, 255, 255, 0.65);
+  -webkit-box-shadow: inset 0 -8px 10px rgba(255, 255, 255, 0.15), inset 0 6px 18px rgba(255, 255, 255, 0.65);
+  box-shadow: inset 0 -8px 10px rgba(255, 255, 255, 0.15), inset 0 6px 18px rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #333333;
+}
+
+.bubble-other:before, .bubble-me:before, .bubble-other:after, .bubble-me:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  bottom: -20px;
+  right: 5px;
+}
+
+.bubble-other:before, .bubble-me:before {
+  height: 20px;
+  border-right: 24px solid #accb6f;
+  background: #9bc051;
+  -webkit-border-bottom-left-radius: 60px 40px;
+  -moz-border-radius-bottomleft: 60px 40px;
+  border-bottom-left-radius: 60px 40px;
+  -moz-transform: translate(0, -8px);
+  -ms-transform: translate(0, -8px);
+  -o-transform: translate(0, -8px);
+  -webkit-transform: translate(0, -8px);
+  transform: translate(0, -8px);
+}
+
+.bubble-other:after, .bubble-me:after {
+  width: 20px;
+  height: 20px;
+  background: white;
+  -webkit-border-bottom-left-radius: 30px 70px;
+  -moz-border-radius-bottomleft: 30px 70px;
+  border-bottom-left-radius: 30px 70px;
+  -moz-transform: translate(10px, -8px);
+  -ms-transform: translate(10px, -8px);
+  -o-transform: translate(10px, -8px);
+  -webkit-transform: translate(10px, -8px);
+  transform: translate(10px, -8px);
+}
+
+.bubble-other:before, .bubble-other:after {
+  right: auto;
+  left: 5px;
+}
+
+.bubble-other:before {
+  border-right: none;
+  border-left: 24px solid #e0e5ea;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -moz-border-radius-bottomright: 60px 40px;
+  -webkit-border-bottom-right-radius: 60px 40px;
+  border-bottom-right-radius: 60px 40px;
+}
+
+.bubble-other:after {
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -moz-border-radius-bottomright: 30px 70px;
+  -webkit-border-bottom-right-radius: 30px 70px;
+  border-bottom-right-radius: 30px 70px;
+  -moz-transform: translate(-10px, -8px);
+  -ms-transform: translate(-10px, -8px);
+  -o-transform: translate(-10px, -8px);
+  -webkit-transform: translate(-10px, -8px);
+  transform: translate(-10px, -8px);
+}
+
+.bubble-me {
+  background-color: #9bc051;
+  border-color: #9bc051;
+}
+
+.bubble-other {
+  background-color: #dde2e8;
+  border-color: #dde2e8;
+}
+
+.oval-speech {
+  position: relative;
+  width: 270px;
+  padding: 50px 40px;
+  margin: 1em auto 50px;
+  text-align: center;
+  color: #fff;
+  background: #5a8f00;
+  /* css3 */
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#b8db29), to(#5a8f00));
+  background: -moz-linear-gradient(#b8db29, #5a8f00);
+  background: -o-linear-gradient(#b8db29, #5a8f00);
+  background: linear-gradient(#b8db29, #5a8f00);
+  /*
+  NOTES:
+  -webkit-border-radius:220px 120px; // produces oval in safari 4 and chrome 4
+  -webkit-border-radius:220px / 120px; // produces oval in chrome 4 (again!) but not supported in safari 4
+  Not correct application of the current spec, therefore, using longhand to avoid future problems with webkit corrects this
+  */
+  -webkit-border-top-left-radius: 220px 120px;
+  -webkit-border-top-right-radius: 220px 120px;
+  -webkit-border-bottom-right-radius: 220px 120px;
+  -webkit-border-bottom-left-radius: 220px 120px;
+  -moz-border-radius: 220px / 120px;
+  border-radius: 220px / 120px;
+}
+
+.oval-speech p {
+  font-size: 1.25em;
+}
+
+/* creates part of the curve */
+.oval-speech:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -30px;
+  right: 50%;
+  height: 30px;
+  border-right: 60px solid #5a8f00;
+  background: #5a8f00;
+  /* need this for webkit - bug in handling of border-radius */
+  /* css3 */
+  -webkit-border-bottom-right-radius: 80px 50px;
+  -moz-border-radius-bottomright: 80px 50px;
+  border-bottom-right-radius: 80px 50px;
+  /* using translate to avoid undesired appearance in CSS2.1-capabable but CSS3-incapable browsers */
+  -webkit-transform: translate(0, -2px);
+  -moz-transform: translate(0, -2px);
+  -ms-transform: translate(0, -2px);
+  -o-transform: translate(0, -2px);
+  transform: translate(0, -2px);
+}
+
+/* creates part of the curved pointy bit */
+.oval-speech:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -30px;
+  right: 50%;
+  width: 60px;
+  height: 30px;
+  background: #fff;
+  /* css3 */
+  -webkit-border-bottom-right-radius: 40px 50px;
+  -moz-border-radius-bottomright: 40px 50px;
+  border-bottom-right-radius: 40px 50px;
+  /* using translate to avoid undesired appearance in CSS2.1-capabable but CSS3-incapable browsers */
+  -webkit-transform: translate(-30px, -2px);
+  -moz-transform: translate(-30px, -2px);
+  -ms-transform: translate(-30px, -2px);
+  -o-transform: translate(-30px, -2px);
+  transform: translate(-30px, -2px);
+}
+
+/*send button*/
+
+#messagesSendButton a {
+	overflow:hidden; /* comment this property */
+	border-radius:25px;
+	margin: 0px auto;
+	margin-top: 15px;
+	height: 50px;
+	width: 100%;
+	display: block;
+	text-align:center;
+	background-color:#b78458;
+	color:#fff;
+	text-decoration:none;
+	position:relative;
+	font:14px/50px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	box-shadow:rgba(0,0,0,.15) 0 1px 2px;
+	transition: all 1s;
+	outline:none;
+}
+#messagesSendButton a:hover {
+	box-shadow:rgba(0,0,0,.3) 0 8px 25px, rgba(0,0,0,.2)0 1px;
+	text-shadow:#fff 0 0 12px;
+}
+#messagesSendButtona:active {
+	box-shadow:rgba(0,0,0,.2) 0 8px 25px;
+	transition: all 0s;
+}
+#messagesSendButton a span { 
+	position:relative;
+	z-index:9;
+}
+#messagesSendButton a:before, #messagesSendButton a:after {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:7;
+	display:block;
+	content:" ";
+}
+#messagesSendButton a:after {
+	height:100%;
+	width:2500px;
+	transition: all .8s;
+	background: linear-gradient(135deg,  #b78458 0%,#935f39 19%,#aa6740 37%,#ffcece 50%,#ea2803 66%,#ff6600 75%,#c72200 100%);
+}
+#messagesSendButton a:before {
+	height:26px;
+	width:100%;
+	top:-50px;
+	z-index:10;
+	opacity:0;
+	background-color:rgba(255,255,255,.15);
+	transition: all .5s;
+}
+#messagesSendButton a:hover:before {
+	top:0;
+	opacity:1;
+}
+#messagesSendButton a:hover:after {
+	left:-1750px;
+}
+#messagesSendButton a:active:before {
+	height:100%;
+	background-color:rgba(255,255,255,.8);
+	box-shadow:inset rgba(255,255,255,.5)0 0 25px;
+	transition: all 0s;
 }

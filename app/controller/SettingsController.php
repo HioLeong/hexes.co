@@ -8,6 +8,9 @@ class SettingsController extends BaseController {
 	|--------------------------------------------------------------------------
 	*/
 
+    public function index() {
+    }
+
     private function setField($userObj, $property) {
         $userObj->__set($property, Input::get($property));
     }
@@ -15,19 +18,17 @@ class SettingsController extends BaseController {
     public function updateUserDetailsFromPost() {
         $fields = array('email', 'password', 'firstName', 'surname', 'otherName', 'dateOfBirth', 'relStatus', 
             'gender', 'school', 'currentLocation');
-        $user = new User();
         /* Set all post fields */
-        foreach ($fields as $field) {
-            $this->setField($user, $field);
-        }
-        return $this->updateUserDetails($user, $fields);
+        ini_set('memory_limit', '-1');
+        $userObj = json_decode($_POST['data']);
+        return $this->updateUserDetails($userObj, $fields);
     }
 
     public function updateUserDetails($userDetails, $fields) {
         //TODO: Set the correct query for updating 
         $returns = '';
         foreach ($fields as $field) {
-            $returned = $this->updateRow($field, $userDetails->__get($field), $userDetails->__get('email'));
+            $returned = $this->updateRow($field, $userDetails->$field, $userDetails->email);
             $returns = $returns.$returned;
         }
         return $returns;
