@@ -90,5 +90,17 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     $scope.user.school = schoolName;
                 });
             };
+
+            $scope.addFriend = function() {
+                loginService.getLoginId(function(id) {
+                    var currentUserId = id;
+                    var requestUserId = $routeParams.id;
+                    $http.get('profile/addFriend?currentUserId='+
+                            currentUserId+'&'+'requestUserId='+requestUserId)
+                        .success(function(data, status, header, config) {
+                            console.log(data);
+                        });
+                });
+            };
         }
 ]);

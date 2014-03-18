@@ -27,6 +27,16 @@ class ProfileController extends baseController {
         echo $result->fetch_row()[0];
     }
 
+    public function addFriend() {
+        $currentUserId = $_GET['currentUserId'];
+        $requestUserId = $_GET['requestUserId'];
+
+        $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+        $query = 'INSERT INTO Friendship(User_idUser, User_idUser1) VALUES(\''.$currentUserId.'\',\''.$requestUserId.'\');';
+        $result = mysqli_query($con, $query);
+        return var_dump($result);
+    }
+
     private function getResultAsJson($results) {
         $result = array();
         $row = mysqli_fetch_assoc($results);
