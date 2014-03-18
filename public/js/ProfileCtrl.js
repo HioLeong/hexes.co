@@ -5,11 +5,15 @@ hexApp.config(['$routeProvider',
                     templateUrl: 'partials/viewUserProfile.html',
                     controller: 'ProfileCtrl'
             })
+            .when('/profile', {
+                    templateUrl: 'partials/viewUserProfile.html',
+                    controller: 'ProfileCtrl'
+            })
             .when('/messages', {
                     templateUrl: 'partials/messagesInbox.html',
                     controller: 'ProfileCtrl'
             })
-            .when('/settings/:id', {
+            .when('/settings', {
                     templateUrl: 'partials/register.html',
                     controller: 'SettingsCtrl'
             })
@@ -22,8 +26,8 @@ hexApp.config(['$routeProvider',
             });
 }]);
 
-hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams',
-        function($scope, $http, $routeParams) {
+hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginService',
+        function($scope, $http, $routeParams, loginService) {
             $scope.user;
             $scope.genderCode = {
                 '0': 'Male',
@@ -38,11 +42,18 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams',
             };
 
             $scope.getUser = function() {
-                    $http.post('/getUser/' + $routeParams.id)
+                loginService.getLoginId(function(id) {
+                    var getId = $routeParams.id || id;
+                    if (($routeParams.id == id) || (!$routeParams.id)) {
+                        $('#friendStatus').hide();
+                    }
+
+                    $http.get('/profile/getUserDetails/' + getId)
                     .success(function(data, status, headers, config) {
                         $scope.user = data;
-                        console.log(data);
                     });
+
+                });
             };
 
             $scope.getGenderFromCode = function(genderCode) {

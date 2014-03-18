@@ -11,7 +11,7 @@ hexApp.factory('loginService', ['$rootScope', '$http',
                     e(data);
                 })
                 .error(function(data, status, header, config) {
-                    // Error Handler
+
                 });
             };
 

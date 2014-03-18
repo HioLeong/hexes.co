@@ -66,7 +66,7 @@
             <div class="nav-wrap">
                 <nav class="main-nav" role="navigation">
                     <ul class="unstyled list-hover-slide">
-                        <li><a href="#/profile/24">Profile</a></li>
+                        <li><a href="#/profile">Profile</a></li>
                         <li><a href="#/messages">Messages</a></li>
                         <li><a href="#">Friends</a></li>
                     </ul>

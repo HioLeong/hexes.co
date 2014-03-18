@@ -1,10 +1,12 @@
-hexApp.controller('SettingsCtrl', ['$scope', '$http', '$routeParams',
-        function($scope, $http, $routeParams) {
+hexApp.controller('SettingsCtrl', ['$scope', '$http', '$routeParams', 'loginService',
+        function($scope, $http, $routeParams, loginService) {
 
             $scope.init = function() {
-                $http.get('profile/getUserDetails/'+$routeParams.id)
-                .success(function(data, status, headers, config) {
-                    $scope.userDetails = data;
+                loginService.getLoginId(function(id) {
+                    $http.get('profile/getUserDetails/'+id)
+                    .success(function(data, status, headers, config) {
+                        $scope.userDetails = data;
+                    });
                 });
             };
 
