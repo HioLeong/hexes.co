@@ -68,6 +68,8 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                         $scope.getSchoolName();
                     });
 
+                    $scope.getFriendsOfFriend();
+
 
                 });
             };
@@ -108,6 +110,18 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     var currentUserId = id;
                     var requestUserId = $routeParams.id;
                     $http.get('profile/addFriend?currentUserId='+
+                            currentUserId+'&'+'requestUserId='+requestUserId)
+                        .success(function(data, status, header, config) {
+                            console.log(data);
+                        });
+                });
+            };
+
+            $scope.getFriendsOfFriend = function() {
+                loginService.getLoginId(function(id) {
+                    var currentUserId = id;
+                    var requestUserId = $routeParams.id;
+                    $http.get('profile/getFriendsOfFriend?currentUserId='+
                             currentUserId+'&'+'requestUserId='+requestUserId)
                         .success(function(data, status, header, config) {
                             console.log(data);

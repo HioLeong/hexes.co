@@ -52,8 +52,19 @@ class ProfileController extends baseController {
         }
     }
 
+    public function getFriendsOfFriend() {
+        $currentUserId = $_GET['currentUserId'];
+        $requestUserId = $_GET['requestUserId'];
+
+        $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+        $query = ' SELECT * FROM (SELECT * FROM Friendship WHERE User_idUser = '.$requestUserId.') AS T WHERE NOT EXISTS( SELECT * FROM Friendship WHERE Friendship.User_idUser1 = T.User_idUser1 AND Friendship.User_idUser = '.$currentUserId.'  );';
+        $results = mysqli_query($con, $query);
+        $row = $results->fetch_row();
+        echo json_encode($row);
+    }
+
     private function getResultAsJson($results) {
-        $result = array();
+        $result = array(); 
         $row = mysqli_fetch_assoc($results);
         return json_encode($row);
     }
