@@ -27,32 +27,7 @@
         <script src="js/ProfileCtrl.js"></script>
         <script src="js/SettingsCtrl.js"></script>
         <script src="js/LoginCtrl.js"></script>
-        <script type="text/javascript">
-window.onload = function() {
-            var sideMenuPress = true;
-            $("html").mousemove(function(){  
-                $("#content").mousemove(function(){
-                    sideMenuPress = false;
-                    //alert("hide now");	
-                    $('#skel-panels-defaultWrapper').fadeOut('fast');
-                    document.getElementById("skel-panels-defaultWrapper").style.display = "none";
-				  document.getElementById("skel-panels-defaultWrapper").style.opacity = 0;
-			});
-			if (sideMenuPress == true) {
-				$("#skel-panels-defaultWrapper").show();
-				document.getElementById("skel-panels-defaultWrapper").style.display = "block";
-				$('#skel-panels-defaultWrapper').fadeIn('slow');
-				document.getElementById("skel-panels-defaultWrapper").style.opacity = 100;
-				//alert("show now");	
-			}
-			sideMenuPress = true;	
-            });
-var leftColumnHeight = $('#leftColumn').height();
-		document.getElementById("rightColumn").style.height = leftColumnHeight-17+"px";
-}
-		</script>
-
-		<noscript>
+        		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
@@ -187,5 +162,29 @@ var leftColumnHeight = $('#leftColumn').height();
     
 
 </body>
+<script type="text/javascript">
+        window.onload = function() {
+            var sideMenuPress = true;
+            $("html").mousemove(function(){  
+                $("#content").mousemove(function(){
+                    sideMenuPress = false;
+                    //alert("hide now");	
+                    $('#skel-panels-defaultWrapper').fadeOut('fast');
+                    document.getElementById("skel-panels-defaultWrapper").style.display = "none";
+				  document.getElementById("skel-panels-defaultWrapper").style.opacity = 0;
+			});
+			if (sideMenuPress == true) {
+				$("#skel-panels-defaultWrapper").show();
+				document.getElementById("skel-panels-defaultWrapper").style.display = "block";
+				$('#skel-panels-defaultWrapper').fadeIn('slow');
+				document.getElementById("skel-panels-defaultWrapper").style.opacity = 100;
+				//alert("show now");	
+			}
+			sideMenuPress = true;	
+
+            });
+        }
+		</script>
+
 
                                                                                                                                                                                                                                                                                                                                                     </html>

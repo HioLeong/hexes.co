@@ -42,10 +42,24 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
             };
 
             $scope.getUser = function() {
+
+                // Fix the right panel height
+                var leftColumnHeight = $('#leftColumn').height();
+                document.getElementById("rightColumn").style.height = leftColumnHeight-17+"px";
+
                 loginService.getLoginId(function(id) {
                     var getId = $routeParams.id || id;
                     if (($routeParams.id == id) || (!$routeParams.id)) {
                         $('#friendStatus').hide();
+                    } else {
+                        // See if they are already friends/friended
+                        $http.get('profile/isFriends?currentUserId='+
+                            id+'&'+'requestUserId='+$routeParams.id)
+                        .success(function(data, status, headers, config) {
+                            if (data == 'friends') {
+                                $('#friendStatus').hide();
+                            }
+                        });
                     }
 
                     $http.get('/profile/getUserDetails/' + getId)
@@ -84,9 +98,7 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
             };
 
             $scope.getSchoolName = function() {
-                console.log('getting School Name');
                 $.post('profile/getSchoolNameByUserId', 'id='+$scope.user.idUser, function(schoolName) {
-                    console.log(schoolName);
                     $scope.user.school = schoolName;
                 });
             };

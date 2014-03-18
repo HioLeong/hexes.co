@@ -34,7 +34,22 @@ class ProfileController extends baseController {
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
         $query = 'INSERT INTO Friendship(User_idUser, User_idUser1) VALUES(\''.$currentUserId.'\',\''.$requestUserId.'\');';
         $result = mysqli_query($con, $query);
+        mysqli_close($con);
         return var_dump($result);
+    }
+
+    public function isFriends() {
+        $currentUserId = $_GET['currentUserId'];
+        $requestUserId = $_GET['requestUserId'];
+        $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+        $query = 'SELECT * FROM Friendship WHERE User_idUser=\''.$currentUserId.'\' AND User_idUser1=\''.$requestUserId.'\';';
+        $result = mysqli_query($con, $query);
+        $row = $result->fetch_row();
+        if ($row == NULL ) {
+            echo 'not friends';
+        } else {
+            echo 'friends';
+        }
     }
 
     private function getResultAsJson($results) {
