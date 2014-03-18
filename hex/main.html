@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE HTML style="height: 100% !important;">
 <!--
 	Striped 2.5 by HTML5 Up!
 	html5up.net | @n33co
@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="css/userProfile.css" />
         <link rel="stylesheet" href="css/friendSearchResults.css" />
         <link rel="stylesheet" href="css/messagesInbox.css" />
+        <link rel="stylesheet" href="css/personalNewsFeed.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
@@ -38,16 +39,17 @@
 	<body class="left-sidebar">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+			<div id="wrapper" style="overflow: hidden !important;">
 			                       
 				<!-- Content -->
-					<div id="content" style="display: block; overflow: hidden !important;">
+					<div id="content" style="display: block; height: 100% !important; overflow: scroll !important;">
                     
                     <div id="switcherWrapper">
                         
                         <!-- Viewing Profiles -->
-                        <div class="viewProfiles" style="display: none; width: 100%; height: 100;">
-                        	<div id="leftColumn" style="float: left; width: 32%">
+                        <div class="viewProfiles" style="display: block; width: 100%;">
+                          <div id="topRowBlock" style="display: block;">
+                        	<div id="leftColumn" style="float: left; width: 32%;">
                             	<div id="profileCard">
                                 	<div id="viewuserprofile">
                     					<img src="images/facebook.png" class="profile-img">
@@ -84,13 +86,126 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="rightColumn" style="float: right; width: 68%">
-                                <div id="viewProfileNewsFeed" style="height:50;">
-                                
+                            
+                            <div id="rightColumn" style="float: right; height: 10%; width: 62%; margin-left: 3%;">
+                                <div id="viewProfileNewsFeed" style="">
+                                	<!-- Personal News Feed -->
+                                    <div class="newsWrapper" style="height: 100%; overflow:scroll;">  
+                                      <header class="module-location">
+                                        <ul class="location-quickstats">
+                                          <li class="rating-negative">
+                                            <i>Negative: </i>
+                                            <span>27</span>
+                                          </li>
+                                          <li class="rating-positive">
+                                            <i>Positive: </i>
+                                            <span>82</span>
+                                          </li>
+                                          <li class="rating-total">
+                                            <i>Negative: </i>
+                                            <span>109</span>
+                                          </li>
+                                        </ul>
+                                        <div class="location-title rating-positive">
+                                          <h2>Pun Space</h2>
+                                          <time>today</time>
+                                        </div>
+                                      </header>
+                                      <ul class="module-history">
+                                        <li class="rating-negative memo-yep">
+                                          <h3>Book a flight to Melbourne</h3>
+                                          <time>5 minutes ago</time>
+                                          <i>Has a memo attached</i>
+                                        </li>
+                                        <li class="rating-negative">
+                                          <h3>Grab some last Pad Thai w/ Yi</h3>
+                                          <time>35 minutes ago</time>
+                                          <i></i>
+                                        </li>
+                                        <li class="rating-positive">
+                                          <h3>Clear desk at Pun Space</h3>
+                                          <time>1 hour ago</time>
+                                          <i></i>
+                                        </li>
+                                        <li class="rating-positive">
+                                          <h3>Pick up w&t visa from embassy</h3>
+                                          <time>1 hour ago</time>
+                                          <i></i>
+                                        </li>
+                                        <li class="rating-negative memo-yep">
+                                          <h3>Clear desk at Pun Space</h3>
+                                          <time>2 hours ago</time>
+                                          <i>Has a memo attached</i>
+                                        </li>
+                                        <li class="rating-negative memo-yep">
+                                          <h3>Call the landlady</h3>
+                                          <time>2 hours ago</time>
+                                          <i>Has a memo attached</i>
+                                        </li>
+                                        <li class="rating-positive">
+                                          <h3>Fix #rispen bug on WP8</h3>
+                                          <time>3 hours ago</time>
+                                          <i></i>
+                                        </li>
+                                        <li class="rating-positive">
+                                          <h3>Talk business w/ Emma</h3>
+                                          <time>3 hours ago</time>
+                                          <i></i>
+                                        </li>
+                                        <li class="rating-positive memo-yep">
+                                          <h3>Write Markup for history view</h3>
+                                          <time>4 hours ago</time>
+                                          <i></i>
+                                        </li>
+                                        <li class="rating-positive">
+                                          <h3>Look up support for position: sticky</h3>
+                                          <time>4 hours ago</time>
+                                          <i></i>
+                                        </li>
+                                        <li class="rating-positive memo-yep">
+                                          <h3>Skype call w/ Thomas</h3>
+                                          <time>6 hours ago</time>
+                                          <i></i>
+                                        </li>
+                                        <li class="rating-negative" style="overflow: scroll;">
+                                          <h3>Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen</h3>
+                                          <time>6 hours ago</time>
+                                          <i>Has a memo attached</i>
+                                        </li>
+                                        <li class="rating-negative">
+                                          <h3>Add geo-location support to #rispen</h3>
+                                          <time>7 hours ago</time>
+                                          <i>Has a memo attached</i>
+                                        </li>
+                                        <li class="rating-negative">
+                                          <h3>Add geo-location support to #rispen</h3>
+                                          <time>7 hours ago</time>
+                                          <i>Has a memo attached</i>
+                                        </li>
+                                        <li class="rating-negative">
+                                          <h3>Add geo-location support to #rispen</h3>
+                                          <time>7 hours ago</time>
+                                          <i>Has a memo attached</i>
+                                        </li>
+                                        <li class="rating-negative">
+                                          <h3>Add geo-location support to #rispen</h3>
+                                          <time>7 hours ago</time>
+                                          <i>Has a memo attached</i>
+                                        </li>
+                                      </ul>
+                                    </div>
                                 </div>
                             </div>
-                        <!-- CLOSE Viewing Profiles -->    
+                          </div>
+                          <div id="bottomRow" style="clear:both;">
+                            	<a>Profile Friends Go Here</a>
+                          </div>
+                        <!-- CLOSE Viewing Profiles -->  
                         </div>
+
+                        	
+                            
+                          
                         
               <!-- Personal Profile -->
               <div class="userProfile" style="display: none;">
@@ -229,7 +344,7 @@
               </div>
                                                   
               <!-- Messages Inbox -->
-              <div id="inboxContainer" style="display: block;">
+              <div id="inboxContainer" style="display: none;">
                 <div class="content">
                   <div class="second-nav">
                     <div class="inboxHeader">
@@ -325,6 +440,25 @@
                 </div>
               </div>
               
+              <!-- Messages Send Message Partial -->
+              <div style="display: none;">
+                <div>
+                	<input id="sendMessageTo" >
+                </div>
+                <div id="messageInputField" style="float: left; width:80%;">
+                    <textarea id="Field4" name="Field4" spellcheck="true" style="height: 100%; width: 100% !important; resize: none; margin: 20px; position: relative;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;"></textarea>
+                </div>
+                <div id="mSendButton" style="float: right;width:20%;">
+                    <div id="messagesSendButton">
+                        <a id="friendStatus" href="#"><span>Send</span></a>
+                    </div>
+                </div>
+              </div>
+              
               <!-- Hex Friends Container -->
               <div id="friendScrollable" style="display: none;">
                 <div class="friendsContainer">
@@ -347,6 +481,7 @@
                 </div>
                 
               </div>
+              
               
               
 <!-- switcher wrapper close-->
@@ -586,7 +721,7 @@
 		var width = document.getElementById('switcherWrapper').offsetWidth;
 		console.log("switcherWrapper" + width);
 		
-		/*width = width/2;*/
+		//.width = width/2;
 		
 		width = width / 150;
 		width = width - 3;
@@ -681,10 +816,35 @@
 		}
 		
 		var browserHeight = $(window).height();
-		document.getElementById("messagesScrollViewer").style.height = browserHeight - 200+"px";
+		document.getElementById("messagesScrollViewer").style.height = browserHeight - 200+"px";	
+		/*var elementLCH = $('#leftColumn');
+		var leftColumnHeight = elementLCH.prop('scrollHeight');*/
 		
-		//alert(browserHeight);
-		//$(".scroll").css('height',560);
+		var leftColumnHeight = $('#leftColumn').height();
+		document.getElementById("rightColumn").style.height = leftColumnHeight-17+"px";
+		
+		</script>
+       
+        
+        <script type="text/javascript">
+		var sideMenuPress = true;
+		$("html").mousemove(function(){  
+			$("#content").mousemove(function(){
+				  sideMenuPress = false;
+				  //alert("hide now");	
+				  $('#skel-panels-defaultWrapper').fadeOut('fast');
+				  document.getElementById("skel-panels-defaultWrapper").style.display = "none";
+				  document.getElementById("skel-panels-defaultWrapper").style.opacity = 0;
+			});
+			if (sideMenuPress == true) {
+				$("#skel-panels-defaultWrapper").show();
+				document.getElementById("skel-panels-defaultWrapper").style.display = "block";
+				$('#skel-panels-defaultWrapper').fadeIn('slow');
+				document.getElementById("skel-panels-defaultWrapper").style.opacity = 100;
+				//alert("show now");	
+			}
+			sideMenuPress = true;	
+		});
 		</script>
 
 </html>
