@@ -21,6 +21,8 @@ class SettingsController extends BaseController {
         /* Set all post fields */
         ini_set('memory_limit', '-1');
         $userObj = json_decode($_POST['data']);
+        echo $this->getSchoolIdByName('whitgift');
+        return;
         return $this->updateUserDetails($userObj, $fields);
     }
 
@@ -35,6 +37,10 @@ class SettingsController extends BaseController {
     }
 
     private function updateRow($property, $value, $email) {
+        if ($property == 'school') {
+            $con = mysqli('localhost', 'root', 'root', 'HexDatabase');
+        }
+
         if (($property != NULL) && ($value != NULL)) {
             $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
             $query = 'UPDATE User SET '.$property.'=\''.$value.'\' WHERE email=\''.$email.'\';';
@@ -43,5 +49,23 @@ class SettingsController extends BaseController {
         } else {
             return '';
         }
+    }
+
+    private function getSchoolIdByName($schoolName) {
+            $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+            $query = 'SELECT * FROM School WHERE schoolName = \''.$schoolName.'\';';
+            $result = mysqli_query($con, $query);
+
+            $row = $result->fetch_row()[0];
+            //If school does not exist, insert into table
+            if ($row == "") {
+                $query = 'INSERT INTO School(schoolName) VALUES(\''.$schoolName.'\');';
+                mysqli_query($con, $query);
+                $query = 'SELECT * FROM School WHERE schoolName = \''.$schoolName.'\';';
+                $result = mysqli_query($con, $query);
+                $row = $result->fetch_row()[0];
+            }
+
+            return $row;
     }
 }
