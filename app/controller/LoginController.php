@@ -15,7 +15,7 @@ class LoginController extends BaseController {
         
         if ((!$data->email) || (!$data->password)) {
         }  else {
-            echo $this->isValidUser($email, $password);
+            echo $this->isValidUser($data->email, $data->password);
         }
     }
 
@@ -25,12 +25,12 @@ class LoginController extends BaseController {
     private function isValidUser($email, $password) {
         //TODO: Refactor to SQL helper class
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
-        $query = 'SELECT password FROM User WHERE email=\''.$email.'\'';
+        $query = 'SELECT idUser, password FROM User WHERE email=\''.$email.'\'';
         $results = mysqli_query($con, $query);
         $row = mysqli_fetch_array($results);
 
-        if (strcmp($row['password'], $password)) {
-            return 'valid';
+        if (strcmp($row['password'], $password) == 0) {
+            return $row['idUser'];
         } else {
             return 'invalid';
         }

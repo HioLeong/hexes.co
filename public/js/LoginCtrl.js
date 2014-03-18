@@ -19,7 +19,6 @@ hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService',
 
                 var data = 'data='+JSON.stringify(loginDetails);
                 $.post('login/isValidUserFromPost', data, function(data) {
-                    console.log(data);
                     if (data=="invalid") {
                         $("input[type='submit']").click(function(){
                             event.preventDefault();
@@ -27,7 +26,8 @@ hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService',
                             $(".loginWarning").fadeIn(200);
                         });
                     } else {
-                        // Log on
+                        //Successful
+                        loginService.setLoginId(data);
                     }
                 });
             }

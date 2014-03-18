@@ -10,6 +10,7 @@ hexApp.factory('loginService', ['$rootScope',
             };
 
             loginService.getLoginId = function() {
+                return loginService.id;
             };
 
             loginService.logOff = function() {
