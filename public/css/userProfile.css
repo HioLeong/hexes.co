@@ -4,7 +4,7 @@
 
 .userProfile {
 	position: relative;
-	z-index: 100;
+	z-index: 1;
 }
 
 #userprofile {
@@ -98,25 +98,19 @@ body {
   margin: 0px auto;
   position: relative;
   width: auto;
-  z-index: 101;
 }
-
 .register .wrap form fieldset .toggle.small {
   width: 100px;
 }
-
 .register .wrap form fieldset .toggle .toggle-input {
   display: none;
 }
-
 .register .wrap form fieldset .toggle .toggle-input:checked + .toggle-label-left {
   background: #007fff;
 }
-
 .register .wrap form fieldset .toggle .toggle-input:checked + .toggle-label-right {
   background: #333;
 }
-
 .register .wrap form fieldset .toggle .toggle-input:checked + .toggle-label {
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
@@ -125,7 +119,6 @@ body {
   color: #fff;
   font-weight: bold;
 }
-
 .register .wrap form fieldset .toggle .toggle-input:not(:checked) + .toggle-label-on ~ .toggle-selection {
   background: #468C00;
 }
@@ -265,7 +258,6 @@ body {
 
 #leftColumn a {
 	overflow:hidden; /* comment this property */
-	
 	margin: 0px auto;
 	height: 50px;
 	width: 100%;
@@ -279,6 +271,7 @@ body {
 	box-shadow:rgba(0,0,0,.15) 0 1px 2px;
 	transition: all 1s;
 	outline:none;
+	border-radius: 10px !important;
 }
 #leftColumn a:hover {
 	box-shadow:rgba(0,0,0,.3) 0 8px 25px, rgba(0,0,0,.2)0 1px;
