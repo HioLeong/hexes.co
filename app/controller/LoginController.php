@@ -48,6 +48,11 @@ class LoginController extends BaseController {
         }
     }
 
+    public function logOut() {
+        session_destroy();
+        echo 'loggedOut';
+    }
+
     public function registerUserFromPost() {
         $email = Input::get('email');
         $password = Input::get('password');
