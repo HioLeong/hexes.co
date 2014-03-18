@@ -11,23 +11,16 @@ class SettingsController extends BaseController {
     public function index() {
     }
 
-    private function setField($userObj, $property) {
-        $userObj->__set($property, Input::get($property));
-    }
-
     public function updateUserDetailsFromPost() {
         $fields = array('email', 'password', 'firstName', 'surname', 'otherName', 'dateOfBirth', 'relStatus', 
             'gender', 'school', 'currentLocation');
         /* Set all post fields */
         ini_set('memory_limit', '-1');
         $userObj = json_decode($_POST['data']);
-        echo $this->getSchoolIdByName('whitgift');
-        return;
         return $this->updateUserDetails($userObj, $fields);
     }
 
     public function updateUserDetails($userDetails, $fields) {
-        //TODO: Set the correct query for updating 
         $returns = '';
         foreach ($fields as $field) {
             $returned = $this->updateRow($field, $userDetails->$field, $userDetails->email);
@@ -37,8 +30,13 @@ class SettingsController extends BaseController {
     }
 
     private function updateRow($property, $value, $email) {
-        if ($property == 'school') {
-            $con = mysqli('localhost', 'root', 'root', 'HexDatabase');
+        if (strcmp($property, 'school') == 0) {
+            $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+            $schoolId = $this->getSchoolIdByName($value);
+            $userId = $this->getUserIdByEmail($email);
+            $query = 'INSERT INTO UserSchool(User_idUser, School_idSchool) VALUES(\''.$userId.'\',\''.$schoolId.'\');';
+            $result = mysqli_query($con, $query); 
+            return var_dump($result);
         }
 
         if (($property != NULL) && ($value != NULL)) {
@@ -49,6 +47,13 @@ class SettingsController extends BaseController {
         } else {
             return '';
         }
+    }
+
+    private function getUserIdByEmail($email) {
+            $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+            $query = 'SELECT idUser FROM User WHERE email=\''.$email.'\';';
+            $result = mysqli_query($con, $query);
+            return $result->fetch_row()[0];
     }
 
     private function getSchoolIdByName($schoolName) {

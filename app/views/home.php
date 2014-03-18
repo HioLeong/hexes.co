@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE HTML style="height: 100% !important;">
 
 <!--
 	Striped 2.5 by HTML5 Up!
@@ -40,6 +40,7 @@
         <link rel="stylesheet" href="css/messagesInbox.css" />
         <link rel="stylesheet" href="css/loginBox.css"/>
         <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/personalNewsFeed.css"/>
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->

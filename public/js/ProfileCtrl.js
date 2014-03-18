@@ -51,7 +51,9 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     $http.get('/profile/getUserDetails/' + getId)
                     .success(function(data, status, headers, config) {
                         $scope.user = data;
+                        $scope.getSchoolName();
                     });
+
 
                 });
             };
@@ -66,7 +68,6 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
 
             $scope.getFormattedDate = function(dateString) {
                 var date = new Date(dateString);
-                console.log(date.getDate());
                 month = "January,February,March,April,May,June,July,August,September,October,November,December"
                 .split(",")[date.getMonth()];
                 return date.getDate() + $scope.nth(date.getDate()) + ' ' + month + ', ' + date.getFullYear();
@@ -80,6 +81,14 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                 case 3:  return "rd";
                 default: return "th";
                 }
+            };
+
+            $scope.getSchoolName = function() {
+                console.log('getting School Name');
+                $.post('profile/getSchoolNameByUserId', 'id='+$scope.user.idUser, function(schoolName) {
+                    console.log(schoolName);
+                    $scope.user.school = schoolName;
+                });
             };
         }
 ]);
