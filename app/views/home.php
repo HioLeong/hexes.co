@@ -52,11 +52,11 @@
       <div id="sideMenuContainer">
         <nav>
           <ul>
-            <li ><a href="#/profile">Profile</a></li>
+            <li class="mobileTwoColumn"><a href="#/profile">Profile</a></li>
             <p class="navSpaces"></p>
             <li class="mobileTwoColumn"><a href="#/friends">Friends</a></li>
             <p class="navSpaces"></p>
-            <li class="current"><a href="#/messages">Messages</a></li>
+            <li class="mobileTwoColumn current"><a href="#/messages">Messages</a></li>
             <p class="navSpaces"></p>
             <li class="mobileTwoColumn"><a href="#">Photos</a></li>
             <p class="navSpaces"></p>

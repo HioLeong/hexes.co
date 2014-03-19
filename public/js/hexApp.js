@@ -31,3 +31,11 @@ hexApp.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('((');
     $interpolateProvider.endSymbol('))');
 });
+
+
+window.onload = function() {
+    $('li.mobileTwoColumn').click(function(e) {
+        $('li.current').removeClass('current');
+        $(this).addClass('current');
+    });
+};
