@@ -44,22 +44,6 @@ aside{
 	background: url(../images/header1.png);
 }
 
-header{
-	float:left;
-	width:calc(93% - 230px);
-	width:-moz-calc(93% - 230px);
-	width:-webkit-calc(93% - 230px);
-	padding-left:calc(230px + 7%);
-	padding-left:-moz-calc(230px + 7%);
-	padding-left:-webkit-calc(230px + 7%);
-	padding-top:30px;
-	padding-bottom:30px;
-	background-color:rgba(247, 247, 247, .9);
-	border-bottom:#2b99ff 2px solid;
-	position:fixed;
-	z-index:300;	
-}
-
 article{
 	float:left;
 	position: relative;
@@ -67,8 +51,8 @@ article{
 	width:calc(82% - 230px);
 	width:-moz-calc(82% - 230px);
 	width:-webkit-calc(82% - 230px);
-	width: 100%;
-	
+	width: 100%;	
+	height: 100%;
 	/*background:url(../images/trial3.jpg);*/
 }
 
@@ -89,14 +73,12 @@ article::before {
 	margin-left: -moz-calc(230px + 2%);
 	margin-left: -webkit-calc(230px + 2%);
 	
-	/*margin-right: 9%;
-	padding-top:200px;
-	padding-bottom: 150px;*/
+	margin-top: 1%;
 	
 	width:calc(95% - 230px);
 	width:-moz-calc(95% - 230px);
 	width:-webkit-calc(95% - 230px);
-	height: 100%;
+	height: 97%;
 }
 
 nav{
@@ -108,7 +90,7 @@ nav ul{
 	background: url(../images/header1.png) !important;
 }
 
-.navSpaces {
+p .navSpaces {
 	height: 20px;
 }
 
@@ -130,7 +112,7 @@ nav ul li a:hover {
 	color:#F7F7F7;
 }
 
-h1 {
+/*h1 {
 	font-family:Arial, Helvetica, sans-serif;
 	color:white;
 	margin-bottom:50px;
@@ -146,9 +128,14 @@ h2 {
 	-moz-transition: font-size 0.3s;
 	-o-transition: font-size 0.3s;
 	transition: font-size 0.3s;
-}
+}*/
 
 @media (max-width: 850px) {
+	article {
+		height:calc(100% - 54px) !important;
+		height:-moz-calc(100% - 54px) !important;
+		height:-webkit-calc(100% - 54px) !important;	
+	}
   #hexLogo {
 	height: 50px !important;
 	padding-top: 2px;
@@ -213,7 +200,9 @@ h2 {
 		width:90%;
 		margin-left: 5%;
 		margin-right: 5%;
-		padding-top: 50px;
+		margin-top: 0;
+		height: 100%;
+		overflow: hidden !important;
 	}
 	#sideMenuContainer nav {
 		width:calc((100%)) !important;
@@ -232,7 +221,7 @@ h2 {
 		margin-top: -44px !important;
 		margin-right: 3%;
 	}
-	.navSpaces {
+	p .navSpaces {
 		height: 3px;
 	}
 	nav ul {
