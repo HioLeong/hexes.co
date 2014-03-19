@@ -10,7 +10,6 @@
 <script src="js/main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/jquery.min.js"></script>
-		<script src="js/init.js"></script>
 		<script src="js/angular.js"></script>
 		<script src="js/angular-route.js"></script>
 
@@ -29,6 +28,7 @@
         <link rel="stylesheet" href="css/hexFriends.css" />
         <link rel="stylesheet" href="css/userProfile.css" />
         <link rel="stylesheet" href="css/friendSearchResults.css" />
+        <link rel="stylesheet" href="css/friends.css" />
         <link rel="stylesheet" href="css/messagesInbox.css" />
         <link rel="stylesheet" href="css/loginBox.css"/>
         <link rel="stylesheet" href="css/style.css"/>

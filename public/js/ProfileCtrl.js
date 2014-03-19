@@ -22,7 +22,7 @@ hexApp.config(['$routeProvider',
                     controller: 'LoginCtrl'
             })
             .when('/friends/:id', {
-                    templateUrl: 'partials/login.html',
+                    templateUrl: 'partials/friends.html',
                     controller: 'FriendsCtrl'
             })
             .otherwise({
