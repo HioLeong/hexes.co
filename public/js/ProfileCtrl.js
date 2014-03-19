@@ -21,6 +21,10 @@ hexApp.config(['$routeProvider',
                     templateUrl: 'partials/login.html',
                     controller: 'LoginCtrl'
             })
+            .when('/friends/:id', {
+                    templateUrl: 'partials/login.html',
+                    controller: 'FriendsCtrl'
+            })
             .otherwise({
                     redirectTo: '/login'
             });

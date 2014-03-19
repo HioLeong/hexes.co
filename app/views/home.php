@@ -27,7 +27,8 @@
         <script src="js/ProfileCtrl.js"></script>
         <script src="js/SettingsCtrl.js"></script>
         <script src="js/LoginCtrl.js"></script>
-        		<noscript>
+        <script src="js/FriendsCtrl.js"></script>
+                <noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
