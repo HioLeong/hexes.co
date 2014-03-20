@@ -3,7 +3,11 @@
 class MessagesController extends BaseController {
 
     public function index() {
+    }
 
+    public function sendMessageByPost() {
+        $data = json_decode($_POST['data']);
+        echo $this->sendMessage($data->message, $data->fromId, $data->toId);
     }
 
     /**
@@ -12,8 +16,8 @@ class MessagesController extends BaseController {
     public function sendMessage($message, $fromId, $toId) {
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
         //TODO: Add message type and current date
-        $query = 'INSERT INTO Message(message, idUserFrom, idUserTo) VALUES(\''.$message.
-            '\',\''.$fromId.'\',\''.$toId.'\');';
+        $query = 'INSERT INTO Message(message, idUserFrom, idUserTo, date) VALUES(\''.$message.
+            '\',\''.$fromId.'\',\''.$toId.'\', NOW());';
         $results = mysqli_query($con, $query);
         return var_dump($results);
     }

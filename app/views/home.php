@@ -66,6 +66,8 @@
             <li><a href="#">Blogs</a></li>
             <p class="navSpaces"></p>
             <li class="mobileTwoColumn"><a href="#">Settings</a></li>
+            <p class="navSpaces"></p>
+            <li class="mobileTwoColumn"><a href="#">Log Off</a></li>
           </ul>
         </nav>
     

@@ -27,7 +27,7 @@
                                 <label class="messageLabel" for="1"></label>
                           </div>
                           <div class="profileImage">
-                            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/peterlandt/128.jpg"/>
+                            <img src=""/>
                           </div>
                           <div class="metadata">
                             <p class="from">Jake Rodway</p><br/>
@@ -44,7 +44,7 @@
                                 <label class="messageLabel" for="2"></label>
                           </div>
                           <div class="profileImage">
-                            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/osvaldas/128.jpg"/>
+                            <img src=""/>
                           </div>
                           <div class="metadata">
                             <p class="from">Jack Woolley</p><br/>
@@ -57,11 +57,16 @@
                   <div class="viewer">
                     <div class="scroll" id="messagesScrollViewer" style="height: px;">
                       <div class="header" id="email">
-                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/osvaldas/128.jpg" style="border-radius:5px;" />
+                        <img src="" style="border-radius:5px;" />
                         <p class="subject">Subject: Recent Project</p>
                         <p class="message">To: Me, Jack Woolley, Alexis Zaninetti</p>
                       </div>
+
+                      <div ng-repeat="m in messages">
+                          <p class="(( getBubbleText(m.idUserFrom) ))"><Strong><a style="float: right">(( getName(m.idUserFrom) )) | (( m.date))</a></Strong>(( m.message ))</p>
+                      </div>
                       
+                      <!--
                       <p class="bubble-me"><Strong><a style="float: right;">David | 17.32pm</a></Strong>Check this out</p>
 <p class="bubble-other"><Strong><a style="float: right;">Michael | 18.45</a></Strong>Yes?</p>
 <p class="bubble-me"><Strong><a style="float: right;">David | 18.46pm</a></Strong>CSS only chat bubbles. No images at all.</p>
@@ -69,6 +74,7 @@
 <p class="bubble-other"><Strong><a style="float: right;">Michael | 18.49pm</a></Strong>How about the long text long long long long long long long long</p>
 <p class="bubble-me"><Strong><a style="float: right;">David | 19.01pm</a></Strong>ok ok</p>
 <p class="bubble-me"><Strong><a style="float: right;">David | 19.02pm</a></Strong>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    -->
                       
                     </div>
                     <div class="messageInput">
@@ -77,11 +83,11 @@
     top:0;
     left:0;
     right:0;
-    bottom:0;"></textarea>
+    bottom:0;" ng-model="message"></textarea>
                         </div>
                         <div id="mSendButton" style="float: right;width:20%;">
-                        	<div id="messagesSendButton">
-                        		<a id="friendStatus" href="#"><span>Send</span></a>
+                            <div id="messagesSendButton">
+                                <a id="friendStatus" ng-click="sendMessage()"><span>Send</span></a>
                             </div>
                         </div>
                     </div>
