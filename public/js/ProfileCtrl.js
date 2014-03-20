@@ -25,6 +25,10 @@ hexApp.config(['$routeProvider',
                     templateUrl: 'partials/friends.html',
                     controller: 'FriendsCtrl'
             })
+            .when('/photos', {
+                    templateUrl: 'partials/uploadPhotos.html',
+                    controller: 'PhotosCtrl'
+            })
             .otherwise({
                     redirectTo: '/login'
             });
