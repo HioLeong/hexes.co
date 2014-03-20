@@ -19,6 +19,9 @@ hexApp.controller('MessagesCtrl', ['$scope', '$http', '$routeParams', 'loginServ
                     var array0 = jQuery.parseJSON(data[0]);
                     var array1 = jQuery.parseJSON(data[1]);
                     $scope.messages = array0.concat(array1);
+                    $scope.messages.sort(function(a,b){
+                        return new Date(a.date) - new Date(b.date);
+                    });
                 });
             };
 
