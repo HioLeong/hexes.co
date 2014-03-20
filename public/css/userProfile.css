@@ -25,8 +25,8 @@
 .profile-text {
   margin-top: -137px;
   padding: 5.5em 1.5em .5em 1.5em;
-  background: white;
-  border-radius: 3px;
+  background: rgba(0, 0, 0, .5);
+  border-radius: 20px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -83,35 +83,68 @@ body {
 .register .button {
   background: #0099ff;
 }
-.register .wrap {
-  margin-left: 8.25%;
-  width: 33%;
+.register {
+  height:calc(100% - 310px);
+  height:-moz-calc(100% - 310px);
+  height:-webkit-calc(100% - 310px);
+  width: 100%;
 }
-.register .wrap form fieldset {
-  background: #fff;
+
+.register input {
+	border-radius: 5px;
 }
-.register .wrap form fieldset .toggle {
-  background: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+
+.register input {
+  display: block;
+  font-size: 14px;
+  padding: 10px 8px 10px 8px;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0, .55), 0px 1px 1px rgba(255,255,255,.5);
+  border: 1px solid #666;
+}
+
+.register input {
+  opacity: 0.5;
+  background: #000;
+}
+
+.register input:hover,
+.register input:focus {
+  opacity: .7;
+  color:#08c;
+  border: 1px solid #08c;
+   box-shadow: 0px 1px 0px rgba(255,255,255,.25),inset 0px 3px 6px rgba(0,0,0,.25);
+}
+
+.register input[type="text"]:focus,
+.register input[type="password"]:focus {
+  box-shadow: inset 0 1px 2px rgba(255,255,255, .35), 0px 1px 15px rgba(0,246,255,.5);
+  border: 1px solid #08c;
+  outline: none;
+}
+
+.register form fieldset {
+  /*background: #fff;*/
+}
+.register form fieldset .toggle {
   height: 40px;
   margin: 0px auto;
   position: relative;
   width: auto;
 }
-.register .wrap form fieldset .toggle.small {
+.register form fieldset .toggle.small {
   width: 100px;
 }
-.register .wrap form fieldset .toggle .toggle-input {
+.register form fieldset .toggle .toggle-input {
   display: none;
 }
-.register .wrap form fieldset .toggle .toggle-input:checked + .toggle-label-left {
+.register form fieldset .toggle .toggle-input:checked + .toggle-label-left {
   background: #007fff;
 }
-.register .wrap form fieldset .toggle .toggle-input:checked + .toggle-label-right {
+.register form fieldset .toggle .toggle-input:checked + .toggle-label-right {
   background: #333;
 }
-.register .wrap form fieldset .toggle .toggle-input:checked + .toggle-label {
+.register form fieldset .toggle .toggle-input:checked + .toggle-label {
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -119,10 +152,10 @@ body {
   color: #fff;
   font-weight: bold;
 }
-.register .wrap form fieldset .toggle .toggle-input:not(:checked) + .toggle-label-on ~ .toggle-selection {
+.register form fieldset .toggle .toggle-input:not(:checked) + .toggle-label-on ~ .toggle-selection {
   background: #468C00;
 }
-.register .wrap form fieldset .toggle .toggle-input:checked + .toggle-label-on ~ .toggle-selection {
+.register form fieldset .toggle .toggle-input:checked + .toggle-label-on ~ .toggle-selection {
   left: 50%;
   right: 2px;
   -moz-transition: all 0.15s ease-out;
@@ -130,8 +163,7 @@ body {
   transition: all 0.15s ease-out;
   -webkit-transition: all 0.15s ease-out;
 }
-.register .wrap form fieldset .toggle .toggle-label {
-  color: #aaa;
+.register form fieldset .toggle .toggle-label {
   cursor: pointer;
   float: left;
   font-size: 15px;
@@ -139,22 +171,21 @@ body {
   line-height: 38px;
   position: relative;
   text-align: center;
-  width: 50%;
   z-index: 2;
 }
-.register .wrap form fieldset .toggle .toggle-label.full {
+.register form fieldset .toggle .toggle-label.full {
   width: 100%;
 }
-.register .wrap form fieldset .toggle .toggle-label.toggle-label-off {
+.register form fieldset .toggle .toggle-label.toggle-label-off {
   padding-left: 2px;
 }
-.register .wrap form fieldset .toggle .toggle-label.toggle-label-on {
+.register form fieldset .toggle .toggle-label.toggle-label-on {
   padding-right: 2px;
 }
-.register .wrap form fieldset .toggle .toggle-label.off {
+.register form fieldset .toggle .toggle-label.off {
   opacity: .5;
 }
-.register .wrap form fieldset .toggle .toggle-selection {
+.register form fieldset .toggle .toggle-selection {
   background: #007fff;
   border-radius: 3px;
   display: block;
@@ -167,12 +198,12 @@ body {
   width: auto;
   z-index: 1;
 }
-.register .wrap form fieldset .toggle .toggle-selection.full {
+.register form fieldset .toggle .toggle-selection.full {
   background: #468c00;
   left: 2px;
   right: 2px;
 }
-.register .wrap form fieldset .toggle .publicnotice {
+.register form fieldset .toggle .publicnotice {
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -186,7 +217,7 @@ body {
   top: -45px;
   width: 130px;
 }
-.register .wrap form fieldset .toggle .publicnotice:after {
+.register form fieldset .toggle .publicnotice:after {
   content: '';
   display: block;
   height: 0;
@@ -194,25 +225,25 @@ body {
   top: 55px;
   width: 0;
 }
-.register .wrap form fieldset .toggle .publicnotice.left {
+.register form fieldset .toggle .publicnotice.left {
   left: 0px;
 }
-.register .wrap form fieldset .toggle .publicnotice.left:after {
+.register form fieldset .toggle .publicnotice.left:after {
   border-bottom: 10px solid transparent;
   border-left: 10px solid #ee8822;
   border-top: 10px solid transparent;
   right: -9px;
 }
-.register .wrap form fieldset .toggle .publicnotice.right {
+.register form fieldset .toggle .publicnotice.right {
   right: 0px;
 }
-.register .wrap form fieldset .toggle .publicnotice.right:after {
+.register form fieldset .toggle .publicnotice.right:after {
   border-bottom: 10px solid transparent;
   border-right: 10px solid #ee8822;
   border-top: 10px solid transparent;
   left: -9px;
 }
-.register .wrap form fieldset .toggle .publicnotice.on {
+.register form fieldset .toggle .publicnotice.on {
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -220,18 +251,18 @@ body {
   background: #ee8822;
   opacity: 1;
 }
-.register .wrap form fieldset .toggle .publicnotice.on.left {
+.register form fieldset .toggle .publicnotice.on.left {
   left: -140px;
 }
-.register .wrap form fieldset .toggle .publicnotice.on.right {
+.register form fieldset .toggle .publicnotice.on.right {
   right: -140px;
 }
-.register .wrap form fieldset .toggle .publicnotice h5 {
+.register form fieldset .toggle .publicnotice h5 {
   color: #fff;
   margin-bottom: 0px;
   margin-top: 8px;
 }
-.register .wrap form fieldset .toggle .publicnotice span {
+.register form fieldset .toggle .publicnotice span {
   color: #fff;
   font-size: 14px;
   font-weight: 200;
@@ -461,4 +492,38 @@ body {
 
 .profpic .hexagon-in2:hover {
   /*background: url("http://lorempixel.com/250/350/people");*/
+}
+
+.register select {
+	background: rgba(33, 33, 33, .2);
+}
+
+
+/*save button */
+
+.register button {
+margin-left: calc(50% - 70px) !important;
+  margin-left: -moz-calc(50% - 70px) !important;
+  margin-left: -webkit-calc(50% - 70px) !important;
+  min-width: 140px;
+  height: 40px;
+  outline: none;
+  box-shadow: inset 0px -20px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 5px;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+}
+
+
+.red {
+  background-color: #f04e3d;
+  color: white;
+}
+.red:hover {
+  background-color: #f26455;
+}
+.red:active {
+  background-color: #ee3825;
+  box-shadow: none;
 }

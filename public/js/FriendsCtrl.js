@@ -1,8 +1,6 @@
 hexApp.controller('FriendsCtrl', ['$scope', '$http', '$routeParams', '$location', 'loginService',
 
         function($scope, $http, $routeParams, $location, loginService) {
-
-
             $scope.init = function() {
                 if ($routeParams.id) {
                     $scope.getFriends($routeParams.id);

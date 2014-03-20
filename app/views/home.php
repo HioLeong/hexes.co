@@ -21,6 +21,7 @@
         <script src="js/FriendsCtrl.js"></script>
         <script src="js/MessagesCtrl.js"></script>
         <script src="js/PhotosCtrl.js"></script>
+        <script src="js/SearchFriendsCtrl.js"></script>
 
         <script src="js/userProfile.js"></script>
                 <noscript>
@@ -82,7 +83,7 @@
       <!--<div class="vertical-line"></div>-->
     </aside>
     <!-- End of SIDE MENU -->
-    <article ng-app="hexApp">
+    <article id="main" ng-app="hexApp">
         <div id="newSwitcherWrapper">
             <div ng-view></div>
           <!-- NG VIEW OR WHATEVER HERE INIT -->

@@ -29,6 +29,10 @@ hexApp.config(['$routeProvider',
                     templateUrl: 'partials/friends.html',
                     controller: 'FriendsCtrl'
             })
+            .when('/searchFriends', {
+                    templateUrl: 'partials/searchFriends.html',
+                    controller: 'SearchFriendsCtrl'
+            })
             .when('/photos', {
                     templateUrl: 'partials/uploadPhotos.html',
                     controller: 'PhotosCtrl'

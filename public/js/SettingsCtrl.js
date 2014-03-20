@@ -2,6 +2,9 @@ hexApp.controller('SettingsCtrl', ['$scope', '$http', '$routeParams', 'loginServ
         function($scope, $http, $routeParams, loginService) {
 
             $scope.init = function() {
+                var genderWidth = $('.email').width();
+                genderWidth = (genderWidth / 2)*0.98;
+                $(".register>form>fieldset>#leftProfile>.toggle>.toggle-label").css('width',genderWidth);
                 loginService.getLoginId(function(id) {
                     $http.get('profile/getUserDetails/'+id)
                     .success(function(data, status, headers, config) {

@@ -167,23 +167,23 @@
   cursor:pointer;
 }
 /*Adding custom checkbox icons*/
-label {
+#inboxContainer label {
 	position: relative;
 	padding-left: 30px;
 	font-size: 14px;
 	cursor: pointer;
 }
-label:before, label:after {
+#inboxContainer label:before, label:after {
 	font-family: FontAwesome;
 	font-size: 21px;
 	/*absolutely positioned*/
 	position: absolute; top: 0; left: 0;
   
 }
-label:before {
+#inboxContainer label:before {
 	content: '\f096'; /*unchecked*/
 }
-label:after {
+#inboxContainer label:after {
 	content: '\f046'; /*checked*/
 	/*checked icon will be hidden by default by using 0 max-width and overflow hidden*/
 	max-width: 0;
@@ -195,11 +195,11 @@ label:after {
 }
 
 /*hiding the original checkboxes*/
-input[type="checkbox"] {
+#inboxContainer input[type="checkbox"] {
 	display: none;
 }
 /*when the user checks the checkbox the checked icon will animate in*/
-input[type="checkbox"]:checked + label:after {
+#inboxContainer input[type="checkbox"]:checked + label:after {
 	max-width: 25px; /*an arbitratry number more than the icon's width*/
 	opacity: 1; /*for fade in effect*/
 }
@@ -254,14 +254,14 @@ input[type="checkbox"]:checked + label:after {
 #inboxContainer h1 {
   font-weight:300;
 }
-.body img {
+#inboxContainer .body img {
   width:100%;
   border-radius:10px;
   max-width:600px;
   cursor:pointer;
   transition:all 1s;
 }
-.body img:hover {
+#inboxContainer .body img:hover {
   box-shadow:0px 0px 10px rgba(0,0,0, 1);
 }
 .imagedisplay {

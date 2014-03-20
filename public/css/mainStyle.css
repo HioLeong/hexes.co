@@ -44,7 +44,7 @@ aside{
 	background: url(../images/header1.png);
 }
 
-article{
+article #main{
 	float:left;
 	position: relative;
   	opacity: 0.99;
@@ -56,7 +56,7 @@ article{
 	/*background:url(../images/trial3.jpg);*/
 }
 
-article::before {
+article #main::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -131,7 +131,7 @@ h2 {
 }*/
 
 @media (max-width: 850px) {
-	article {
+	article #main {
 		height:calc(100% - 54px) !important;
 		height:-moz-calc(100% - 54px) !important;
 		height:-webkit-calc(100% - 54px) !important;	
