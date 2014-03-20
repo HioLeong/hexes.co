@@ -10,6 +10,7 @@
 <script src="js/main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/jquery.uploadfile.js"></script>
+<script src="js/jquery.flader.min.js"></script>
 		<script src="js/angular.js"></script>
 		<script src="js/angular-route.js"></script>
 

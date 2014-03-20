@@ -65,7 +65,6 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                 var leftColumnHeight = $('#leftColumn').height();
                 document.getElementById("rightColumn").style.height = leftColumnHeight-119+"px";
 
-                document.getElementById("scaleDiv").style.height = leftColumnHeight-119+"px";
 
                 $( "#blogsList" ).click(function() {
                     document.getElementById("blogsListDiv").style.maxHeight = leftColumnHeight+1019+"px";
@@ -185,6 +184,9 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     $("#blogsListDiv").on('click',function(){
                         clickedImage = true;
                     });
+                    $("#slider_infinite").on('click',function(){
+                        clickedImage = true;
+                    });
                     if (clickedImage == false) {	
                         $('.open div').slideUp().removeClass('open');
                         $(this).addClass('open')
@@ -291,6 +293,20 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                 $(function(){
                     var slider = Slider.init();
                 })
+                $('#fader').Flader({
+                        slide_type: 'fade',
+                        auto_slide: true
+                });
+                $('#slider_finite').Flader({
+                        fixe_height: true,
+                        cycling_slide: false
+                });
+                $('#slider_infinite').Flader({
+                        mouse_event: 'mousehold'
+                });
+
+
+
             };
         }
 ]);
