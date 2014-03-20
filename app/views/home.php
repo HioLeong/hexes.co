@@ -57,17 +57,20 @@
       <div id="sideMenuContainer">
         <nav>
           <ul>
+            <li>
+        <div id="notification"></div>
+</li>
             <li class="mobileTwoColumn"><a href="#/profile">Profile</a></li>
             <p class="navSpaces"></p>
             <li class="mobileTwoColumn"><a href="#/friends">Friends</a></li>
             <p class="navSpaces"></p>
-            <li class="mobileTwoColumn current"><a href="#/messages">Messages</a></li>
+            <li class="mobileTwoColumn current"><a href="#/messages/24">Messages</a></li>
             <p class="navSpaces"></p>
-            <li class="mobileTwoColumn"><a href="#">Photos</a></li>
+            <li class="mobileTwoColumn"><a href="#/photos">Photos</a></li>
             <p class="navSpaces"></p>
             <li><a href="#">Blogs</a></li>
             <p class="navSpaces"></p>
-            <li class="mobileTwoColumn"><a href="#">Settings</a></li>
+            <li class="mobileTwoColumn"><a href="#/settings">Settings</a></li>
             <p class="navSpaces"></p>
             <li class="mobileTwoColumn"><a href="#">Log Off</a></li>
           </ul>

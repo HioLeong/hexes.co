@@ -1380,3 +1380,49 @@
   display:none;
 }
 
+
+
+#notification:before, #notification:after
+{
+  content: "2";
+  top: 50%;
+  left: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0 .75em;
+  line-height: 2.5em;
+  vertical-align: middle;
+  margin-left:20px;
+  background: #EC5411;
+  border-radius: .2em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  font-family: Arial;
+  font-size: 20px;
+  color: #FFF;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+}
+
+#notification:after
+{
+  content: "\f0f3";
+  font-family: "FontAwesome";
+  background: transparent;
+  box-shadow: none;
+  -webkit-transform-origin: 70% 1em;
+  -webkit-animation-name: ring;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes ring
+  {
+      0% { -webkit-transform: rotate(0deg) }
+      5% { -webkit-transform: rotate(45deg) }
+      15% { -webkit-transform: rotate(-40deg) }
+      25% { -webkit-transform: rotate(20deg) }
+      35% { -webkit-transform: rotate(-15deg) }
+      45% { -webkit-transform: rotate(10deg) }
+      55% { -webkit-transform: rotate(-5deg) }
+      60% { -webkit-transform: rotate(0deg) }
+      100% { -webkit-transform: rotate(0deg) }
+  }

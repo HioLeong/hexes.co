@@ -21,6 +21,10 @@ hexApp.config(['$routeProvider',
                     templateUrl: 'partials/login.html',
                     controller: 'LoginCtrl'
             })
+            .when('/friends/', {
+                    templateUrl: 'partials/friends.html',
+                    controller: 'FriendsCtrl'
+            })
             .when('/friends/:id', {
                     templateUrl: 'partials/friends.html',
                     controller: 'FriendsCtrl'
@@ -50,10 +54,31 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
             };
 
             $scope.getUser = function() {
+                $scope.init();
 
                 // Fix the right panel height
+
                 var leftColumnHeight = $('#leftColumn').height();
-                document.getElementById("rightColumn").style.height = leftColumnHeight-17+"px";
+                document.getElementById("rightColumn").style.height = leftColumnHeight-119+"px";
+
+                document.getElementById("scaleDiv").style.height = leftColumnHeight-119+"px";
+
+                $( "#blogsList" ).click(function() {
+                    document.getElementById("blogsListDiv").style.maxHeight = leftColumnHeight+1019+"px";
+                });
+
+
+                $( ".newBlogButton" ).click(function() {
+                    if ( $( ".viewBlogs" ).is( ":hidden" ) ) {
+                        $( ".viewBlogs" ).slideDown( "slow" );
+                        $( ".newBlogs" ).hide();
+                    } else {
+                        $( ".hideBR" ).css('display','none');
+                        $( ".newBlogs" ).css('visibility','visible');
+                        $( ".newBlogs" ).slideDown( "slow" );
+                        $( ".viewBlogs" ).hide();
+                    }
+                });
 
                 loginService.getLoginId(function(id) {
                     var getId = $routeParams.id || id;
@@ -62,12 +87,12 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     } else {
                         // See if they are already friends/friended
                         $http.get('profile/isFriends?currentUserId='+
-                            id+'&'+'requestUserId='+$routeParams.id)
-                        .success(function(data, status, headers, config) {
-                            if (data == 'friends') {
-                                $('#friendStatus').hide();
-                            }
-                        });
+                                id+'&'+'requestUserId='+$routeParams.id)
+                            .success(function(data, status, headers, config) {
+                                if (data == 'friends') {
+                                    $('#friendStatus').hide();
+                                }
+                            });
                     }
 
                     $http.get('/profile/getUserDetails/' + getId)
@@ -135,6 +160,133 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                             console.log(data);
                         });
                 });
+            };
+
+            $scope.init = function() {
+
+                $( "#nav-btn" ).click(function() {
+                    $( "nav" ).toggle( "slow" );
+                });
+
+                $('#userAccordion>li:gt(0)').find('h2 span').html('+').end()
+                .find('div').hide();
+                $('#userAccordion>li:eq(0)').addClass('open')
+                .find('h2 span').html('&ndash;');
+
+                var clickedImage = false;
+                $('#userAccordion>li').on('click',function(){
+                    $("img").on('click',function(){
+                        clickedImage = true;
+                    });
+                    $("#blogsListDiv").on('click',function(){
+                        clickedImage = true;
+                    });
+                    if (clickedImage == false) {	
+                        $('.open div').slideUp().removeClass('open');
+                        $(this).addClass('open')
+                        .find('h2 span').html('&ndash;').end()
+                        .children('div').slideDown().end()
+                        .siblings().removeClass('open')
+                        .find('h2 span').html('+');
+                    }
+                    clickedImage = false;
+                });  
+
+                // blog js
+
+
+
+                // photo slider JS
+
+                var Slider = function(){
+                    var total, $images, $slider, sliderWidth, increment = 100;
+                    var rotation = 40;
+                    var on = function(){
+                        $slider = $("slider");
+                        $images = $("slider img"),
+                        sliderWidth = $slider.width(),
+                        total = $images.length;
+                        position(); 
+                    }
+
+                    var position = function(){
+
+                        var sign, half = $(".active").index(), x = 0, z = 0, zindex,scaleX = 1.5,scaleY = 1.5, transformOrigin;
+
+                        $images.each(function(index, element){
+                            scaleX = scaleY = 1;
+                            transformOrigin = sliderWidth/2;
+                            if(index < half){
+                                sign = 1;
+                                zindex = index+1;
+                                x = sliderWidth/2 - increment*(half-index+1); 
+                                z =  -increment*(half-index+1);
+
+                            }else if(index > half){
+                                sign = -1
+                                zindex = total-index;
+                                x = sliderWidth/2 + increment*(index-half+1);
+                                z =  -increment*(index-half+1); 
+
+                            }else{
+                                sign = 0; 
+                                zindex = total;
+                                x = sliderWidth/2;
+                                z = 1;
+                                scaleX = scaleY = 1.5;
+                                transformOrigin = "initial";
+
+                            }  
+
+                            $(element).css(
+                                { 
+                                    "transform": "rotate3d(0,"+sign+",0,"+rotation+"deg) translate3d("+calculateX(x, sign, 300)+"px,0,"+z+"px) scale3d("+scaleX+","+scaleY+",1)",
+                                    "z-index": zindex,
+                                    "transform-origin-x": transformOrigin
+                                } 
+                            );   
+
+                        });
+                    };
+
+
+                    var calculateX = function(position, sign, width){
+                        switch(sign){
+                        case 1:
+                        case 0: return position-width/2;
+                        case -1: return position-width/2; 
+                        }
+                    }
+                    var imageSize = function(){
+                        return $slider.width()/3;
+                    }   
+
+                    var recalculateSizes = function(){      
+                        sliderWidth = $slider.width();
+                        position(); 
+                    }
+                    var clickedImage = function(){
+                        $(".active").removeClass("active");
+                        $(this).addClass("active");
+                        position();
+                    }
+                    var addEvents = function(){
+                        $( window ).resize(recalculateSizes);
+                        $(document).on("click","img", clickedImage);
+                    }
+
+                    return {
+                        init: function() {
+                            on();
+                            addEvents();
+                        }
+
+                    };
+                }();
+
+                $(function(){
+                    var slider = Slider.init();
+                })
             };
         }
 ]);

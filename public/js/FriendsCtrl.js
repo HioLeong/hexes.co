@@ -4,7 +4,13 @@ hexApp.controller('FriendsCtrl', ['$scope', '$http', '$routeParams', '$location'
 
 
             $scope.init = function() {
-                $scope.getFriends($routeParams.id);
+                if ($routeParams.id) {
+                    $scope.getFriends($routeParams.id);
+                } else {
+                    loginService.getLoginId(function(id) {
+                        $scope.getFriends(id);
+                    });
+                }
             };
 
             $scope.getFriends = function(id) {
@@ -13,6 +19,9 @@ hexApp.controller('FriendsCtrl', ['$scope', '$http', '$routeParams', '$location'
                     $scope.friends = data;
                 });
             };
+
+            $scope.getAllFriends = function(id) {
+};
 
             $scope.goToFriend = function(friend) {
                 var id = friend.User_idUser1;
