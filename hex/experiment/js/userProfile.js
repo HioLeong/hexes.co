@@ -22,5 +22,4 @@ $( ".newBlogButton" ).click(function() {
   	}
 });
 
-
 });

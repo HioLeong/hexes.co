@@ -59,194 +59,113 @@
     
     <article>
         <div id="newSwitcherWrapper">
-          <!-- NG VIEW OR WHATEVER HERE INIT -->
-          <!-- Viewing Profiles -->
-<div ng-init="getUser()" class="viewProfiles" style="display: block; width: 100%;">
-  <div id="topRowBlock" style="display: block;">
-  	<div id="leftColumn" style="float: left; width: 32%;">
-      	<div id="profileCard">
-          	<div id="viewuserprofile">  
-                <div class="profpic">
-                  <div class='center'>
-                    <div class='hexagon'>
-                      <div class='hexagon-in1'>
-                        <div class='hexagon-in2'></div>
+        <!-- Personal Profile -->
+              <div class="userProfile" style="display: block;">
+              
+  
+                  <div class="profpic">
+                    <div class='center'>
+                      <div class='hexagon'>
+                        <div class='hexagon-in1'>
+                          <div class='hexagon-in2'></div>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <!--<img src="images/facebook.png" class="profile-img">-->
+                  <div class="profile-text">
+                    <h1 class="profile-name">((user.firstName)) ((user.surname))</h1>
+                    <span class="profile-title">(( user.otherName ))</span>
+                  </div>
+                     
+                <div class="register">
+                  
+                    <form >
+                      <fieldset style="max-height: 100%; overflow: scroll; border: none;">
+                      	<br></br>
+                        <div id="leftProfile" style="float: left; width: 48%;">
+                        	<h1>Login</h1>
+                            <input type="email" class="email" placeholder="Email">
+                            <!--<div>
+                              <p class="email-help regText">Changing this will alter login details!</p>
+                            </div>-->
+                            <input type="password" class="password" placeholder="Password">
+                            <input type="password" class="confirmPassword" id="cp" placeholder="Confirm Password">
+                            
+                            <br></br>
+                            <h1>Personal</h1>
+                            
+                            <input type="text" class="email" id="firstName" placeholder="First Name">
+                            <input type="text" class="email" placeholder="Last Name">
+                            <input type="text" class="email" placeholder="Nickname (Optional)">
+                            <select name="birthDay" id="dayList"><option value="">DD</option></select>
+                            <select name="birthMonth" id="monthList">
+                              <option value="">MM</option>
+                              <option value="1">January</option>
+                              <option value="2">February</option>
+                              <option value="3">March</option>
+                              <option value="4">April</option>
+                              <option value="5">May</option>
+                              <option value="6">June</option>
+                              <option value="7">July</option>
+                              <option value="8">August</option>
+                              <option value="9">September</option>
+                              <option value="10">October</option>
+                              <option value="11">November</option>
+                              <option value="12">December</option>
+                            </select>
+                            <select name="birthYear" id="birthYearList">
+                              <option value="">YYYY</option>
+                            </select>
+                            <!--Gender-->
+                            <div class="toggle">
+                              <input type="radio" class="toggle-input" name="joincreate" value="join" id="join" checked>
+                              <label for="join" class="toggle-label toggle-label-off" id="joinLabel">Male</label>
+                              <div class="publicnotice right"><span><h5>Sorry!</h5> You do not have permission to create a Public League!</span>
+                              </div>
+                              <input type="radio" class="toggle-input" name="joincreate" value="create" id="create">
+                              <label for="create" class="toggle-label toggle-label-on" id="createLabel">Female</label>
+                              <span class="toggle-selection"></span>
+                            </div>
+                            <!--Relationship Status (Optional)-->
+                            <select name="relStatus" id="relStatus">
+                              <option value="">Relationship Status (Optional)</option>
+                              <option value="1">Single</option>
+                              <option value="2">In a relationship</option>
+                              <option value="3">In Friend Zone</option>
+                              <option value="4">Side Chick</option>
+                              <option value="5">Tinder</option>
+                            </select>
+                            <input type="text" class="email" placeholder="Contact Number (Optional)">
+                            <br></br>
+                        </div>
+                        
+                        <div id="rightProfile" style="float: right; width: 48%;">
+                        	<h1>Education</h1>
+                            <input type="text" class="email" placeholder="School">
+                            <select name="gradYear" id="yearList"><option value="">Graduation Year</option></select>
+                            <!--Grad Year-->
+                            <br></br>
+                            <h1>Location</h1>
+                            <input type="text" class="email" placeholder="Hometown (Optional)">
+                            <input type="text" class="email" placeholder="Current Location">
+                            
+                            <br></br>
+                        </div>
+                            
+                        <div id="profileSaveButton" style="clear: both;">
+                        	  <button class="bloomButton red">SAVE</button>
+                        </div>    
+                            
+                      </fieldset>
+                    </form>
+       
+				  
                 </div>
-                <!--<img src="images/facebook.png" class="profile-img">-->
-                <div class="profile-text">
-                  <h1 class="profile-name">((user.firstName)) ((user.surname))</h1>
-                  <span class="profile-title">(( user.otherName ))</span>
-                </div>
-            </div>
-        </div>
-        <br></br>
-        <a id="friendStatus" href="#"><span>Add Friend OR 19 Mutual Friends</span></a>
-        <br></br>
-        <div id="infoCard">
-        	<div id="pricing-table">
-                <div id="pricing-table-header">
-                    <h1>About</h1>
-                </div>
-                <div id="pricing-table-content">
-                    <ul>
-                        <li><strong>Gender</strong> <div>(( getGenderFromCode(user.gender) ))</div></li>
-                        <li><strong>Birthday</strong><div>(( getFormattedDate(user.dateOfBirth) ))</div></li>
-                        <li><strong>Hometown</strong><div></div></li>
-                        <li><strong>Education</strong><div>(( user.school))</div></li>
-                        <li><strong>Relationship</strong><div>(( getRelStatusFromCode(user.relStatus) )) </div></li>
-                        <li><strong>Contact</strong><div></div></li>
-                    </ul>
-                </div>
-                <!--<div id="pricing-table-footer">
-                    <h2><sup>$</sup>19.99</h2>
-                    <p>per month</p>
-                    <a href="#">Sign Up</a>
-                </div>-->
-          </div>
-        </div>
-    </div>
-      
-    <div id="rightColumn" style="float: right; height: 10%; width: 62%; margin-left: 3%;">
-        <div id="viewProfileNewsFeed" style="">
-        	<!-- Personal News Feed -->
-            <ul id="userAccordion">
-  			<li><h2>News Feed<span></span></h2>
-              <div class="newsWrapper" style="height: 100%; overflow:scroll;">  
-                <ul class="module-history">
-                  <li class="rating-negative memo-yep">
-                    <h3>Book a flight to Melbourne</h3>
-                    <time>5 minutes ago</time>
-                    <i>Has a memo attached</i>
-                  </li>
-                  <li class="rating-negative">
-                    <h3>Grab some last Pad Thai w/ Yi</h3>
-                    <time>35 minutes ago</time>
-                    <i></i>
-                  </li>
-                  <li class="rating-positive">
-                    <h3>Clear desk at Pun Space</h3>
-                    <time>1 hour ago</time>
-                    <i></i>
-                  </li>
-                  <li class="rating-positive">
-                    <h3>Pick up w&t visa from embassy</h3>
-                    <time>1 hour ago</time>
-                    <i></i>
-                  </li>
-                  <li class="rating-negative memo-yep">
-                    <h3>Clear desk at Pun Space</h3>
-                    <time>2 hours ago</time>
-                    <i>Has a memo attached</i>
-                  </li>
-                  <li class="rating-negative memo-yep">
-                    <h3>Call the landlady</h3>
-                    <time>2 hours ago</time>
-                    <i>Has a memo attached</i>
-                  </li>
-                  <li class="rating-positive">
-                    <h3>Fix #rispen bug on WP8</h3>
-                    <time>3 hours ago</time>
-                    <i></i>
-                  </li>
-                  <li class="rating-positive">
-                    <h3>Talk business w/ Emma</h3>
-                    <time>3 hours ago</time>
-                    <i></i>
-                  </li>
-                  <li class="rating-positive memo-yep">
-                    <h3>Write Markup for history view</h3>
-                    <time>4 hours ago</time>
-                    <i></i>
-                  </li>
-                  <li class="rating-positive">
-                    <h3>Look up support for position: sticky</h3>
-                    <time>4 hours ago</time>
-                    <i></i>
-                  </li>
-                  <li class="rating-positive memo-yep">
-                    <h3>Skype call w/ Thomas</h3>
-                    <time>6 hours ago</time>
-                    <i></i>
-                  </li>
-                  <li class="rating-negative" style="overflow: scroll;">
-                    <h3>Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen</h3>
-                    <time>6 hours ago</time>
-                    <i>Has a memo attached</i>
-                  </li>
-                  <li class="rating-negative">
-                    <h3>Add geo-location support to #rispen</h3>
-                    <time>7 hours ago</time>
-                    <i>Has a memo attached</i>
-                  </li>
-                  <li class="rating-negative">
-                    <h3>Add geo-location support to #rispen</h3>
-                    <time>7 hours ago</time>
-                    <i>Has a memo attached</i>
-                  </li>
-                  <li class="rating-negative">
-                    <h3>Add geo-location support to #rispen</h3>
-                    <time>7 hours ago</time>
-                    <i>Has a memo attached</i>
-                  </li>
-                  <li class="rating-negative">
-                    <h3>Add geo-location support to #rispen</h3>
-                    <time>7 hours ago</time>
-                    <i>Has a memo attached</i>
-                  </li>
-                </ul>
-              </div>
-            <li>
-   			<li><h2>Photos<span></span></h2>
-              <div id="scaleDiv">
-                <slider>
-                  <img src="http://media1.santabanta.com/full1/Global%20Celebrities(F)/Misa%20Campo/misa-campo-2a.jpg"/>
-                  <img src="http://zapp.trakt.us/images/fanart/1395.jpg"/>
-                  <img src="http://zapp.trakt.us/images/fanart/97.jpg"/>
-                  <img class="active" src="http://zapp.trakt.us/images/fanart/126.jpg"/>
-                  <img src="http://zapp.trakt.us/images/fanart/29623.jpg"/>
-                  <img src="http://zapp.trakt.us/images/fanart/48.jpg"/>
-                  <img src="http://zapp.trakt.us/images/fanart/18.jpg"/>
-                  <img src="http://media1.santabanta.com/full1/Global%20Celebrities(F)/Misa%20Campo/misa-campo-2a.jpg"/>
-                </slider>
-              </div>
-            </li>
-            
-            <li id="blogsList" style="overflow: scroll !important; max-height: 100%;"><h2>Blogs<span></span></h2>  
-             	<div id="blogsListDiv">
- 			
-            		<button class="newBlogButton viewBlogs">+ New Blog</button>
-                    
-                    <br class="hideBR"></br><h1 class="viewBlogs">Blog Title 1<a style="float: right; padding-bottom: 10px;">Date</a></h1><br></br>
-        <h3 class="viewBlogs" style="font-weight: lighter;">American Apparel locavore iPhone wayfarers put a bird on it.  Whatever McSweeney's Banksy letterpress Marfa.  Drinking vinegar PBR synth, tote bag kale chips typewriter shabby chic mlkshk.  Twee Wes Anderson semiotics Blue Bottle Tumblr, locavore ennui squid.  Blog tofu paleo try-hard mustache bicycle rights DIY.  Forage quinoa DIY master cleanse.  Freegan tote bag squid keffiyeh, sriracha try-hard tousled gentrify McSweeney's pickled pork belly Neutra literally.</h3>
-                    
-                    <br class="hideBR"></br><h1 class="viewBlogs">Blog Title 2<a style="float: right; padding-bottom: 10px;">Date</a></h1><br></br>
-        <h3 class="viewBlogs" style="font-weight: lighter;">American Apparel locavore iPhone wayfarers put a bird on it.  Whatever McSweeney's Banksy letterpress Marfa.  Drinking vinegar PBR synth, tote bag kale chips typewriter shabby chic mlkshk.  Twee Wes Anderson semiotics Blue Bottle Tumblr, locavore ennui squid.  Blog tofu paleo try-hard mustache bicycle rights DIY.  Forage quinoa DIY master cleanse.  Freegan tote bag squid keffiyeh, sriracha try-hard tousled gentrify McSweeney's pickled pork belly Neutra literally.</h3>
+        	  </div>
         
-        			<!-- New Blog -->
-                    <h1 class="newBlogs">Blog Title <input id="newBlogTitle" style="border-radius: 20px; outline-width: 0;"></input></h1><br></br>
-                    
-                    <textarea id="newBlogContent" class="newBlogs" style="width: 100%; height: 70%;">Blog Content</textarea>
-        			<br></br>
-                    <button class="newBlogButton newBlogs" style="float: left !important; margin-left: 0px !important;">Cancel</button>
-                    <button class="newBlogButton newBlogs" style="float: right !important; margin-left: 0px !important;">Save</button>
-                    
-                    </div>
-
-            </li>
-		</ul>
-    </div>
-  </div>
-  <div id="bottomRow" style="clear:both;">
-      <a>Profile Friends Go Here</a>
-  </div>
-<!-- CLOSE Viewing Profiles -->  
-</div>
-          
-          
-          
+        
+          <!-- NG VIEW OR WHATEVER HERE INIT -->
         </div>
     </article>
 
