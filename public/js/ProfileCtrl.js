@@ -9,9 +9,9 @@ hexApp.config(['$routeProvider',
                     templateUrl: 'partials/viewUserProfile.html',
                     controller: 'ProfileCtrl'
             })
-            .when('/messages', {
+            .when('/messages/:id', {
                     templateUrl: 'partials/messagesInbox.html',
-                    controller: 'ProfileCtrl'
+                    controller: 'MessagesCtrl'
             })
             .when('/settings', {
                     templateUrl: 'partials/register.html',

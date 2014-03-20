@@ -19,6 +19,9 @@
         <script src="js/SettingsCtrl.js"></script>
         <script src="js/LoginCtrl.js"></script>
         <script src="js/FriendsCtrl.js"></script>
+        <script src="js/MessagesCtrl.js"></script>
+
+        <script src="js/userProfile.js"></script>
                 <noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />

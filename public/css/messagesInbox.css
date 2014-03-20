@@ -31,12 +31,12 @@
   padding:0px;
 }
 .second-nav {
-  height:100vh;
+  height:100%;
   width:300px;
   background-color:#F5F7FA;
   border-left:1px solid #e0e0e0;
   border-right:1px solid #e0e0e0;
-  position:fixed;
+  position: absolute;
   top:0px;
   display: inline;
 }
@@ -167,23 +167,23 @@
   cursor:pointer;
 }
 /*Adding custom checkbox icons*/
-.messageLabel label {
+label {
 	position: relative;
 	padding-left: 30px;
 	font-size: 14px;
 	cursor: pointer;
 }
-
-.messageLabel label:before, label:after {
+label:before, label:after {
 	font-family: FontAwesome;
 	font-size: 21px;
 	/*absolutely positioned*/
 	position: absolute; top: 0; left: 0;
+  
 }
-.messageLabel label:before {
+label:before {
 	content: '\f096'; /*unchecked*/
 }
-.messageLabel label:after {
+label:after {
 	content: '\f046'; /*checked*/
 	/*checked icon will be hidden by default by using 0 max-width and overflow hidden*/
 	max-width: 0;
@@ -206,6 +206,7 @@ input[type="checkbox"]:checked + label:after {
 
 .viewer {
   margin-left:300px;
+  height: 100%;
 }
 .viewer .header {
   background-color:#FFFFFF;
@@ -217,7 +218,14 @@ input[type="checkbox"]:checked + label:after {
   overflow-y:scroll;
 }
 .messageInput {
-	height: 20%;
+	height: 86px;
+	border: dotted thin #000;
+}
+#messageInputField {
+	height: 43px;
+	padding-right: 1%;
+	float: left;
+	width:80%;
 }
 #email {
   padding:0px;
@@ -445,6 +453,14 @@ input[type="checkbox"]:checked + label:after {
   transform: translate(-30px, -2px);
 }
 
+#messagesScrollViewer {
+	height: calc(100% - 86px) !important;
+	height: -moz-calc(100% - 86px) !important;
+	height: -webkit-calc(100% - 86px) !important;
+	/*border-bottom: dashed thin #000;*/
+	background-color: #FFF;
+}
+
 /*send button*/
 
 #messagesSendButton a {
@@ -468,6 +484,7 @@ input[type="checkbox"]:checked + label:after {
 #messagesSendButton a:hover {
 	box-shadow:rgba(0,0,0,.3) 0 8px 25px, rgba(0,0,0,.2)0 1px;
 	text-shadow:#fff 0 0 12px;
+	border-radius:25px;
 }
 #messagesSendButtona:active {
 	box-shadow:rgba(0,0,0,.2) 0 8px 25px;

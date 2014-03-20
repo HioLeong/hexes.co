@@ -1,13 +1,10 @@
-
 <?php
 
 class MessagesController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| 
-	|--------------------------------------------------------------------------
-	*/
+    public function index() {
+
+    }
 
     /**
      * Add new messages between two user IDs.
@@ -19,6 +16,17 @@ class MessagesController extends BaseController {
             '\',\''.$fromId.'\',\''.$toId.'\');';
         $results = mysqli_query($con, $query);
         return var_dump($results);
+    }
+
+    public function getMessagesFromGet() {
+        $currentUserId = $_GET['currentUserId'];
+        $requestUserId = $_GET['requestUserId'];
+        $messagesFromCurrent = $this->getMessages($currentUserId, $requestUserId);
+        $messagesFromTo = $this->getMessages($requestUserId, $currentUserId);
+        $array = array();
+        array_push($array, $messagesFromCurrent);
+        array_push($array, $messagesFromTo);
+        echo json_encode($array);
     }
 
     /**

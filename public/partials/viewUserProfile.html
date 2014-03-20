@@ -1,176 +1,164 @@
 <!-- Viewing Profiles -->
 <div ng-init="getUser()" class="viewProfiles" style="display: block; width: 100%;">
   <div id="topRowBlock" style="display: block;">
-	<div id="leftColumn" style="float: left; width: 32%;">
-		<div id="profileCard">
-			<div id="viewuserprofile">
-				<img src="images/facebook.png" class="profile-img">
-				<div class="profile-text">
-					<h1 class="profile-name">((user.firstName)) ((user.surname))</h1>
-					<span class="profile-title">(( user.otherName ))</span>
-				</div>
-				
-			</div>
-		</div>
-		<br>
-            <a id="friendStatus" ng-click="addFriend()"><span>Add Friend OR 19 Mutual Friends</span></a>
-		<br>
-		<div id="infoCard">
-			<div id="pricing-table">
-				<div id="pricing-table-header">
-					<h1>About</h1>
-				</div>
-				<div id="pricing-table-content">
-					<ul>
-						<li><strong>Gender</strong> <div>(( getGenderFromCode(user.gender) ))</div></li>
-						<li><strong>Birthday</strong><div>(( getFormattedDate(user.dateOfBirth) ))</div></li>
-						<li><strong>Hometown</strong><div></div></li>
-						<li><strong>Education</strong><div>(( user.school))</div></li>
-						<li><strong>Relationship</strong><div>(( getRelStatusFromCode(user.relStatus) )) </div></li>
-						<li><strong>Contact</strong><div></div></li>
-					</ul>
-				</div>
-				<!--<div id="pricing-table-footer">
-					<h2><sup>$</sup>19.99</h2>
-					<p>per month</p>
-					<a href="#">Sign Up</a>
-				</div>-->
-			</div>
-		</div>
-	</div>
-	
-	<div id="rightColumn" style="float: right; height: 10%; width: 62%; margin-left: 3%;">
-		<div id="viewProfileNewsFeed" style="">
-			<!-- Personal News Feed -->
-			<div class="newsWrapper" style="height: 100%; overflow:scroll;">  
-			  <header class="module-location">
-				<ul class="location-quickstats">
-				  <li class="rating-negative">
-					<i>Negative: </i>
-					<span>27</span>
-				  </li>
-				  <li class="rating-positive">
-					<i>Positive: </i>
-					<span>82</span>
-				  </li>
-				  <li class="rating-total">
-					<i>Negative: </i>
-					<span>109</span>
-				  </li>
-				</ul>
-				<div class="location-title rating-positive">
-				  <h2>Pun Space</h2>
-				  <time>today</time>
-				</div>
-			  </header>
-			  <ul class="module-history">
-				<li class="rating-negative memo-yep">
-				  <h3>Book a flight to Melbourne</h3>
-				  <time>5 minutes ago</time>
-				  <i>Has a memo attached</i>
-				</li>
-				<li class="rating-negative">
-				  <h3>Grab some last Pad Thai w/ Yi</h3>
-				  <time>35 minutes ago</time>
-				  <i></i>
-				</li>
-				<li class="rating-positive">
-				  <h3>Clear desk at Pun Space</h3>
-				  <time>1 hour ago</time>
-				  <i></i>
-				</li>
-				<li class="rating-positive">
-				  <h3>Pick up w&t visa from embassy</h3>
-				  <time>1 hour ago</time>
-				  <i></i>
-				</li>
-				<li class="rating-negative memo-yep">
-				  <h3>Clear desk at Pun Space</h3>
-				  <time>2 hours ago</time>
-				  <i>Has a memo attached</i>
-				</li>
-				<li class="rating-negative memo-yep">
-				  <h3>Call the landlady</h3>
-				  <time>2 hours ago</time>
-				  <i>Has a memo attached</i>
-				</li>
-				<li class="rating-positive">
-				  <h3>Fix #rispen bug on WP8</h3>
-				  <time>3 hours ago</time>
-				  <i></i>
-				</li>
-				<li class="rating-positive">
-				  <h3>Talk business w/ Emma</h3>
-				  <time>3 hours ago</time>
-				  <i></i>
-				</li>
-				<li class="rating-positive memo-yep">
-				  <h3>Write Markup for history view</h3>
-				  <time>4 hours ago</time>
-				  <i></i>
-				</li>
-				<li class="rating-positive">
-				  <h3>Look up support for position: sticky</h3>
-				  <time>4 hours ago</time>
-				  <i></i>
-				</li>
-				<li class="rating-positive memo-yep">
-				  <h3>Skype call w/ Thomas</h3>
-				  <time>6 hours ago</time>
-				  <i></i>
-				</li>
-				<li class="rating-negative" style="overflow: scroll;">
-				  <h3>Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen</h3>
-				  <time>6 hours ago</time>
-				  <i>Has a memo attached</i>
-				</li>
-				<li class="rating-negative">
-				  <h3>Add geo-location support to #rispen</h3>
-				  <time>7 hours ago</time>
-				  <i>Has a memo attached</i>
-				</li>
-				<li class="rating-negative">
-				  <h3>Add geo-location support to #rispen</h3>
-				  <time>7 hours ago</time>
-				  <i>Has a memo attached</i>
-				</li>
-				<li class="rating-negative">
-				  <h3>Add geo-location support to #rispen</h3>
-				  <time>7 hours ago</time>
-				  <i>Has a memo attached</i>
-				</li>
-				<li class="rating-negative">
-				  <h3>Add geo-location support to #rispen</h3>
-				  <time>7 hours ago</time>
-				  <i>Has a memo attached</i>
-				</li>
-			  </ul>
-			</div>
-		</div>
-	</div>
+  	<div id="leftColumn" style="float: left; width: 32%;">
+      	<div id="profileCard">
+          	<div id="viewuserprofile">  
+                <div class="profpic">
+                  <div class='center'>
+                    <div class='hexagon'>
+                      <div class='hexagon-in1'>
+                        <div class='hexagon-in2'></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--<img src="images/facebook.png" class="profile-img">-->
+                <div class="profile-text">
+                  <h1 class="profile-name">((user.firstName)) ((user.surname))</h1>
+                  <span class="profile-title">(( user.otherName ))</span>
+                </div>
+            </div>
+        </div>
+        <br></br>
+        <a id="friendStatus" href="#"><span>Add Friend OR 19 Mutual Friends</span></a>
+        <br></br>
+        <div id="infoCard">
+        	<div id="pricing-table">
+                <div id="pricing-table-header">
+                    <h1>About</h1>
+                </div>
+                <div id="pricing-table-content">
+                    <ul>
+                        <li><strong>Gender</strong> <div>(( getGenderFromCode(user.gender) ))</div></li>
+                        <li><strong>Birthday</strong><div>(( getFormattedDate(user.dateOfBirth) ))</div></li>
+                        <li><strong>Hometown</strong><div></div></li>
+                        <li><strong>Education</strong><div>(( user.school))</div></li>
+                        <li><strong>Relationship</strong><div>(( getRelStatusFromCode(user.relStatus) )) </div></li>
+                        <li><strong>Contact</strong><div></div></li>
+                    </ul>
+                </div>
+                <!--<div id="pricing-table-footer">
+                    <h2><sup>$</sup>19.99</h2>
+                    <p>per month</p>
+                    <a href="#">Sign Up</a>
+                </div>-->
+          </div>
+        </div>
+    </div>
+      
+    <div id="rightColumn" style="float: right; height: 10%; width: 62%; margin-left: 3%;">
+        <div id="viewProfileNewsFeed" style="">
+        	<!-- Personal News Feed -->
+            <div class="newsWrapper" style="height: 100%; overflow:scroll;">  
+              <header class="module-location">
+                <ul class="location-quickstats">
+                  <li class="rating-negative">
+                    <i>Negative: </i>
+                    <span>27</span>
+                  </li>
+                  <li class="rating-positive">
+                    <i>Positive: </i>
+                    <span>82</span>
+                  </li>
+                  <li class="rating-total">
+                    <i>Negative: </i>
+                    <span>109</span>
+                  </li>
+                </ul>
+                <div class="location-title rating-positive">
+                  <h2>Pun Space</h2>
+                  <time>today</time>
+                </div>
+              </header>
+              <ul class="module-history">
+                <li class="rating-negative memo-yep">
+                  <h3>Book a flight to Melbourne</h3>
+                  <time>5 minutes ago</time>
+                  <i>Has a memo attached</i>
+                </li>
+                <li class="rating-negative">
+                  <h3>Grab some last Pad Thai w/ Yi</h3>
+                  <time>35 minutes ago</time>
+                  <i></i>
+                </li>
+                <li class="rating-positive">
+                  <h3>Clear desk at Pun Space</h3>
+                  <time>1 hour ago</time>
+                  <i></i>
+                </li>
+                <li class="rating-positive">
+                  <h3>Pick up w&t visa from embassy</h3>
+                  <time>1 hour ago</time>
+                  <i></i>
+                </li>
+                <li class="rating-negative memo-yep">
+                  <h3>Clear desk at Pun Space</h3>
+                  <time>2 hours ago</time>
+                  <i>Has a memo attached</i>
+                </li>
+                <li class="rating-negative memo-yep">
+                  <h3>Call the landlady</h3>
+                  <time>2 hours ago</time>
+                  <i>Has a memo attached</i>
+                </li>
+                <li class="rating-positive">
+                  <h3>Fix #rispen bug on WP8</h3>
+                  <time>3 hours ago</time>
+                  <i></i>
+                </li>
+                <li class="rating-positive">
+                  <h3>Talk business w/ Emma</h3>
+                  <time>3 hours ago</time>
+                  <i></i>
+                </li>
+                <li class="rating-positive memo-yep">
+                  <h3>Write Markup for history view</h3>
+                  <time>4 hours ago</time>
+                  <i></i>
+                </li>
+                <li class="rating-positive">
+                  <h3>Look up support for position: sticky</h3>
+                  <time>4 hours ago</time>
+                  <i></i>
+                </li>
+                <li class="rating-positive memo-yep">
+                  <h3>Skype call w/ Thomas</h3>
+                  <time>6 hours ago</time>
+                  <i></i>
+                </li>
+                <li class="rating-negative" style="overflow: scroll;">
+                  <h3>Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen</h3>
+                  <time>6 hours ago</time>
+                  <i>Has a memo attached</i>
+                </li>
+                <li class="rating-negative">
+                  <h3>Add geo-location support to #rispen</h3>
+                  <time>7 hours ago</time>
+                  <i>Has a memo attached</i>
+                </li>
+                <li class="rating-negative">
+                  <h3>Add geo-location support to #rispen</h3>
+                  <time>7 hours ago</time>
+                  <i>Has a memo attached</i>
+                </li>
+                <li class="rating-negative">
+                  <h3>Add geo-location support to #rispen</h3>
+                  <time>7 hours ago</time>
+                  <i>Has a memo attached</i>
+                </li>
+                <li class="rating-negative">
+                  <h3>Add geo-location support to #rispen</h3>
+                  <time>7 hours ago</time>
+                  <i>Has a memo attached</i>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
   </div>
   <div id="bottomRow" style="clear:both;">
-		<!-- Hex Friends Container -->
-              <div id="friendScrollable" style="display: none;">
-                <div class="friendsContainer">
-                  <ol id="row1" class="even">
-                    <li class='hex' id="one"></li>
-                    <li class='hex' id="two"></li>
-                    <li class='hex'></li>
-                  </ol>  
-                  <ol id="row2" class="odd">
-                    <li class='hex'></li>
-                    <li class='hex'></li>
-                    <li class='hex'></li>
-                    <li class='hex'></li>
-                  </ol>
-                  <ol id="row3" class="even">
-                    <li class='hex'></li>
-                    <li class='hex'></li>
-                    <li class='hex'></li>
-                  </ol>  
-                </div>
-              </div>
+      <a>Profile Friends Go Here</a>
   </div>
 <!-- CLOSE Viewing Profiles -->  
 </div>
