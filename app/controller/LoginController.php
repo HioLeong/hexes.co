@@ -12,7 +12,6 @@ class LoginController extends BaseController {
     public function isValidUserFromPost() {
 
         $data = json_decode($_POST['data']);
-        
         if ((!$data->email) || (!$data->password)) {
         }  else {
             echo $this->isValidUser($data->email, $data->password);

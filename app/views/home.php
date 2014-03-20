@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hexes</title>
 
-<script src="js/jquery.min.js"></script>
+<link href="http://hayageek.github.io/jQuery-Upload-File/uploadfile.min.css" rel="stylesheet">
 <script src="js/main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/jquery.min.js"></script>
+<script src="js/jquery.uploadfile.js"></script>
 		<script src="js/angular.js"></script>
 		<script src="js/angular-route.js"></script>
 
@@ -38,6 +38,7 @@
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/personalNewsFeed.css"/>
 <link rel="stylesheet" href="css/mainStyle.css" />
+
 </head>
 
 <body>
@@ -84,6 +85,5 @@
           <!-- NG VIEW OR WHATEVER HERE INIT -->
         </div>
     </article>
-
 </body>
 </html>

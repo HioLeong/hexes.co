@@ -58,14 +58,13 @@
                     <div class="scroll" id="messagesScrollViewer" style="height: px;">
                       <div class="header" id="email">
                         <img src="" style="border-radius:5px;" />
-                        <p class="subject">Subject: Recent Project</p>
-                        <p class="message">To: Me, Jack Woolley, Alexis Zaninetti</p>
+                        <p class="message">To: (( getName($routeParams.id) ))</p>
                       </div>
 
-                      <div ng-repeat="m in messages">
+                      <input style="margin-left: 20px" type="text" placeholder="Search..." ng-model="search"/>
+                      <div ng-repeat="m in messages | filter: search">
                           <p class="(( getBubbleText(m.idUserFrom) ))"><Strong><a style="float: right">(( getName(m.idUserFrom) )) | (( m.date))</a></Strong>(( m.message ))</p>
                       </div>
-                      
                       <!--
                       <p class="bubble-me"><Strong><a style="float: right;">David | 17.32pm</a></Strong>Check this out</p>
 <p class="bubble-other"><Strong><a style="float: right;">Michael | 18.45</a></Strong>Yes?</p>
@@ -75,7 +74,6 @@
 <p class="bubble-me"><Strong><a style="float: right;">David | 19.01pm</a></Strong>ok ok</p>
 <p class="bubble-me"><Strong><a style="float: right;">David | 19.02pm</a></Strong>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
     -->
-                      
                     </div>
                     <div class="messageInput">
                     	<div id="messageInputField" style="">
