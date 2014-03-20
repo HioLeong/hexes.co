@@ -27,8 +27,13 @@ $(document).ready(function() {
 		clickedImage = false;
   });  
   
-  // blog js
-  
+// genderToggle fix
+var genderWidth = $('.email').width();
+genderWidth = (genderWidth / 2)*0.98;
+
+alert(genderWidth+"lololol");
+$(".register>form>fieldset>#leftProfile>.toggle>.toggle-label").css('width',genderWidth);
+
   
   
   // photo slider JS
