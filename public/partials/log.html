@@ -1,0 +1,18 @@
+<section class="whatever">
+    <h2> Friends Activities </h2>
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th> Activity </th>
+                <th> Date </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="a in activities">
+                <td> (( a.firstNameFrom )) (( a.surnameFrom )) Friendzoned (( a.firstNameTo )) (( a.surnameTo )) </td>
+                <td> (( a.date )) </td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>

@@ -25,6 +25,7 @@
         <script src="js/SearchFriendsCtrl.js"></script>
         <script src="js/NotificationsCtrl.js"></script>
         <script src="js/MenuCtrl.js"></script>
+        <script src="js/ActivitiesLogCtrl.js"></script>
 
         <script src="js/userProfile.js"></script>
                 <noscript>

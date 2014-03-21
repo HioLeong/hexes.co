@@ -44,7 +44,10 @@ hexApp.config(['$routeProvider',
             .when('/notifications', {
                     templateUrl: 'partials/notifications.html',
                     controller: 'NotificationsCtrl'
-
+            })
+            .when('/log', {
+                    templateUrl: 'partials/log.html',
+                    controller: 'ActivitiesLogCtrl'
             })
             .when('/mutualFriends/:id', {
                     templateUrl: 'partials/friends.html',
@@ -68,6 +71,14 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                 '3': 'Jason/In a Friendzone',
                 '4': 'Side Chick',
                 '5': 'Tinder'
+            };
+
+            $scope.addToCircle = function() {
+                var requestUserId = $routeParams.id;
+                $http.get('circle/addToCircle?circleName='+ $scope.circle + '&id='+requestUserId) 
+                .success(function(data, status, header, config) {
+                    console.log(data);
+                });
             };
 
             $scope.getUser = function() {

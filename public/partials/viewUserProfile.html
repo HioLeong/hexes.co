@@ -172,9 +172,14 @@
     </div>
   </div>
   <div id="bottomRow" style="clear:both;">
+      <form ng-submit="addToCircle()">
+          <input type="text" placeholder="Circle" ng-model="circle"/>
+          <input type="submit"/>
+      </form>
       <a href="#/friends/(( getCurrentPageId() ))"> See Friendzone </a>
       <br/>
       <a href="#/mutualFriends/(( getCurrentPageId() ))"> Mutual Friendzoned </a>
+      <br/>
   </div>
 <!-- CLOSE Viewing Profiles -->  
 </div>

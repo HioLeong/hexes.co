@@ -120,27 +120,13 @@ class ProfileController extends baseController {
 
     public function getAllActivities() {
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
-        $query="SELECT DISTINCT
-                addee.date, firstNameFrom, surnameFrom, firstNameTo, surnameFrom
-            FROM
-                Friendship AS adder
-                    LEFT join
-            (SELECT 
-                User.idUser AS idFrom, User.firstName AS firstNameFrom, User.surname AS surnameFrom
-            FROM
-                User) AS T ON adder.User_idUser = T.idFrom,
-            Friendship AS addee
-            LEFT JOIN
-            (SELECT DISTINCT
-                User.idUser AS idTo, User.firstName AS firstNameTo, User.surname AS surnameTo
-            FROM
-                User) AS T2 ON T2.idTo = addee.User_idUser1";
+        $query= "SELECT Friendship.date, Adder.firstName AS firstNameFrom, Adder.surname AS surnameFrom, Addee.firstName AS firstNameTo, Addee.surname AS surnameTo FROM Friendship, User AS Adder, User AS Addee WHERE (Adder.idUser = Friendship.User_idUser) AND (Addee.idUser = Friendship.User_idUser1)";
         $results = mysqli_query($con, $query);
         $array = array();
         while ($row = mysqli_fetch_assoc($results)) {
             array_push($array, $row);
         }
-        return json_encode($array);
+        echo json_encode($array);
     }
 
     private function getQueryResults($query) {
