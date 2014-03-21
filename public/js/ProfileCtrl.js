@@ -37,6 +37,11 @@ hexApp.config(['$routeProvider',
                     templateUrl: 'partials/uploadPhotos.html',
                     controller: 'PhotosCtrl'
             })
+            .when('/notifications', {
+                    templateUrl: 'partials/notifications.html',
+                    controller: 'NotificationsCtrl'
+
+            })
             .otherwise({
                     redirectTo: '/login'
             });

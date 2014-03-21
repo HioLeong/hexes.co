@@ -23,7 +23,6 @@ hexApp.controller('SearchFriendsCtrl', ['$scope', '$http', '$routeParams', '$loc
                 $location.path('/profile/'+id);
             };
 
-            
             $scope.init();
         }
 ]);

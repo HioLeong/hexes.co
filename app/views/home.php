@@ -23,6 +23,7 @@
         <script src="js/MessagesCtrl.js"></script>
         <script src="js/PhotosCtrl.js"></script>
         <script src="js/SearchFriendsCtrl.js"></script>
+        <script src="js/NotificationsCtrl.js"></script>
 
         <script src="js/userProfile.js"></script>
                 <noscript>
@@ -35,6 +36,7 @@
         <link rel="stylesheet" href="css/userProfile.css" />
         <link rel="stylesheet" href="css/friendSearchResults.css" />
         <link rel="stylesheet" href="css/friends.css" />
+        <link rel="stylesheet" href="css/notifications.css" />
         <link rel="stylesheet" href="css/messagesInbox.css" />
         <link rel="stylesheet" href="css/loginBox.css"/>
         <link rel="stylesheet" href="css/style.css"/>
@@ -59,8 +61,12 @@
       <div id="sideMenuContainer">
         <nav>
           <ul>
-            <li>
-        <div id="notification"></div>
+
+<li>
+                <div class="notice_box"> 
+                <span><a href="#/notifications"> Notifications </a></span>
+                <span class="bubble_count">10</span>
+                </div>
 </li>
             <li class="mobileTwoColumn"><a href="#/profile">Profile</a></li>
             <p class="navSpaces"></p>

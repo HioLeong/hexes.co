@@ -87,6 +87,19 @@ class ProfileController extends baseController {
         echo json_encode($array);
     }
 
+
+    public function getNotifications() {
+        $currentUserId = $_SESSION['id'];
+        $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+        $query = "SELECT Friendship.* FROM Friendship WHERE Friendship.User_idUser1 = {$currentUserId} AND Friendship.User_idUser NOT IN (SELECT DISTINCT Friendship.User_idUser1 FROM Friendship WHERE Friendship.User_idUser = {$currentUserId})";
+        $results = mysqli_query($con, $query);
+        $array = array();
+        while ($row = mysqli_fetch_assoc($results)) {
+            array_push($array, $row);
+        }
+        echo json_encode($array);
+    }
+
     private function getQueryResults($query) {
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
         $results = mysqli_query($con, $query);

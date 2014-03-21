@@ -1,0 +1,188 @@
+.notification {
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  color: #34495e;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6em;
+}
+
+p {
+  margin: 0;
+  vertical-align: middle;
+}
+
+.notice {
+  position: relative;
+  margin: 1em;
+  background: #F9F9F9;
+  padding: 1em 1em 1em 2em;
+  border-left: 4px solid #DDD;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+}
+
+.notice:before {
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: -17px;
+  background-color: #DDD;
+  color: #FFF;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  font-family: Georgia;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+
+notification-button {
+  float: right
+}
+
+
+.success {
+  border-color: #2ECC40;
+}
+
+.success:before {
+  content: "√";
+  background-color: #2ECC40;
+}
+
+.warning {
+  border-color: #FFDC00;
+}
+
+.warning:before {
+  content: "!";
+  background-color: #FFDC00;
+}
+
+.error {
+  border-color: #FF4136;
+}
+
+.error:before {
+  content: "X";
+  background-color: #FF4136;
+}
+}
+
+.notice {
+  position: relative;
+  margin: 1em;
+  background: #F9F9F9;
+  padding: 1em 1em 1em 2em;
+  border-left: 4px solid #DDD;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+}
+
+.notice:before {
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: -17px;
+  background-color: #DDD;
+  color: #FFF;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  font-family: Georgia;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.success {
+  border-color: #2ECC40;
+}
+
+.success:before {
+  content: "√";
+  background-color: #2ECC40;
+}
+
+.notification-warning {
+  border-color: #FFDC00;
+}
+
+.notification-warning:before {
+  content: "!";
+  background-color: #FFDC00;
+}
+
+.error {
+  border-color: #FF4136;
+}
+
+.error:before {
+  content: "X";
+  background-color: #FF4136;
+}
+
+.notification-button {
+  border: 0 none;
+  border-radius: 2px 2px 2px 2px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  margin-bottom: 5px;
+  margin-top: 0;
+  margin-right: 2px;
+  text-transform: none;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  width: 10.795%;
+  /* auto */
+  float: right;
+  text-align: center;
+  /* DELETE WHEN WIDTH AUTO */
+}
+.notification-button.red {
+  background: none repeat scroll 0 0 #e0645c;
+  color: white;
+}
+.notification-button.red:hover {
+  background: none repeat scroll 0 0 #999999;
+  color: white;
+}
+.notification-button.dark {
+  background: none repeat scroll 0 0 #444444;
+  color: white;
+}
+.notification-button.dark:hover {
+  background: none repeat scroll 0 0 #2db6cf;
+  color: white;
+}
+.notification-button.light {
+  background: none repeat scroll 0 0 #999999;
+  color: white;
+}
+.notification-button.light:hover {
+  background: none repeat scroll 0 0 #444444;
+  color: white;
+}
+.notification-button.green {
+  background: none repeat scroll 0 0 #46b98a;
+  color: white;
+}
+.notification-button.green:hover {
+  background: none repeat scroll 0 0 #444444;
+  color: white;
+}
+.notification-button.blue {
+  background: none repeat scroll 0 0 #2db6cf;
+  color: white;
+}
+.notification-button.blue:hover {
+  background: none repeat scroll 0 0 #444444;
+  color: white;
+}
