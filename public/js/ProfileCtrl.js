@@ -114,7 +114,6 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     $http.get('/profile/getUserDetails/' + getId)
                     .success(function(data, status, headers, config) {
                         $scope.user = data;
-                        console.log(data.picture_url);
                         $('.profpic .hexagon-in2').css('background','url("'+data.picture_url+'")');
                         $('.profpic .hexagon-in2').css('background-position','50%');
                         $('.profpic .hexagon-in2').css('background-size','200%');

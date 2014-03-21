@@ -22,11 +22,27 @@ class SettingsController extends BaseController {
 
     public function updateUserDetails($userDetails, $fields) {
         $returns = '';
+        $this->createUserIfNoteExist($userDetails->email);
         foreach ($fields as $field) {
             $returned = $this->updateRow($field, $userDetails->$field, $userDetails->email);
             $returns = $returns.$returned;
         }
         return $returns;
+    }
+
+    private function createUserIfNoteExist($email) {
+            $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+            $query = "SELECT * FROM User WHERE email={$email}";
+            echo $query;
+            $results = mysqli_query($con, $query);
+            $row = mysqli_fetch_assoc($results);
+            if (empty($row)) {
+                $query = "INSERT User(email) VALUES('{$email}');";
+                echo $query;
+                $results = mysqli_query($con, $query);
+                echo var_dump($results);
+            } else {
+            }
     }
 
     private function updateRow($property, $value, $email) {
@@ -35,6 +51,7 @@ class SettingsController extends BaseController {
             $schoolId = $this->getSchoolIdByName($value);
             $userId = $this->getUserIdByEmail($email);
             $query = 'INSERT INTO UserSchool(User_idUser, School_idSchool) VALUES(\''.$userId.'\',\''.$schoolId.'\');';
+            echo $query;
             $result = mysqli_query($con, $query); 
             return var_dump($result);
         }
@@ -42,6 +59,7 @@ class SettingsController extends BaseController {
         if (($property != NULL) && ($value != NULL)) {
             $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
             $query = 'UPDATE User SET '.$property.'=\''.$value.'\' WHERE email=\''.$email.'\';';
+            echo $query;
             $result = mysqli_query($con, $query); 
             return var_dump($result);
         } else {
