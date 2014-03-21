@@ -32,7 +32,7 @@ class ProfileController extends baseController {
         $requestUserId = $_GET['requestUserId'];
 
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
-        $query = 'INSERT INTO Friendship(User_idUser, User_idUser1) VALUES(\''.$currentUserId.'\',\''.$requestUserId.'\');';
+        $query = 'INSERT INTO Friendship(User_idUser, User_idUser1,date) VALUES(\''.$currentUserId.'\',\''.$requestUserId.'\', now());';
         $result = mysqli_query($con, $query);
         mysqli_close($con);
         return var_dump($result);
@@ -57,10 +57,13 @@ class ProfileController extends baseController {
         $requestUserId = $_GET['requestUserId'];
 
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
-        $query = ' SELECT * FROM (SELECT * FROM Friendship WHERE User_idUser = '.$requestUserId.') AS T WHERE NOT EXISTS( SELECT * FROM Friendship WHERE Friendship.User_idUser1 = T.User_idUser1 AND Friendship.User_idUser = '.$currentUserId.'  );';
+        $query = " SELECT User_idUser1 FROM (SELECT * FROM Friendship WHERE User_idUser = {$currentUserId}) AS T WHERE T.User_idUser1 IN (SELECT User_idUser1 FROM Friendship WHERE Friendship.User_idUser = {$requestUserId})";
         $results = mysqli_query($con, $query);
-        $row = $results->fetch_row();
-        echo json_encode($row);
+        $array = array();
+        while ($row = mysqli_fetch_assoc($results)) {
+            array_push($array, $row);
+        }
+        echo json_encode($array);
     }
 
     public function getAllUsers() {
@@ -98,6 +101,31 @@ class ProfileController extends baseController {
             array_push($array, $row);
         }
         echo json_encode($array);
+    }
+
+    public function getAllActivities() {
+        $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+        $query="SELECT DISTINCT
+                addee.date, firstNameFrom, surnameFrom, firstNameTo, surnameFrom
+            FROM
+                Friendship AS adder
+                    LEFT join
+            (SELECT 
+                User.idUser AS idFrom, User.firstName AS firstNameFrom, User.surname AS surnameFrom
+            FROM
+                User) AS T ON adder.User_idUser = T.idFrom,
+            Friendship AS addee
+            LEFT JOIN
+            (SELECT DISTINCT
+                User.idUser AS idTo, User.firstName AS firstNameTo, User.surname AS surnameTo
+            FROM
+                User) AS T2 ON T2.idTo = addee.User_idUser1";
+        $results = mysqli_query($con, $query);
+        $array = array();
+        while ($row = mysqli_fetch_assoc($results)) {
+            array_push($array, $row);
+        }
+        return json_encode($array);
     }
 
     private function getQueryResults($query) {

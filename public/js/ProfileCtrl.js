@@ -42,6 +42,10 @@ hexApp.config(['$routeProvider',
                     controller: 'NotificationsCtrl'
 
             })
+            .when('/mutualFriends/:id', {
+                    templateUrl: 'partials/friends.html',
+                    controller: 'MutualFriendsCtrl'
+            })
             .otherwise({
                     redirectTo: '/login'
             });
@@ -168,6 +172,10 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                             console.log(data);
                         });
                 });
+            };
+
+            $scope.getCurrentPageId = function() {
+                return $routeParams.id;
             };
 
             $scope.init = function() {
@@ -309,8 +317,6 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                 $('#slider_infinite').Flader({
                         mouse_event: 'mousehold'
                 });
-
-
 
             };
         }

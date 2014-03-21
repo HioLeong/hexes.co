@@ -65,7 +65,7 @@
 
 <li>
                 <div class="notice_box"> 
-                <span><a href="#/notifications"> Notifications </a></span>
+                <span><a href="#/notifications"> Friendzoned </a></span>
                 <span id="numOfNotifications" class="bubble_count">10</span>
                 </div>
 </li>
@@ -73,7 +73,7 @@
             <p class="navSpaces"></p>
             <li class="mobileTwoColumn"><a href="#/friends">Friends</a></li>
             <p class="navSpaces"></p>
-            <li class="mobileTwoColumn current"><a href="#/messages/24">Messages</a></li>
+            <li class="mobileTwoColumn"><a href="#/messages/24">Messages</a></li>
             <p class="navSpaces"></p>
             <li class="mobileTwoColumn"><a href="#/photos">Photos</a></li>
             <p class="navSpaces"></p>
