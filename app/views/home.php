@@ -24,6 +24,7 @@
         <script src="js/PhotosCtrl.js"></script>
         <script src="js/SearchFriendsCtrl.js"></script>
         <script src="js/NotificationsCtrl.js"></script>
+        <script src="js/MenuCtrl.js"></script>
 
         <script src="js/userProfile.js"></script>
                 <noscript>
@@ -45,7 +46,7 @@
 
 </head>
 
-<body>
+<body ng-app="hexApp">
 
     <!-- SIDE MENU -->
     <aside>
@@ -58,14 +59,14 @@
       	</a>
  
       
-      <div id="sideMenuContainer">
+      <div ng-controller="MenuCtrl"id="sideMenuContainer">
         <nav>
           <ul>
 
 <li>
                 <div class="notice_box"> 
                 <span><a href="#/notifications"> Notifications </a></span>
-                <span class="bubble_count">10</span>
+                <span id="numOfNotifications" class="bubble_count">10</span>
                 </div>
 </li>
             <li class="mobileTwoColumn"><a href="#/profile">Profile</a></li>
@@ -90,7 +91,7 @@
       <!--<div class="vertical-line"></div>-->
     </aside>
     <!-- End of SIDE MENU -->
-    <article id="main" ng-app="hexApp">
+    <article id="main">
         <div id="newSwitcherWrapper">
             <div ng-view></div>
           <!-- NG VIEW OR WHATEVER HERE INIT -->

@@ -30,6 +30,7 @@ class LoginController extends BaseController {
 
         if (strcmp($row['password'], $password) == 0) {
             if (isset($_SESSION['id'])) {
+                $_SESSION['id'] = $row['idUser'];
             } else {
                 $_SESSION['id'] = $row['idUser'];
             }
