@@ -295,15 +295,15 @@ a.serv_block p {
 	-webkit-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 }
-
+/* HELLLLO IM HERE MOTHER FUCKER */
 .serv_block .icon_block1 {
-	background:url(../images/icon1.png) no-repeat;
+	background:url(../images/icon1new.png) no-repeat;
 }
 .serv_block .icon_block2 {
-	background:url(../images/icon2.png) no-repeat;
+	background:url(../images/icon2new.png) no-repeat;
 }
 .serv_block .icon_block3 {
-	background:url(../images/icon3.png) no-repeat;
+	background:url(../images/icon3new.png) no-repeat;
 }
 
 .serv_block:hover .icon_block1,
@@ -436,7 +436,7 @@ a.serv_block p {
 /* ____________________________________ Slide 8 ____________________________________ */
 
 #slide8{
-	background-image:url(../images/trial6.jpg);
+	background-image:url(../images/trial2.jpg);
 	background-position:0 0 !important;
 	background-size: cover !important;
 	width:100%;
@@ -847,11 +847,23 @@ input[type="submit"] {
   border-radius: 5px;
   outline: none;
   border: none;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#28d2de), to(#1a878f));
-  background-image: -webkit-linear-gradient(#28d2de 0%, #1a878f 100%);
-  background-image: -moz-linear-gradient(#28d2de 0%, #1a878f 100%);
-  background-image: -o-linear-gradient(#28d2de 0%, #1a878f 100%);
-  background-image: linear-gradient(#28d2de 0%, #1a878f 100%);
+  background: rgb(211,0,0);
+
+background: -moz-linear-gradient(top,  rgba(211,0,0,1) 0%, rgba(109,0,0,1) 100%);
+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(211,0,0,1)), color-stop(100%,rgba(109,0,0,1)));
+
+background: -webkit-linear-gradient(top,  rgba(211,0,0,1) 0%,rgba(109,0,0,1) 100%);
+
+background: -o-linear-gradient(top,  rgba(211,0,0,1) 0%,rgba(109,0,0,1) 100%);
+
+background: -ms-linear-gradient(top,  rgba(211,0,0,1) 0%,rgba(109,0,0,1) 100%);
+
+background: linear-gradient(to bottom,  rgba(211,0,0,1) 0%,rgba(109,0,0,1) 100%);
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d30000', endColorstr='#6d0000',GradientType=0 );
+
+
   font: 14px Oswald;
   color: #FFF;
   text-transform: uppercase;
