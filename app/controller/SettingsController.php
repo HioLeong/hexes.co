@@ -13,7 +13,7 @@ class SettingsController extends BaseController {
 
     public function updateUserDetailsFromPost() {
         $fields = array('email', 'password', 'firstName', 'surname', 'otherName', 'dateOfBirth', 'relStatus', 
-            'gender', 'school', 'currentLocation');
+            'gender', 'school', 'currentLocation'); 
         /* Set all post fields */
         ini_set('memory_limit', '-1');
         $userObj = json_decode($_POST['data']);

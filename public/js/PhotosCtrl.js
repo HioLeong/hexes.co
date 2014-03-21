@@ -45,3 +45,22 @@ hexApp.controller('PhotosCtrl', ['$scope', '$http', '$routeParams', 'loginServic
             $scope.init();
         }
 ]);
+
+hexApp.controller('UploadProfilePictureCtrl', ['$scope', '$http', '$routeParams', 'loginService',
+        function($scope, $http, $routeParams, loginService) {
+            $scope.uploadProfilePicture = function() {
+                $("#fileuploader").uploadFile({
+                        method: 'POST',
+                        url:"http://localhost:8888/photos/uploadProfilePicture",
+                        fileName:"file",
+                        onSuccess: function(files, data, xhr, pd) {
+                            console.log(data);
+                        }
+
+                });
+
+            };
+
+            $scope.uploadProfilePicture();
+    }
+]);

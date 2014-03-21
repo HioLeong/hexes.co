@@ -37,6 +37,10 @@ hexApp.config(['$routeProvider',
                     templateUrl: 'partials/uploadPhotos.html',
                     controller: 'PhotosCtrl'
             })
+            .when('/uploadProfilePicture', {
+                    templateUrl: 'partials/uploadPhotos.html',
+                    controller: 'UploadProfilePictureCtrl'
+            })
             .when('/notifications', {
                     templateUrl: 'partials/notifications.html',
                     controller: 'NotificationsCtrl'
@@ -110,7 +114,11 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     $http.get('/profile/getUserDetails/' + getId)
                     .success(function(data, status, headers, config) {
                         $scope.user = data;
-                        $scope.getSchoolName();
+                        console.log(data.picture_url);
+                        $('.profpic .hexagon-in2').css('background','url("'+data.picture_url+'")');
+                        $('.profpic .hexagon-in2').css('background-position','50%');
+                        $('.profpic .hexagon-in2').css('background-size','200%');
+                        //$scope.getSchoolName();
                     });
 
                     $scope.getFriendsOfFriend();

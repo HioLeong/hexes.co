@@ -34,6 +34,36 @@ class PhotosController extends baseController {
             }
         }
 
+        public function uploadProfilePicture() {
+            $output_dir = $_SERVER['DOCUMENT_ROOT'].'/upload/';
+            if (isset($_FILES['file'])) {
+                $ret = array();
+
+                $error =$_FILES["file"]["error"];
+                if(!is_array($_FILES["file"]["name"])) //single file
+                {
+                    $fileName = $_FILES["file"]["name"];
+                    $UrlToFile = 'profile/'.$fileName;
+                    move_uploaded_file($_FILES["file"]["tmp_name"],$UrlToFile);
+                    echo $this->updateProfilePicture($UrlToFile);
+                    $ret[]= $fileName;
+                }
+                else  //Multiple files, file[]
+                {
+                }
+                echo json_encode($ret);
+            }
+        }
+
+
+        private function updateProfilePicture($UrlToFile) {
+            $id = $_SESSION['id'];
+            $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+            $query = "UPDATE User SET picture_url='{$UrlToFile}' WHERE idUser = {$id}";
+            $results = mysqli_query($con, $query);
+            return var_dump($results);
+        }
+
         private function updateDatabase($UrlToFile) {
             $albumid = $this->getAlbumId();
             $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
