@@ -19,24 +19,7 @@
                         <div class="comment bottom">New</div>
                       </div>
                     </div>
-                    <div class="messages">
-                      <div class="message">
-                        <div class="cell">
-                          <div class="checkbox">
-                            <input type="checkbox" name="1" id="1" />
-                                <label class="messageLabel" for="1"></label>
-                          </div>
-                          <div class="profileImage">
-                            <img src=""/>
-                          </div>
-                          <div class="metadata">
-                            <p class="from">Jake Rodway</p><br/>
-                            <p class="subject">Whats up tom? I've been looking at your recent dribbble works and I think they look great!<p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="messages">
+                    <div class="messages" ng-repeat="c in conversations">
                       <div class="message">
                         <div class="cell">
                           <div class="checkbox">
@@ -47,8 +30,7 @@
                             <img src=""/>
                           </div>
                           <div class="metadata">
-                            <p class="from">Jack Woolley</p><br/>
-                            <p class="subject">Hey, I was just emailing you to see if you have made the drafts yet? I need them as  soon as possible<p>
+                              <p class="from"><a href="#/messages/(( c.idUser ))">(( c.firstName )) ((c.surname)) </a> </p><br/>
                           </div>
                         </div>
                       </div>
@@ -63,7 +45,7 @@
 
                       <input style="margin-left: 20px" type="text" placeholder="Search..." ng-model="search"/>
                       <div ng-repeat="m in messages | filter: search">
-                          <p class="(( getBubbleText(m.idUserFrom) ))"><Strong><a style="float: right">(( getName(m.idUserFrom) )) | (( m.date))</a></Strong>(( m.message ))</p>
+                          <p class="(( getBubbleText(m.idUserFrom) ))"><Strong><a style="float: right">(( getName(m.idUserTo) )) | (( m.date))</a></Strong>(( m.message ))</p>
                       </div>
                       <!--
                       <p class="bubble-me"><Strong><a style="float: right;">David | 17.32pm</a></Strong>Check this out</p>
@@ -76,12 +58,9 @@
     -->
                     </div>
                     <div class="messageInput">
+                            <form ng-submit="sendMessage()">
                     	<div id="messageInputField" style="">
-                        	<textarea id="Field4" name="Field4" spellcheck="true" style="height: 100%; width: 100% !important; resize: none; margin: 20px; position: relative;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;" ng-model="message"></textarea>
+                            <input id="messageBox" type="text" style="height: 100%; width: 100% !important; resize: none; margin: 20px; position: relative; top:0; left:0; right:0; bottom:0;" ng-model="message"/>
                         </div>
                         <div id="mSendButton" style="float: right;width:20%;">
                             <div id="messagesSendButton">
@@ -89,6 +68,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                   </div>
                 </div>
                 

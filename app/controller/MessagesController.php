@@ -44,6 +44,19 @@ class MessagesController extends BaseController {
         return $this->getResultAsJson($results);
     }
 
+    public function getConversation() {
+        $currentUserId = $_SESSION['id'];
+        $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+        $query = "SELECT DISTINCT idUserTo, idUserFrom FROM Message
+            WHERE (idUserFrom = {$currentUserId}) OR (idUserTo={$currentUserId})";
+        $results = mysqli_query($con, $query);
+        $array = array();
+        while ($row = mysqli_fetch_assoc($results)) {
+            array_push($array, $row);
+        }
+        echo json_encode($array);
+    }
+
     //TODO: Refactor this into a Helper class/Find Php premade
     private function getResultAsJson($results) {
         $result = array();

@@ -103,6 +103,21 @@ class ProfileController extends baseController {
         echo json_encode($array);
     }
 
+    public function getNamesByIds($ids) {
+        $array = json_decode($ids);
+        $names = array();
+        foreach ($array as $id) {
+            array_push($names, $this->getNameById($id));
+        }
+        echo json_encode($names);
+    }
+    public function getNameById($id) {
+        $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+        $query = "SELECT idUser, firstName, surname FROM User WHERE idUser = {$id}";
+        $results = mysqli_query($con, $query);
+        return mysqli_fetch_assoc($results);
+    }
+
     public function getAllActivities() {
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
         $query="SELECT DISTINCT
@@ -133,7 +148,6 @@ class ProfileController extends baseController {
         $results = mysqli_query($con, $query);
         return $results;
     }
-
 
     private function getResultAsJson($results) {
         $result = array(); 

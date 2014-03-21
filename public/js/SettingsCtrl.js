@@ -23,7 +23,7 @@ hexApp.controller('SettingsCtrl', ['$scope', '$http', '$routeParams', 'loginServ
                     return;
                 }
 
-                if (userDetails) {
+                if (userDetails.dateOfBirth) {
                     userDetails.dateOfBirth =
                         $scope._convertDate(userDetails.dateOfBirth);
                 }

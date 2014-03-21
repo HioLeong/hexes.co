@@ -24,7 +24,7 @@
                       	<br></br>
                         <div id="leftProfile" style="float: left; width: 48%;">
                         	<h1>Login</h1>
-                            <input type="email" class="email" placeholder="Email">
+                            <input type="email" value="(( userDetails.email ))"class="email" placeholder="Email">
                             <!--<div>
                               <p class="email-help regText">Changing this will alter login details!</p>
                             </div>-->
@@ -34,9 +34,9 @@
                             <br></br>
                             <h1>Personal</h1>
                             
-                            <input type="text" class="email" id="firstName" placeholder="First Name">
-                            <input type="text" class="email" placeholder="Last Name">
-                            <input type="text" class="email" placeholder="Nickname (Optional)">
+                            <input type="text" value="(( userDetails.firstName))" class="email" id="firstName" placeholder="First Name">
+                            <input type="text" value="((userDetails.surname ))"class="email" placeholder="Last Name"/>
+                            <input type="text" value="(( userDetails.otherName ))"class="email" placeholder="Nickname (Optional)"/>
                             <select name="birthDay" id="dayList"><option value="">DD</option></select>
                             <select name="birthMonth" id="monthList">
                               <option value="">MM</option>
@@ -81,7 +81,7 @@
                         
                         <div id="rightProfile" style="float: right; width: 48%;">
                         	<h1>Education</h1>
-                            <input type="text" class="email" placeholder="School">
+                            <input type="text" class="email" placeholder="School" ng-model="userDetails.school"/>
                             <select name="gradYear" id="yearList"><option value="">Graduation Year</option></select>
                             <!--Grad Year-->
                             <br></br>
@@ -92,8 +92,8 @@
                             <br></br>
                         </div>
                             
-                        <div id="profileSaveButton" style="clear: both;">
-                        	  <button class="bloomButton red">SAVE</button>
+                        <div id="profileSaveButton" ng-click="updateUserDetails(userDetails)" style="clear: both;">
+                        	  <button class="bloomButton red">Save</button>
                         </div>    
                             
                       </fieldset>
