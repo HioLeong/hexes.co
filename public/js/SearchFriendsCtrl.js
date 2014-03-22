@@ -18,7 +18,6 @@ hexApp.controller('SearchFriendsCtrl', ['$scope', '$http', '$routeParams', '$loc
             };
 
             $scope.goToFriend = function(friend) {
-                console.log(friend);
                 var id = friend.idUser;
                 $location.path('/profile/'+id);
             };

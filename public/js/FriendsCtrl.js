@@ -15,7 +15,6 @@ hexApp.controller('FriendsCtrl', ['$scope', '$http', '$routeParams', '$location'
                 $http.get('profile/getFriends?requestUserId='+id)
                 .success(function(data, status, header, config) {
                     $scope.friends = data;
-                    console.log(data);
                 });
             };
 
@@ -38,11 +37,8 @@ hexApp.controller('MutualFriendsCtrl', ['$scope', '$http', '$routeParams', '$loc
                 loginService.getLoginId(function(id) {
                     var requestUserId = $routeParams.id;
                     var currentUserId = id;
-                    console.log(currentUserId);
-                    console.log(requestUserId);
                     $http.get('profile/getFriendsOfFriend?currentUserId='+currentUserId+'&'+'requestUserId='+requestUserId)
                     .success(function(data, status, header, config) {
-                        console.log(data);
                         $scope.friends = data;
                     });
                 });

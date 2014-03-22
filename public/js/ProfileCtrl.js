@@ -68,7 +68,6 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
             $scope.getXML = function() {
                 $http.get('profile/getXML')
                 .success(function(data, status, header, config) {
-                    console.log(data);
                 });
             }
 
@@ -102,7 +101,6 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                 var requestUserId = $routeParams.id;
                 $http.get('circle/addToCircle?circleName='+ $scope.circle + '&id='+requestUserId) 
                 .success(function(data, status, header, config) {
-                    console.log(data);
                 });
             };
 
@@ -157,7 +155,7 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                         $('.profpic .hexagon-in2').css('background','url("'+data.picture_url+'")');
                         $('.profpic .hexagon-in2').css('background-position','50%');
                         $('.profpic .hexagon-in2').css('background-size','200%');
-                        //$scope.getSchoolName();
+                        $scope.user.school = $scope.getSchoolName(getId);
                     });
 
                     $scope.getFriendsOfFriend();
@@ -191,9 +189,9 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                 }
             };
 
-            $scope.getSchoolName = function() {
-                $.post('profile/getSchoolNameByUserId', 'id='+$scope.user.idUser, function(schoolName) {
-                    $scope.user.school = schoolName;
+            $scope.getSchoolName = function(id) {
+                $http.get('profile/getSchoolNameByUserId/'+id)
+                .success(function(data, status, header, config) {
                 });
             };
 
@@ -216,7 +214,6 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     $http.get('profile/getFriendsOfFriend?currentUserId='+
                             currentUserId+'&'+'requestUserId='+requestUserId)
                         .success(function(data, status, header, config) {
-                            console.log(data);
                         });
                 });
             };
@@ -369,5 +366,6 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
 
 
             };
+
         }
 ]);

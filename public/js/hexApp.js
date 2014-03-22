@@ -18,7 +18,6 @@ hexApp.factory('loginService', ['$rootScope', '$http',
             loginService.logOff = function() {
                 $http.get('login/logOut')
                 .success(function(data, status, header, config) {
-                    console.log(data);
                 });
                 $rootScope.broadcast('loggedOff');
             };

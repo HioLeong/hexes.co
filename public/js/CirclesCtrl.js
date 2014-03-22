@@ -5,7 +5,6 @@ hexApp.controller('CirclesCtrl', ['$scope', '$http', 'loginService',
                     $http.get('circle/getAllCircles/'+id)
                     .success(function(data, status, header, config) {
                         $scope.activities = data;
-                        console.log(data);
                     });
                 });
             };

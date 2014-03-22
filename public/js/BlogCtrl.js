@@ -10,7 +10,6 @@ hexApp.controller('BlogCtrl', ['$scope', '$http',
                 data.title = $scope.title;
                 data.content = $scope.content;
                 $.post('blog/addBlog', 'data='+JSON.stringify(data), function(data) {
-                    console.log(data);
                     $scope.getAllBlogs();
                 });
             };
@@ -19,7 +18,6 @@ hexApp.controller('BlogCtrl', ['$scope', '$http',
                 $http.get('blog/getAllBlogs')
                 .success(function(data, status, header, config) {
                     $scope.blogs = data;
-                    console.log(data);
                 });
             };
 

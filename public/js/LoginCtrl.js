@@ -25,10 +25,8 @@ hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService', '$location',
                             $(".loginWarning").fadeIn(200);
                         });
                     } else {
-                        console.log('Success!');
                         location.href="home#/profile";
                         loginService.getLoginId(function(data) {
-                            console.log(data);
                         });
                     }
                 });
@@ -39,7 +37,6 @@ hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService', '$location',
              * 'error' otherwise.
              */
             $scope.registerUser = function(registerDetails) {
-                console.log('what');
 
                 if (!registerDetails) {
                     $scope.status = 'error';
@@ -53,7 +50,6 @@ hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService', '$location',
 
                 $.post('login/registerUserFromPost', 'data='+JSON.stringify(registerDetails), function(data) {
                     location.href="home#/settings";
-                    console.log(data);
                 });
             }
         }

@@ -10,7 +10,6 @@ hexApp.controller('ActivitiesLogCtrl', ['$scope', '$http',
                 $http.get('profile/getAllActivities') 
                 .success(function(data, status, header, config) {
                     $scope.activities = data;
-                    console.log(data);
                 });
             };
 
