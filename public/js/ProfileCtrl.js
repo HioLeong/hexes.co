@@ -136,6 +136,7 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                         $('#mutualclicked').remove();
                     } else {
                         $('#circles').remove();
+                        $('#newBlog').remove();
 
                         $http.get('profile/isFriends?currentUserId='+
                                 id+'&'+'requestUserId='+$routeParams.id)

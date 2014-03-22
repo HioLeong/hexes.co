@@ -115,7 +115,7 @@
 				<li id="blogsList" style="overflow: scroll !important; max-height: 100%;"><h2>Blogs<span></span></h2>  
 					<div id="blogsListDiv" ng-controller="BlogCtrl">
 				
-						<button class="newBlogButton viewBlogs">+ New Blog</button>
+						<button id='newBlog' class="newBlogButton viewBlogs">+ New Blog</button>
 						
                         <div ng-repeat="blog in blogs">
                             <br class="hideBR"></br><h1 class="viewBlogs">(( blog.title ))<a style="float: right; padding-bottom: 10px;">(( blog.dateCreated ))</a></h1><br></br>
