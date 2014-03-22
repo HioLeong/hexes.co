@@ -1,5 +1,5 @@
 <section class="whatever">
-    <h2> Friends Activities </h2>
+    <h2> Friends Circle</h2>
     <table class="order-table">
         <thead>
             <tr>
@@ -11,6 +11,7 @@
             <tr ng-repeat="a in activities">
                 <td> <strong> (( a.circleName ))</strong></td>
                 <td> (( a.firstName )) (( a.surname ))</td>
+                <td> <a class="friendButton circleLog"> Remove</a> </td>
             </tr>
         </tbody>
     </table>

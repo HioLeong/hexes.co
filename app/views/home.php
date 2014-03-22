@@ -186,6 +186,11 @@
 		box-shadow: 0px 2px 1px white inset, 0px -2px 8px white, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1) !important;
 		-webkit-transition:box-shadow 0.5s !important;
 	}
+
+    a.friendButton.circleLog {
+        width: 100% !important;
+    }
+
 	a.friendButton i{
 		float: right !important;
 		margin-top: 2px !important;
@@ -322,7 +327,7 @@
             <p class="navSpaces"></p>
             <li class="mobileTwoColumn"><a href="#">Admin</a></li>
             <p class="navSpaces"></p>
-            <li><a href="#">Log Off</a></li>
+            <li><a href="/login">Log Off</a></li>
 
           </ul>
         </nav>
