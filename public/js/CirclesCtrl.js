@@ -9,6 +9,10 @@ hexApp.controller('CirclesCtrl', ['$scope', '$http', 'loginService',
                     });
                 });
             };
+
+            $scope.removeRow = function(id) {
+                $('#'+id).remove();
+            };
             $scope.getAllCircles();
         }
 ]);

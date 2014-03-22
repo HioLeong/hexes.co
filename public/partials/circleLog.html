@@ -8,7 +8,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="a in activities">
+            <tr id="(( a.User_idUser ))" ng-click="removeRow( ((a.User_idUser)) )" ng-repeat="a in activities">
                 <td> <strong> (( a.circleName ))</strong></td>
                 <td> (( a.firstName )) (( a.surname ))</td>
                 <td> <a class="friendButton circleLog"> Remove</a> </td>
