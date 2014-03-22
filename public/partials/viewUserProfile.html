@@ -35,7 +35,6 @@
                         <li><strong>Hometown</strong><div></div></li>
                         <li><strong>Education</strong><div>(( user.school))</div></li>
                         <li><strong>Relationship</strong><div>(( getRelStatusFromCode(user.relStatus) )) </div></li>
-                        <li><strong>Contact</strong><div></div></li>
                     </ul>
                 </div>
                 <!--<div id="pricing-table-footer">
@@ -176,9 +175,9 @@
           <input type="text" placeholder="Circle" ng-model="circle"/>
           <input type="submit"/>
       </form>
-      <a href="#/friends/(( getCurrentPageId() ))"> See Friendzone </a>
+      <a id="friendzoneclicked" href="#/friends/(( getCurrentPageId() ))"> See Friendzone </a>
       <br/>
-      <a href="#/mutualFriends/(( getCurrentPageId() ))"> Mutual Friendzoned </a>
+      <a id="mutualclicked" href="#/mutualFriends/(( getCurrentPageId() ))"> Mutual Friendzoned </a>
       <br/>
   </div>
 <!-- CLOSE Viewing Profiles -->  
