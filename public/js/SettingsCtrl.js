@@ -8,6 +8,11 @@ hexApp.controller('SettingsCtrl', ['$scope', '$http', '$routeParams', 'loginServ
                 genderWidth = (genderWidth / 2)*0.98;
                 $(".register>form>fieldset>#leftProfile>.toggle>.toggle-label").css('width',genderWidth);
 
+                $('.switchToggle').click(function(e){
+                  e.preventDefault(); // The flicker is a codepen thing
+                  $(this).toggleClass('toggle-on');
+                });
+                
                 loginService.getLoginId(function(id) {
                     if (id != 'Error') {
                         $http.get('profile/getUserDetails/'+id)
