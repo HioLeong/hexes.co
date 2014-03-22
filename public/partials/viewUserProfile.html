@@ -149,11 +149,11 @@
 				
 						<button class="newBlogButton viewBlogs">+ New Blog</button>
 						
-						<br class="hideBR"></br><h1 class="viewBlogs">Blog Title 1<a style="float: right; padding-bottom: 10px;">Date</a></h1><br></br>
-			<h3 class="viewBlogs" style="font-weight: lighter;">American Apparel locavore iPhone wayfarers put a bird on it.  Whatever McSweeney's Banksy letterpress Marfa.  Drinking vinegar PBR synth, tote bag kale chips typewriter shabby chic mlkshk.  Twee Wes Anderson semiotics Blue Bottle Tumblr, locavore ennui squid.  Blog tofu paleo try-hard mustache bicycle rights DIY.  Forage quinoa DIY master cleanse.  Freegan tote bag squid keffiyeh, sriracha try-hard tousled gentrify McSweeney's pickled pork belly Neutra literally.</h3>
+                        <div ng-repeat="blog in blogs">
+                            <br class="hideBR"></br><h1 class="viewBlogs">(( blog.title ))<a style="float: right; padding-bottom: 10px;">(( blog.dateCreated ))</a></h1><br></br>
+                            <h3 class="viewBlogs" style="font-weight: lighter;">(( blog.content ))</h3>
+                        </div>
 						
-						<br class="hideBR"></br><h1 class="viewBlogs">Blog Title 2<a style="float: right; padding-bottom: 10px;">Date</a></h1><br></br>
-			<h3 class="viewBlogs" style="font-weight: lighter;">American Apparel locavore iPhone wayfarers put a bird on it.  Whatever McSweeney's Banksy letterpress Marfa.  Drinking vinegar PBR synth, tote bag kale chips typewriter shabby chic mlkshk.  Twee Wes Anderson semiotics Blue Bottle Tumblr, locavore ennui squid.  Blog tofu paleo try-hard mustache bicycle rights DIY.  Forage quinoa DIY master cleanse.  Freegan tote bag squid keffiyeh, sriracha try-hard tousled gentrify McSweeney's pickled pork belly Neutra literally.</h3>
 						<!-- New Blog -->
 						<h1 class="newBlogs">Blog Title <input id="newBlogTitle" style="border-radius: 20px; outline-width: 0;" ng-model="title"/><h1><br></br>
 						
