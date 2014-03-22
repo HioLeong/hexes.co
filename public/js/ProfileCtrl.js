@@ -130,8 +130,13 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     var getId = $routeParams.id || id;
                     if (($routeParams.id == id) || (!$routeParams.id)) {
                         $('#friendStatus').hide();
+                        $('#sendMessage').remove();
+                        $('#circleForm').remove();
+                        $('#friendzoneclicked').remove();
+                        $('#mutualclicked').remove();
                     } else {
-                        // See if they are already friends/friended
+                        $('#circles').remove();
+
                         $http.get('profile/isFriends?currentUserId='+
                                 id+'&'+'requestUserId='+$routeParams.id)
                             .success(function(data, status, headers, config) {

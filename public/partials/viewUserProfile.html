@@ -138,11 +138,11 @@
     </div>
   </div>
   <div id="bottomRow" style="clear:both;">
-      <a class="friendButton" href="" style="margin-bottom: 20px"> Circles </a>
+      <a id='circles' class="friendButton" href="" style="margin-bottom: 20px"> Circles </a>
 
-      <a class="friendButton" href="#/messages/(( getCurrentPageId() ))" style="margin-bottom: 20px"> Send Message </a>
+      <a id="sendMessage" class="friendButton" href="#/messages/(( getCurrentPageId() ))" style="margin-bottom: 20px"> Send Message </a>
 
-      <form ng-submit="addToCircle()">
+      <form id="circleForm" ng-submit="addToCircle()">
           <input style="width: 22%; height: 35px; font-size: 15px; border-radius: 10px; outline: none;" type="text" placeholder="Add to Circle" ng-model="circle"/>
           <input style="width: 10%; height: 35px; font-size: 40px; margin-bottom: 20px;" type="submit"/>
       </form>
