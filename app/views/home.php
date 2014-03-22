@@ -47,6 +47,36 @@
 		<link rel="stylesheet" href="css/mainStyle.css" />
 
 <style>
+    @import url(http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css);
+
+	a.friendButton{
+		background: #ECECEC !important;
+		border-radius: 15px !important;
+		text-align: center !important;
+		padding: 10px 20px !important;
+		display: block !important;
+		font-family: arial !important;
+		font-weight: bold !important;
+		color:#7f7f7f !important;
+		text-decoration: none !important;
+		text-shadow:0px 1px 0px #fff !important;
+		border:1px solid #a7a7a7 !important;
+		width: 32% !important;
+		box-shadow: 0px 2px 1px white inset, 0px -2px 8px white, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1) !important;
+		-webkit-transition:box-shadow 0.5s !important;
+	}
+	a.friendButton i{
+		float: right !important;
+		margin-top: 2px !important;
+	}
+	a.friendButton:hover{
+		box-shadow: 0px 2px 1px white inset, 0px -2px 20px white, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1) !important;
+	}
+	a.friendButton:active{
+		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5) inset, 0px -2px 20px white, 0px 1px 5px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.1) !important;
+		background:-webkit-linear-gradient(top, #d1d1d1 0%,#ECECEC 100%) !important;
+	}
+
 .searchBar {
   color: #666;
   font: 85%/140% Arial, Helvetica, sans-serif;

@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
 var leftColumnHeight = $('#leftColumn').height();
+leftColumnHeight = leftColumnHeight + 181;
+alert(bottomRowHeight);
 document.getElementById("rightColumn").style.height = leftColumnHeight-119+"px";
 
 document.getElementById("scaleDiv").style.height = leftColumnHeight-119+"px";

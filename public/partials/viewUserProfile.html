@@ -54,84 +54,49 @@
 				  <div class="newsWrapper" style="height: 100%; overflow:scroll;">  
 					<ul class="module-history">
 					  <li class="rating-negative memo-yep">
-						<h3>Book a flight to Melbourne</h3>
+						<h3>Elizabeth friendzoned Michael</h3>
 						<time>5 minutes ago</time>
 						<i>Has a memo attached</i>
 					  </li>
 					  <li class="rating-negative">
-						<h3>Grab some last Pad Thai w/ Yi</h3>
+						<h3>Elizabeth friendzoned John</h3>
 						<time>35 minutes ago</time>
 						<i></i>
 					  </li>
 					  <li class="rating-positive">
-						<h3>Clear desk at Pun Space</h3>
+						<h3>Elizabeth friendzoned Jennifer</h3>
 						<time>1 hour ago</time>
 						<i></i>
 					  </li>
 					  <li class="rating-positive">
-						<h3>Pick up w&t visa from embassy</h3>
+						<h3>Elizabeth added Barbara to a Work circle</h3>
 						<time>1 hour ago</time>
 						<i></i>
 					  </li>
 					  <li class="rating-negative memo-yep">
-						<h3>Clear desk at Pun Space</h3>
+						<h3>Elizabeth added Adam to a Family circle</h3>
 						<time>2 hours ago</time>
 						<i>Has a memo attached</i>
 					  </li>
 					  <li class="rating-negative memo-yep">
-						<h3>Call the landlady</h3>
+						<h3>Elizabeth added Harry to a School circle</h3>
 						<time>2 hours ago</time>
 						<i>Has a memo attached</i>
 					  </li>
 					  <li class="rating-positive">
-						<h3>Fix #rispen bug on WP8</h3>
+						<h3>Elizabeth added Mark to a School circle</h3>
 						<time>3 hours ago</time>
 						<i></i>
 					  </li>
 					  <li class="rating-positive">
-						<h3>Talk business w/ Emma</h3>
+						<h3>Elizabeth friendzoned Harry</h3>
 						<time>3 hours ago</time>
 						<i></i>
 					  </li>
 					  <li class="rating-positive memo-yep">
-						<h3>Write Markup for history view</h3>
+						<h3>Elizabeth friendzoned Mark</h3>
 						<time>4 hours ago</time>
 						<i></i>
-					  </li>
-					  <li class="rating-positive">
-						<h3>Look up support for position: sticky</h3>
-						<time>4 hours ago</time>
-						<i></i>
-					  </li>
-					  <li class="rating-positive memo-yep">
-						<h3>Skype call w/ Thomas</h3>
-						<time>6 hours ago</time>
-						<i></i>
-					  </li>
-					  <li class="rating-negative" style="overflow: scroll;">
-						<h3>Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen Still adding geo-location to #rispen</h3>
-						<time>6 hours ago</time>
-						<i>Has a memo attached</i>
-					  </li>
-					  <li class="rating-negative">
-						<h3>Add geo-location support to #rispen</h3>
-						<time>7 hours ago</time>
-						<i>Has a memo attached</i>
-					  </li>
-					  <li class="rating-negative">
-						<h3>Add geo-location support to #rispen</h3>
-						<time>7 hours ago</time>
-						<i>Has a memo attached</i>
-					  </li>
-					  <li class="rating-negative">
-						<h3>Add geo-location support to #rispen</h3>
-						<time>7 hours ago</time>
-						<i>Has a memo attached</i>
-					  </li>
-					  <li class="rating-negative">
-						<h3>Add geo-location support to #rispen</h3>
-						<time>7 hours ago</time>
-						<i>Has a memo attached</i>
 					  </li>
 					</ul>
 				  </div>
@@ -170,13 +135,15 @@
     </div>
   </div>
   <div id="bottomRow" style="clear:both;">
+      <a class="friendButton" href="" style="margin-bottom: 20px"> Send Message </a>
+
       <form ng-submit="addToCircle()">
-          <input type="text" placeholder="Circle" ng-model="circle"/>
-          <input type="submit"/>
+          <input style="width: 22%; height: 35px; font-size: 15px; border-radius: 10px; outline: none;" type="text" placeholder="Add to Circle" ng-model="circle"/>
+          <input style="width: 10%; height: 35px; font-size: 40px; margin-bottom: 20px;" type="submit"/>
       </form>
-      <a id="friendzoneclicked" href="#/friends/(( getCurrentPageId() ))"> See Friendzone </a>
+      <a id="friendzoneclicked" class="friendButton" href="#/friends/(( getCurrentPageId() ))"> See Friendzone </a>
       <br/>
-      <a id="mutualclicked" href="#/mutualFriends/(( getCurrentPageId() ))"> Mutual Friendzoned </a>
+      <a id="mutualclicked" class="friendButton" href="#/mutualFriends/(( getCurrentPageId() ))"> Mutual Friendzoned </a>
       <br/>
   </div>
 <!-- CLOSE Viewing Profiles -->  
