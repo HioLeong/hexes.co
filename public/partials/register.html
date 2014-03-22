@@ -90,12 +90,57 @@
                             <input type="text" class="email" placeholder="Current Location">
                             
                             <br></br>
+                            <h1>Preferences</h1>
+                            <select name="privacy" id="privacy">
+                              <option value="">Who is allowed to view your profile data (info, blogs etc)</option>
+                              <option value="1">Public</option>
+                              <option value="2">Friends</option>
+                              <option value="3">Friends of Friends</option>
+                              <option value="4">Just me</option>
+                            </select>
+                            <select name="privacy" id="privacy">
+                              <option value="">Who is allowed to contact me</option>
+                              <option value="1">Public</option>
+                              <option value="2">Friends</option>
+                              <option value="3">Friends of Friends</option>
+                              <option value="4">Just me</option>
+                            </select>
+                            <select name="privacy" id="privacy">
+                              <option value="">Who is allowed to look me up</option>
+                              <option value="1">Public</option>
+                              <option value="2">Friends</option>
+                              <option value="3">Friends of Friends</option>
+                              <option value="4">Just me</option>
+                            </select>
+                            <input style="width: 80%; float: left; height: 35px; font-size: 15px; border-radius: 10px; outline: none;" type="text" placeholder="User" ng-model="circle"/>
+                            <!--<input style="width: 25%; height: 35px; font-size: 20px; background: #ff0000; margin-bottom: 20px;" type="submit" placeholder="Block"/>-->
+                            <a style=" width: 20% !important; float: left; height: 35px;" class="friendButton" href="">Block User</a>
+                            
+                            <p style="vertical-align: middle !important; clear: both; float: left; margin-left 20px !important; margin-top: 10px !important;"><strong>Email Notifications</strong></p>
+                           <div style="margin-left: 20px;" class='switchToggle' id='switch'>
+                                <div class='toggle-text-off'>OFF</div>
+                                <div class='glow-comp'></div>
+                                <div class='toggle-button'></div>
+                                <div class='toggle-text-on'>ON</div>
+                            </div>
+
+                            
+
+                            <p style="vertical-align: middle !important; clear: both; float: left; margin-left 20px !important; margin-top:10px !important;"><strong>Push Notifications</strong></p>
+                           <div style="margin-left: 20px;" class='switchToggle' id='switch'>
+                                <div class='toggle-text-off'>OFF</div>
+                                <div class='glow-comp'></div>
+                                <div class='toggle-button'></div>
+                                <div class='toggle-text-on'>ON</div>
+                            </div>
+                                 
+                             <a style="margin: 0 auto; clear: both; width: 50% !important; height: 35px !important;" id="getXML" class="friendButton" href="/profile/profile.xml" download> Download Profile (XML)</a> 
                         </div>
 
 <div id="fileuploader">Upload</div>
                             
                         <div id="profileSaveButton" ng-click="updateUserDetails(userDetails)" style="clear: both;">
-                        	  <button class="bloomButton red">Save</button>
+                        	  <button style="margin-top: 20px;" class="bloomButton red">Save</button>
                         </div>    
                             
                       </fieldset>
