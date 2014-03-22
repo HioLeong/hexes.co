@@ -23,6 +23,18 @@ hexApp.controller('NotificationsCtrl', ['$scope', '$http', '$routeParams', 'logi
                 });
             };
 
+            $scope.acceptFriend = function(friendId) {
+                loginService.getLoginId(function(id) {
+                    var currentUserId = id;
+                    var requestUserId = friendId;
+                    $http.get('profile/addFriend?currentUserId='+
+                            currentUserId+'&'+'requestUserId='+requestUserId)
+                        .success(function(data, status, header, config) {
+                            $('#'+requestUserId).remove();
+                        });
+                });
+            }
+
             $scope.init();
         }
 ]);

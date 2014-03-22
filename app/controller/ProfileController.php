@@ -82,6 +82,35 @@ class ProfileController extends baseController {
     public function getFriends() {
         $requestUserId = $_GET['requestUserId'];
         $query = 'SELECT * FROM Friendship WHERE User_idUser='.$requestUserId.';';
+    
+        $query = "SELECT DISTINCT
+            idTo AS User_idUser1, firstNameTo, surnameTo, T2.picture_url
+FROM
+Friendship AS re,
+Friendship AS adder
+INNER join
+(SELECT 
+User.idUser AS idFrom,
+User.firstName AS firstNameFrom,
+User.surname AS surnameFrom
+    FROM
+        User
+    WHERE
+        User.idUser = {$requestUserId}) AS T ON adder.User_idUser = T.idFrom,
+    Friendship AS addee
+        INNER JOIN
+    (SELECT DISTINCT
+        User.idUser AS idTo,
+            User.firstName AS firstNameTo,
+            User.surname AS surnameTo,
+            User.picture_url
+    FROM
+        User
+    WHERE
+        User.idUser <> {$requestUserId}) AS T2 ON T2.idTo = addee.User_idUser1
+WHERE
+    T.idFrom = re.User_idUser
+        AND T2.idTo = re.User_idUser1";
         $results = $this->getQueryResults($query);
         $array = array();
         while ($row = mysqli_fetch_assoc($results)) {
