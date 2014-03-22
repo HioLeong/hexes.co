@@ -43,7 +43,7 @@
         <link rel="stylesheet" href="css/loginBox.css"/>
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/personalNewsFeed.css"/>
-<link rel="stylesheet" href="css/mainStyle.css" />
+		<link rel="stylesheet" href="css/mainStyle.css" />
 
 <style>
 .searchBar {
