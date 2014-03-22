@@ -54,12 +54,11 @@ class LoginController extends BaseController {
     }
 
     public function registerUserFromPost() {
-        $email = Input::get('email');
-        $password = Input::get('password');
-        if ((!$email) || (!$password)) {
-            return 'empty';
+        $data = json_decode($_POST['data']);
+        if ((!$data->email) || (!$data->password)) {
+            echo 'empty';
         }  else {
-            return $this->registerUser($email, $password);
+            echo $this->registerUser($data->email, $data->password);
         }
     }
 
@@ -67,6 +66,10 @@ class LoginController extends BaseController {
         $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
         $query = 'INSERT INTO User(password, email) VALUES(\''.$password.'\',\''.$email.'\')';
         $results = mysqli_query($con, $query);
+        $query = "SELECT * FROM User WHERE email='{$email}'";
+        $results = mysqli_query($con, $query);
+        $row = mysqli_fetch_assoc($results);
+        $_SESSION['id'] = $row['idUser'];
         return var_dump($results);
     }
 

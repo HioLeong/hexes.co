@@ -1,5 +1,5 @@
-hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService',
-        function($scope, $http, loginService) {
+hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService', '$location',
+        function($scope, $http, loginService, $location) {
             $scope.status = '';
 
             /**
@@ -21,26 +21,26 @@ hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService',
                 $.post('login/isValidUserFromPost', data, function(data) {
                     if (data=="invalid") {
                         $("input[type='submit']").click(function(){
-                            event.preventDefault();
                             $(".loginWarning").hide();
                             $(".loginWarning").fadeIn(200);
                         });
                     } else {
-                        console.log(data);
+                        console.log('Success!');
+                        location.href="home#/profile";
                         loginService.getLoginId(function(data) {
                             console.log(data);
                         });
                     }
                 });
-            }
+            };
 
             /**
              * Register new login details. Receives 'success' if correct details,
              * 'error' otherwise.
              */
             $scope.registerUser = function(registerDetails) {
+                console.log('what');
 
-                // TODO: Refactor the empty checking
                 if (!registerDetails) {
                     $scope.status = 'error';
                     return;
@@ -51,13 +51,9 @@ hexApp.controller('LoginCtrl', ['$scope', '$http', 'loginService',
                     return;
                 }
 
-                $http.post('register', registerDetails)
-                .success(function(data, status, headers, config) {
-                    console.log('success');
-                    $scope.status = 'success';
-                })
-                .error(function(data, status, headers, config) {
-                    $scope.status = 'error';
+                $.post('login/registerUserFromPost', 'data='+JSON.stringify(registerDetails), function(data) {
+                    location.href="home#/settings";
+                    console.log(data);
                 });
             }
         }

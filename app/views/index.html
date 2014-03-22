@@ -11,11 +11,12 @@
 	
 	<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic" rel="stylesheet" type="text/css">
 	
-    <script src="js/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
 	<script src="js/jquery-ui-1.10.4.custom.min.js"></script><style type="text/css"></style>
 	<script src="js/select.js"></script> 
+	<script type="text/javascript" src="js/js.js"></script>
 	<script type="text/javascript" src="js/jquery.stellar.min.js"></script>
 	<script type="text/javascript" src="js/waypoints.min.js"></script>
 	
@@ -23,24 +24,30 @@
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.src.js"></script>
 	<![endif]-->
-<script src="js/angular.js"></script>
-<script src="js/angular-route.js"></script>
-
-        <!-- Angular -->
-        <script src="js/hexApp.js"></script>
-        <script src="js/ProfileCtrl.js"></script>
-        <script src="js/SettingsCtrl.js"></script>
-        <script src="js/LoginCtrl.js"></script>
-        <script src="js/FriendsCtrl.js"></script>
-        <script src="js/MessagesCtrl.js"></script>
-        <script src="js/PhotosCtrl.js"></script>
-        <script src="js/SearchFriendsCtrl.js"></script>
-        <script src="js/NotificationsCtrl.js"></script>
-        <script src="js/MenuCtrl.js"></script>
-        <script src="js/ActivitiesLogCtrl.js"></script>
-
-
+	
 	<script type="text/javascript">
+		$(document).ready(function(){	
+			$("#ajax-contact-form").submit(function() {
+				var str = $(this).serialize();		
+				$.ajax({
+					type: "POST",
+					url: "contact_form/contact_process.php",
+					data: str,
+					success: function(msg) {
+						// Message Sent - Show the 'Thank You' message and hide the form
+						if(msg == 'OK') {
+							result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
+							$("#fields").hide();
+						} else {
+							result = msg;
+						}
+						$('#note').html(result);
+					}
+				});
+				return false;
+			});
+
+		});		
 	</script>
 	
 	<script type="text/javascript">//$($.date_input.initialize);</script>
@@ -158,11 +165,11 @@
             <input class="passwordLogin" id="passwordLogin" class = "Value" type = "password"  placeholder="Password"/>
             <!--<a class="ForgotPassword" href="#">Forgot Password?</a>-->
         </li>
-
         <li class = "Login">
                	<img id="hexlogin" class="hexLoginClass" src="images/login.png">    
         </li>
 
+     
           <!--<form class="navbar-form navbar-right" role="form">
             <div class="form-group">
               <input type="text" placeholder="Email" id="emailLogin" class="form-control">
@@ -212,13 +219,23 @@
 					<h1 style="color:#000;">Register</h1>
 				</div>
 				
-				<div class="order_block" ng-app="hexApp">
-                    <h2 style="color:#000;"> To sign-up for a free basic account please provide us with some basic information using the form below. Please use valid credentials.</h2>
-                    <form class="form" ng-submit="registerUser(userDetails)" ng-controller="LoginCtrl">
-                        <input type="email" class="email" ng-model="userDetails.email" ng-click="console.log('what')" placeholder="Email"/>
-                        <input type="password" class="password" placeholder="Password" ng-model="userDetails.password"/>
-                        <input type="submit" class="submit" /> 
-                    </form>
+				<div class="order_block">
+					<h2 style="color:#000;">To sign-up for a free basic account please provide us with some basic information using the form below. Please use valid credentials.</h2>
+                    <form class="form" method="post" action="main.html">
+    				<input type="email" class="email" placeholder="Email">
+    				<div>
+      					<p class="email-help regText">Please enter your current email address for verification.</p>
+    				</div>
+    				<input type="password" class="password" placeholder="Password">
+     				<div>
+      					<!--<p class="password-help">Please enter your current email address.</p>-->
+    				</div>
+    				<input type="password" class="confirmPassword" id="cp" placeholder="Confirm Password">
+     				<div>
+     	 				<p class="password-help regText">Please confirm your password.</p>
+    				</div>
+    				<input type="submit" class="submit" value="Register">    
+  					</form>					
 				</div>
 			</div>
 		</div>
@@ -271,6 +288,9 @@
 </div>
 
 	
+	<div id="map_block" style="margin-top:-0px;"><iframe width="100%" height="772" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=UCL,+Gower+Street,+London,+United+Kingdom&amp;aq=3&amp;oq=ucl&amp;sll=37.0625,-95.677068&amp;sspn=64.281297,135.263672&amp;ie=UTF8&amp;hq=UCL,+Gower+Street,+London,+United+Kingdom&amp;t=m&amp;ll=51.524371,-0.132963&amp;spn=0.006295,0.010159&amp;output=embed"></iframe></div>
+	
+</div>
 
 
 

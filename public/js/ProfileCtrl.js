@@ -175,7 +175,7 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     $http.get('profile/addFriend?currentUserId='+
                             currentUserId+'&'+'requestUserId='+requestUserId)
                         .success(function(data, status, header, config) {
-                            console.log(data);
+                            $('#friendStatus').hide();
                         });
                 });
             };
