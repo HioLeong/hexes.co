@@ -1,6 +1,14 @@
-hexApp.controller('MenuCtrl', ['$scope', '$http', '$timeout',
-        function($scope, $http, $timeout) {
+hexApp.controller('MenuCtrl', ['$scope', '$http', '$timeout', 'searchService',
+        function($scope, $http, $timeout, searchService) {
             $scope.numOfNotifications;
+
+            $scope.search = function() {
+                searchService.search($scope.searchText);
+            };
+
+            $scope.goToSearchFriends = function() {
+                location.href="home#/searchFriends";
+            };
 
             (function tick() {
                     $http.get('profile/getNotifications')

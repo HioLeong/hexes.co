@@ -27,6 +27,30 @@ hexApp.factory('loginService', ['$rootScope', '$http',
     }
 ]);
 
+hexApp.factory('searchService', ['$rootScope', '$http',
+        function($rootScope, $http) {
+            var searchService = {};
+
+            searchService.message;
+
+            searchService.getMessage = function() {
+                return searchService.message;
+            }
+
+            searchService.broadcastSearch = function() {
+                $rootScope.$broadcast('searching');
+            };
+
+            searchService.search = function(message) {
+                searchService.message = message;    
+                searchService.broadcastSearch();
+            };
+
+            return searchService;
+    }
+]);
+
+
 hexApp.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('((');
     $interpolateProvider.endSymbol('))');

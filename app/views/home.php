@@ -152,7 +152,7 @@
             <li>  
               <div class="searchBar">
                 <form id="searchFriends">
-                  <input type="search" placeholder="Search">
+                  <input ng-click="goToSearchFriends()" ng-change="search()" ng-model="searchText" type="search" placeholder="Search">
                 </form>
               </div>
             </li>  

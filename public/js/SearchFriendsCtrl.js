@@ -1,5 +1,5 @@
-hexApp.controller('SearchFriendsCtrl', ['$scope', '$http', '$routeParams', '$location', 'loginService',
-        function($scope, $http, $routeParams, $location, loginService) {
+hexApp.controller('SearchFriendsCtrl', ['$scope', '$http', '$routeParams', '$location', 'loginService', 'searchService', '$rootScope', '$filter',
+        function($scope, $http, $routeParams, $location, loginService, searchService, $rootScope, $filter) {
             $scope.friends;
 
             $scope.init = function() {
@@ -13,7 +13,7 @@ hexApp.controller('SearchFriendsCtrl', ['$scope', '$http', '$routeParams', '$loc
                     for (i = 0, il = $scope.friends.length; i < il; i++) {
                         $scope.friends[i].fullName = $scope.friends[i].firstName + ' ' + $scope.friends[i].surname;
                     }
-                    console.log($scope.friends);
+                    $scope.fullFriends = $scope.friends;
                 });
             };
 
@@ -22,6 +22,11 @@ hexApp.controller('SearchFriendsCtrl', ['$scope', '$http', '$routeParams', '$loc
                 var id = friend.idUser;
                 $location.path('/profile/'+id);
             };
+
+            $scope.$on('searching', function() {
+                $scope.friends = $filter('filter')($scope.fullFriends, searchService.getMessage());
+            });
+
 
             $scope.init();
         }
