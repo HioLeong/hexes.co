@@ -32,16 +32,15 @@ class SettingsController extends BaseController {
 
     private function createUserIfNoteExist($email) {
             $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
-            $query = "SELECT * FROM User WHERE email={$email}";
-            echo $query;
+            $query = "SELECT * FROM User WHERE email='{$email}'";
             $results = mysqli_query($con, $query);
             $row = mysqli_fetch_assoc($results);
             if (empty($row)) {
                 $query = "INSERT User(email) VALUES('{$email}');";
-                echo $query;
                 $results = mysqli_query($con, $query);
                 echo var_dump($results);
             } else {
+                echo 'nope';
             }
     }
 
