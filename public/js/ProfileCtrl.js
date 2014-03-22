@@ -53,6 +53,10 @@ hexApp.config(['$routeProvider',
                     templateUrl: 'partials/friends.html',
                     controller: 'MutualFriendsCtrl'
             })
+            .when('/circles/', {
+                    templateUrl: 'partials/circleLog.html',
+                    controller: 'CirclesCtrl'
+            })
             .otherwise({
                     redirectTo: '/login'
             });

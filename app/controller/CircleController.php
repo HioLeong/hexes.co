@@ -15,6 +15,16 @@ class CircleController extends baseController {
         echo $this->addUserToCircle($requestUserId, $circleId);
     }
 
+    public function getAllCircles($id) {
+        $query = " SELECT * FROM (SELECT * FROM CircleUser INNER JOIN (SELECT * FROM Circle WHERE idUserCreated = {$id}) AS C ON CircleUser.Circle_idCircle = C.idCircle) AS Ci INNER JOIN (SELECT * FROM User) As U WHERE U.idUser = Ci.User_idUser"; 
+        $results = $this->query($query);
+        $array = array(); 
+        while ($row = mysqli_fetch_assoc($results)) {
+            array_push($array, $row);
+        }
+        echo json_encode($array);
+    }
+
     public function addCircleIfNotExist() {
         $circleName = $_GET['circleName'];
         $id = $_SESSION['id'];

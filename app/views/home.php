@@ -27,6 +27,7 @@
         <script src="js/MenuCtrl.js"></script>
         <script src="js/ActivitiesLogCtrl.js"></script>
         <script src="js/BlogCtrl.js"></script>
+        <script src="js/CirclesCtrl.js"></script>
 
         <script src="js/userProfile.js"></script>
                 <noscript>
