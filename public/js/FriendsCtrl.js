@@ -15,6 +15,7 @@ hexApp.controller('FriendsCtrl', ['$scope', '$http', '$routeParams', '$location'
                 $http.get('profile/getFriends?requestUserId='+id)
                 .success(function(data, status, header, config) {
                     $scope.friends = data;
+                    console.log(data);
                 });
             };
 
