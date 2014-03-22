@@ -5,6 +5,17 @@ class PhotosController extends baseController {
         public function index() {
         }
 
+        public function getAllPhotosOfId($id) {
+            $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+            $query = "SELECT * FROM (SELECT * FROM PhotoAlbum INNER JOIN (SELECT * FROM Photo) AS P ON PhotoAlbum.idalbum = P.PhotoAlbum_idalbum) AS P WHERE P.User_idUser1 = {$id}";
+            $results = mysqli_query($con, $query);
+            $array = array();
+            while ($row = mysqli_fetch_assoc($results)) {
+                array_push($array, $row);
+            }
+            echo json_encode($array);
+        }
+
         public function uploadPhoto() {
             $output_dir = $_SERVER['DOCUMENT_ROOT'].'/upload/';
             if (isset($_FILES['file'])) {
@@ -68,6 +79,7 @@ class PhotosController extends baseController {
             $albumid = $this->getAlbumId();
             $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
             $query = "INSERT INTO Photo(createdDate, url, PhotoAlbum_idalbum) VALUES(now(),'{$UrlToFile}',{$albumid})";
+            echo $query;
             $results = mysqli_query($con, $query);
             echo var_dump($results);
         }
@@ -76,6 +88,7 @@ class PhotosController extends baseController {
             $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
             $query = "INSERT INTO PhotoAlbum(dateCreated, User_idUser1) VALUES(now(), {$id});";
             $results = mysqli_query($con, $query);
+            echo $query;
             $query = "SELECT idalbum FROM PhotoAlbum WHERE User_idUser1 = {$id}";
             $results = mysqli_query($con, $query);
             $returnedId = mysqli_fetch_array($results)[0];
@@ -89,9 +102,9 @@ class PhotosController extends baseController {
             $results = mysqli_query($con, $query);
             $row = mysqli_fetch_array($results);
             if (empty($row)) {
-                return $this->createAlbum(userId);
+                return $this->createAlbum($userId);
             } else {
-                return $row[0];
+                return $row['idalbum'];
             }
         }
 

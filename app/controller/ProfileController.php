@@ -169,4 +169,23 @@ WHERE
         $row = mysqli_fetch_assoc($results);
         return json_encode($row);
     }
+
+    public function getXML() {
+        $id = $_SESSION['id'];
+        $con = mysqli_connect('localhost', 'root', 'root', 'HexDatabase');
+        $query = "SELECT * FROM User WHERE idUser = {$id}";
+        $results = mysqli_query($con, $query);
+        $array = array();
+        while ($row = mysqli_fetch_assoc($results)) {
+            array_push($array, $row);
+        }
+
+        $array = array_flip($array[0]);
+
+        $xml = new SimpleXMLElement("<profile/>");
+        array_walk_recursive($array, array ($xml, 'addChild'));
+        $content = $xml->asXML();
+        $file = $_SERVER['DOCUMENT_ROOT']."/profile/profile.xml";
+        file_put_contents($file, $content);
+    }
 }

@@ -1,0 +1,155 @@
+<!-- Viewing Profiles -->
+<div ng-init="getUser()" class="viewProfiles" style="display: block; width: 100%;">
+  <div id="topRowBlock" style="display: block;">
+  	<div id="leftColumn" style="float: left; width: 32%;">
+      	<div id="profileCard">
+          	<div id="viewuserprofile">  
+                <div class="profpic">
+                  <div class='center'>
+                    <div class='hexagon'>
+                      <div class='hexagon-in1'>
+                          <div class='hexagon-in2' ng-click="goToUploadPicture()"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--<img src="images/facebook.png" class="profile-img">-->
+                <div class="profile-text">
+                  <h1 class="profile-name">((user.firstName)) ((user.surname))</h1>
+                  <span class="profile-title">(( user.otherName ))</span>
+                </div>
+            </div>
+        </div>
+        <br></br>
+        <a id="friendStatus" ng-click="addFriend()" href=""><span>Add Friend</span></a>
+        <br></br>
+        <div id="infoCard">
+        	<div id="pricing-table">
+                <div id="pricing-table-header">
+                    <h1>About</h1>
+                </div>
+                <div id="pricing-table-content">
+                    <ul>
+                        <li><strong>Gender</strong> <div>(( getGenderFromCode(user.gender) ))</div></li>
+                        <li><strong>Birthday</strong><div>(( getFormattedDate(user.dateOfBirth) ))</div></li>
+                        <li><strong>Hometown</strong><div></div></li>
+                        <li><strong>Education</strong><div>(( user.school))</div></li>
+                        <li><strong>Relationship</strong><div>(( getRelStatusFromCode(user.relStatus) )) </div></li>
+                    </ul>
+                </div>
+                <!--<div id="pricing-table-footer">
+                    <h2><sup>$</sup>19.99</h2>
+                    <p>per month</p>
+                    <a href="#">Sign Up</a>
+                </div>-->
+          </div>
+        </div>
+    </div>
+      
+    <div id="rightColumn" style="float: right; height: 10%; width: 62%; margin-left: 3%;">
+        <div id="viewProfileNewsFeed" style="">
+        	<!-- Personal News Feed -->
+            <ul id="userAccordion">
+				<li><h2>News Feed<span></span></h2>
+				  <div class="newsWrapper" style="height: 100%; overflow:scroll;">  
+					<ul class="module-history">
+					  <li class="rating-negative memo-yep">
+						<h3>Elizabeth friendzoned Michael</h3>
+						<time>5 minutes ago</time>
+						<i>Has a memo attached</i>
+					  </li>
+					  <li class="rating-negative">
+						<h3>Elizabeth friendzoned John</h3>
+						<time>35 minutes ago</time>
+						<i></i>
+					  </li>
+					  <li class="rating-positive">
+						<h3>Elizabeth friendzoned Jennifer</h3>
+						<time>1 hour ago</time>
+						<i></i>
+					  </li>
+					  <li class="rating-positive">
+						<h3>Elizabeth added Barbara to a Work circle</h3>
+						<time>1 hour ago</time>
+						<i></i>
+					  </li>
+					  <li class="rating-negative memo-yep">
+						<h3>Elizabeth added Adam to a Family circle</h3>
+						<time>2 hours ago</time>
+						<i>Has a memo attached</i>
+					  </li>
+					  <li class="rating-negative memo-yep">
+						<h3>Elizabeth added Harry to a School circle</h3>
+						<time>2 hours ago</time>
+						<i>Has a memo attached</i>
+					  </li>
+					  <li class="rating-positive">
+						<h3>Elizabeth added Mark to a School circle</h3>
+						<time>3 hours ago</time>
+						<i></i>
+					  </li>
+					  <li class="rating-positive">
+						<h3>Elizabeth friendzoned Harry</h3>
+						<time>3 hours ago</time>
+						<i></i>
+					  </li>
+					  <li class="rating-positive memo-yep">
+						<h3>Elizabeth friendzoned Mark</h3>
+						<time>4 hours ago</time>
+						<i></i>
+					  </li>
+					</ul>
+				  </div>
+				<li>
+				<li><h2>Photos<span></span></h2>
+				  <div id="slider_infinite" style="height: 100%;" class="flader">
+                      <section data-function="slider_item" class="c1"><p><img style="width: 100%; height: 100%" src="http://media1.santabanta.com/full1/Global%20Celebrities(F)/Misa%20Campo/misa-campo-2a.jpg"/></p></section>
+                      <section data-function="slider_item" class="c2"><p>IMG tag here</p></section>
+                      <section data-function="slider_item" class="c3"><p>IMG tag here</p></section>
+                  </div>
+				</li>
+				
+				<li id="blogsList" style="overflow: scroll !important; max-height: 100%;"><h2>Blogs<span></span></h2>  
+					<div id="blogsListDiv" ng-controller="BlogCtrl">
+				
+						<button class="newBlogButton viewBlogs">+ New Blog</button>
+						
+                        <div ng-repeat="blog in blogs">
+                            <br class="hideBR"></br><h1 class="viewBlogs">(( blog.title ))<a style="float: right; padding-bottom: 10px;">(( blog.dateCreated ))</a></h1><br></br>
+                            <h3 class="viewBlogs" style="font-weight: lighter;">(( blog.content ))</h3>
+                        </div>
+						
+						<!-- New Blog -->
+						<h1 class="newBlogs">Blog Title <input id="newBlogTitle" style="border-radius: 20px; outline-width: 0;" ng-model="title"/><h1><br></br>
+						
+						<textarea id="newBlogContent" class="newBlogs" style="width: 100%; height: 70%;" ng-model="content">Blog Content</textarea>
+						<br></br>
+						<button class="newBlogButton newBlogs" style="float: left !important; margin-left: 0px !important;">Cancel</button>
+                        <button class="newBlogButton newBlogs" style="float: right !important; margin-left: 0px !important;" ng-click="addBlog()">Save</button>
+						
+						</div>
+				</li>
+			</ul>
+            
+        </div>
+    </div>
+  </div>
+  <div id="bottomRow" style="clear:both;">
+<<<<<<< HEAD
+=======
+      <a class="friendButton" href="" style="margin-bottom: 20px"> Circles </a>
+
+>>>>>>> f829a779fc5d1eb044f3becdcc414636af702d58
+      <a class="friendButton" href="#/messages/(( getCurrentPageId() ))" style="margin-bottom: 20px"> Send Message </a>
+
+      <form ng-submit="addToCircle()">
+          <input style="width: 22%; height: 35px; font-size: 15px; border-radius: 10px; outline: none;" type="text" placeholder="Add to Circle" ng-model="circle"/>
+          <input style="width: 10%; height: 35px; font-size: 40px; margin-bottom: 20px;" type="submit"/>
+      </form>
+      <a id="friendzoneclicked" class="friendButton" href="#/friends/(( getCurrentPageId() ))"> See Friendzone </a>
+      <br/>
+      <a id="mutualclicked" class="friendButton" href="#/mutualFriends/(( getCurrentPageId() ))"> Mutual Friendzoned </a>
+      <br/>
+  </div>
+<!-- CLOSE Viewing Profiles -->  
+</div>

@@ -60,7 +60,18 @@ hexApp.config(['$routeProvider',
 
 hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginService',
         function($scope, $http, $routeParams, loginService) {
+
+            $scope.getXML = function() {
+                $http.get('profile/getXML')
+                .success(function(data, status, header, config) {
+                    console.log(data);
+                });
+            }
+
+            $scope.getXML();
+
             $scope.user;
+
             $scope.genderCode = {
                 '0': 'Male',
                 '1': 'Female'
@@ -73,6 +84,16 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                 '5': 'Tinder'
             };
 
+            $scope.getPhotos = function() {
+                loginService.getLoginId(function(loginId) {
+                    var id = $routeParams.id || loginId;
+                    $http.get('photos/getAllPhotosOfId/'+id)
+                    .success(function(data, status, header, config) {
+                        $scope.photos = data;
+                    });
+                });
+            };
+
             $scope.addToCircle = function() {
                 var requestUserId = $routeParams.id;
                 $http.get('circle/addToCircle?circleName='+ $scope.circle + '&id='+requestUserId) 
@@ -83,9 +104,7 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
 
             $scope.getUser = function() {
                 $scope.init();
-
                 // Fix the right panel height
-
                 var leftColumnHeight = $('#leftColumn').height();
                 document.getElementById("rightColumn").style.height = leftColumnHeight-119+"px";
 
@@ -111,8 +130,14 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     var getId = $routeParams.id || id;
                     if (($routeParams.id == id) || (!$routeParams.id)) {
                         $('#friendStatus').hide();
+                        $('#sendMessage').remove();
+                        $('#circleForm').remove();
+                        $('#friendzoneclicked').remove();
+                        $('#mutualclicked').remove();
                     } else {
-                        // See if they are already friends/friended
+                        $('#circles').remove();
+                        $('#newBlog').remove();
+
                         $http.get('profile/isFriends?currentUserId='+
                                 id+'&'+'requestUserId='+$routeParams.id)
                             .success(function(data, status, headers, config) {
@@ -201,6 +226,7 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
             };
 
             $scope.init = function() {
+                $scope.getPhotos();
 
                 $( "#nav-btn" ).click(function() {
                     $( "nav" ).toggle( "slow" );
@@ -233,12 +259,9 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                     clickedImage = false;
                 });  
 
-                // blog js
+            };
 
-
-
-                // photo slider JS
-
+            $scope.prepareSlider = function() {
                 var Slider = function(){
                     var total, $images, $slider, sliderWidth, increment = 100;
                     var rotation = 40;
@@ -339,6 +362,7 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                 $('#slider_infinite').Flader({
                         mouse_event: 'mousehold'
                 });
+
 
             };
         }
