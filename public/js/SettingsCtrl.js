@@ -49,6 +49,7 @@ hexApp.controller('SettingsCtrl', ['$scope', '$http', '$routeParams', 'loginServ
                 var data = JSON.stringify(userDetails);
                 console.log(data);
                 $.post('settings/updateUserDetailsFromPost', 'data='+data, function(data) {
+                    location.href="home#/profile"
                     console.log(data);
                 });
             };

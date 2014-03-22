@@ -196,6 +196,10 @@ hexApp.controller('ProfileCtrl', ['$scope', '$http', '$routeParams', 'loginServi
                 return $routeParams.id;
             };
 
+            $scope.goToUploadPicture = function() {
+                location.href="home#/uploadProfilePicture";
+            };
+
             $scope.init = function() {
 
                 $( "#nav-btn" ).click(function() {
